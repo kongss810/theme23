@@ -1,0 +1,608 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "section_index_PBmypd": {
+      "type": "section-index",
+      "blocks": {
+        "image_fPPcxb": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/Frame_2036457604_1.png",
+            "text_position": "middle_center",
+            "text_positionMobile": "middle_center",
+            "title": "",
+            "text": "",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_fPPcxb"
+      ],
+      "name": "Section Index1",
+      "settings": {
+        "time": 5,
+        "Desktop_top": 20,
+        "Mobile_top": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "rich_text_zrA968": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_KqD9xC": {
+          "type": "caption",
+          "settings": {
+            "caption": "XIBERIA ESPORTS LINE",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_wRi6hB": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>WE PLAY TO WIN</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_TaUBFK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When the world has its doubts, the best defy all odds. For more than two decades in professional gaming, we’ve been building the legacy of champions. See why the world’s best players choose Razer to win. Discover the pro picks that help them make history.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_KqD9xC",
+        "heading_wRi6hB",
+        "text_TaUBFK"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_weDwEX": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_byUBgd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10001.webp",
+            "title": "FAKER",
+            "text": "<p>6-TIME LEAGUE OF LEGENDS WORLD CHAMPION</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VdEUzK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10002.webp",
+            "title": "NIKO",
+            "text": "<p>9-TIME COUNTER-STRIKE CHAMPIONSHIP MVP</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Jfa3xb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10003.webp",
+            "title": "ZELLSIS",
+            "text": "<p>VALORANT MASTERS MADRID 2024 CHAMPION</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_U6jfrr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10004.webp",
+            "title": "Hydra",
+            "text": "<p>CALL OF DUTY 2023 WORLD CHAMPION</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JjUqCa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10005.webp",
+            "title": "SNIP3DOWN",
+            "text": "<p>2-TIME X GAMES MEDALIST</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RqDCUM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10006.webp",
+            "title": "SHOTZZY",
+            "text": "<p>3-TIME CALL OF DUTY WORLD CHAMPION</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_byUBgd",
+        "column_VdEUzK",
+        "column_Jfa3xb",
+        "column_U6jfrr",
+        "column_JjUqCa",
+        "column_RqDCUM"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "section_index_GGdTfF": {
+      "type": "section-index",
+      "blocks": {
+        "image_3kWbJ9": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/10007.webp",
+            "text_position": "middle_center",
+            "text_positionMobile": "middle_center",
+            "title": "",
+            "text": "",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_3kWbJ9"
+      ],
+      "name": "Section Index1",
+      "settings": {
+        "time": 5,
+        "Desktop_top": 0,
+        "Mobile_top": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "rich_text_AUt6Kh": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_djFB4r": {
+          "type": "caption",
+          "settings": {
+            "caption": "THE BIGGEST TECH LEAP IN A DECADE.",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_GJgq7C": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>XIBERIA K03 Series</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_z7fejd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>owered by a new generation of technologies, the DeathAdder V4 Pro represents the culmination of over two decades of engineering excellence—a bold leap that once again sets a new benchmark for what a gaming mouse can and should be.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_djFB4r",
+        "heading_GJgq7C",
+        "text_z7fejd"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4302d503-4570-44d5-86c6-fd7bae62872e",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "image_banner_rpUhzX": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_AhXcy7": {
+          "type": "heading",
+          "settings": {
+            "heading": "This new wireless tech is lightning fast—no lag, just pure speed. Feels like I’m always ahead of the game.",
+            "heading_size": "h2"
+          }
+        },
+        "text_zy9p9J": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AhXcy7",
+        "text_zy9p9J"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2036457605_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-e81de678-9096-4876-982f-1c4c339cde20",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_JwaCpM": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_gmDxw7": {
+          "type": "caption",
+          "settings": {
+            "caption": "THE BIGGEST TECH LEAP IN A DECADE.",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_ECVri4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>XIBERIA K02 Series</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_RbnVqi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>owered by a new generation of technologies, the DeathAdder V4 Pro represents the culmination of over two decades of engineering excellence—a bold leap that once again sets a new benchmark for what a gaming mouse can and should be.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_gmDxw7",
+        "heading_ECVri4",
+        "text_RbnVqi"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4302d503-4570-44d5-86c6-fd7bae62872e",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_tLMDCg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_8WA4T4": {
+          "type": "heading",
+          "settings": {
+            "heading": "This new wireless tech is lightning fast—no lag, just pure speed. Feels like I’m always ahead of the game.",
+            "heading_size": "h2"
+          }
+        },
+        "text_7DWHN4": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8WA4T4",
+        "text_7DWHN4"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2036457607.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-e81de678-9096-4876-982f-1c4c339cde20",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_nLYR8C": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_X9gqFM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>TECHNOLOGY TRUSTED BY PROFESSIONAL ESPORTS PLAYERS</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_X9gqFM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_nD8q3d": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_frjpfb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10010.svg",
+            "title": "DETACHABLE RAZER™HYPERCLEAR FULL BAND 12 MM MIC",
+            "text": "<p>Armed with a large 12 mm capsule, this next-gen full band mic captures every detail of your shotcalls clearly and effectively suppresses background noise with a unidirectional pick-up pattern.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EiqCTj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10011.svg",
+            "title": "RAZER™ TRIFORCEBIO-CELLULOSE 50 MM DRIVERS GEN-2",
+            "text": "<p>Tuned for improved clarity and positional performance, the Gen-2 drivers feature a unique bio-cellulose diaphragm to deliver natural, powerful sound—hear every footstep with absolute precision.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6WNtTY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10012.svg",
+            "title": "RAZER™ HYPERSPEEDWIRELESS GEN-2",
+            "text": "<p>Outpace all competition with the fastest wireless technology optimized for ultra-low latency as low as 10 ms, delivering near-instantaneous audio. Perfect for clutch plays and split-second decisions.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_frjpfb",
+        "column_EiqCTj",
+        "column_6WNtTY"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "rich_text_KDCpRg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zeTHhj": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>DISCOVER THE PROS WHO WIN WITH US</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zeTHhj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_rAMWUU": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_APjqq8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10013.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Qx4nP9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10014.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JNYEcP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10015.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FVbk6e": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10016.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3Fb7z9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10017.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_awjymD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10018.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pdJaJt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10019.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3QprwK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10020.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rDRznD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10021.webp",
+            "title": "100 Thieves",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_APjqq8",
+        "column_Qx4nP9",
+        "column_JNYEcP",
+        "column_FVbk6e",
+        "column_3Fb7z9",
+        "column_awjymD",
+        "column_pdJaJt",
+        "column_3QprwK",
+        "column_rDRznD"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_index_PBmypd",
+    "rich_text_zrA968",
+    "multicolumn_weDwEX",
+    "section_index_GGdTfF",
+    "rich_text_AUt6Kh",
+    "image_banner_rpUhzX",
+    "rich_text_JwaCpM",
+    "image_banner_tLMDCg",
+    "rich_text_nLYR8C",
+    "multicolumn_nD8q3d",
+    "rich_text_KDCpRg",
+    "multicolumn_rAMWUU"
+  ]
+}

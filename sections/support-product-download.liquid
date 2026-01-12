@@ -1,0 +1,187 @@
+<style>
+  @media screen and (min-width: 1000px) {
+      #shopify-section-{{section.id}}{
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      #shopify-section-{{section.id}} .product-download-wrapper{
+          display: grid;
+          grid-template-columns: 300px calc(80% - 90px);
+          gap: 90px;
+          overflow: hidden;
+      }
+      #shopify-section-{{section.id}} .product-download-text{
+          padding-top:20px;
+      }
+      #shopify-section-{{section.id}} .download_title{
+          padding: 10px 0 36px;
+      }
+      #shopify-section-{{section.id}} .product-download-slider-container::after{
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100px;
+        background: linear-gradient(90deg, rgba(30, 30, 30, 0) 56%, #1E1E1E 100%);
+        z-index: 2;
+      }
+      .product-download-header {
+        min-width: max-content;
+      }
+  }
+
+  @media (max-width: 999px) {
+      #shopify-section-{{section.id}}{
+          padding-top: {{ section.settings.h5_padding_top }}px;
+          padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+          overflow: hidden;
+      }
+      #shopify-section-{{section.id}} .product-download-text{
+          padding-top:12px;
+      }
+      #shopify-section-{{section.id}} .product-download-slider-container{
+          margin-top: 32px;
+      }
+      #shopify-section-{{section.id}} .product-download-swiper{
+          overflow: unset;
+      }
+      #shopify-section-{{section.id}} .product-download-slider-container::after{
+          content: '';
+          position: absolute;
+          right: -7%;
+          top: 0;
+          height: 100%;
+          width: 22%;
+          background: linear-gradient(90deg, rgb(30 30 30 / 0%) -9%, #1E1E1E 72%);
+          z-index: 2;
+      }
+      #shopify-section-{{section.id}} .download_title{
+          padding: 12px 0 16px;
+      }
+  }
+
+  #shopify-section-{{section.id}} img{
+      width: 100%;
+  }
+
+  #shopify-section-{{section.id}} .download_title{
+      text-align: center;
+  }
+  #shopify-section-{{section.id}} .product-download-slider-container{
+      min-width: 0;
+      position: relative;
+  }
+
+  #shopify-section-{{section.id}} .product-download-swiper{
+      padding: 1px;
+  }
+  #shopify-section-{{section.id}} .product-download-swiper .swiper-slide{
+      height: auto;
+  }
+</style>
+{% if section.settings.anchor_id != blank %}
+  <div data-anchor-id="{{ section.settings.anchor_id }}"></div>
+{% endif %}
+<div class="page-width product-download-container">
+  <div class="product-download-wrapper">
+    <div class="product-download-header">
+      <h2 class="my_h_48 my_m_24 product-download-title font2">{{ section.settings.title }}</h2>
+      <div class="my_h_14 my_m_12 product-download-text">{{ section.settings.text }}</div>
+    </div>
+    <div class="product-download-slider-container">
+      <div class="swiper product-download-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <a href="{{ block.settings.link }}" class="swiper-slide">
+              <div class="section_button1">
+                <img src="{{ block.settings.image | img_url: '750x'}}" alt="{{ block.settings.image.alt }}">
+                <div class="download_title my_h_20 my_m_12 font2">{{ block.settings.title }}</div>
+                <span class="corner-tl"></span>
+                <span class="corner-br"></span>
+              </div>
+              <span class="dis1"></span>
+              <span class="dis2"></span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('#shopify-section-{{section.id}} .swiper', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 4.4,
+    spaceBetween: 20,
+    breakpoints: {
+      0: {
+        slidesPerView: 2.4,
+        spaceBetween: 16,
+      },
+      720: {
+        slidesPerView: 3.4,
+        spaceBetween: 20,
+      },
+      1500: {
+        slidesPerView: 4.4,
+        spaceBetween: 20,
+      },
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "Product download",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    { "type": "number", "id": "padding_top", "label": "Padding Top", "default": 120 },
+    { "type": "number", "id": "padding_bottom", "label": "Padding Bottom", "default": 120 },
+    { "type": "number", "id": "h5_padding_top", "label": "H5 Padding Top", "default": 80 },
+    { "type": "number", "id": "h5_padding_bottom", "label": "H5 Padding Bottom", "default": 80 }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product download"
+    }
+  ]
+}
+{% endschema %}

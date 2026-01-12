@@ -1,0 +1,167 @@
+<div class="productItem">
+  <div class="productItem_wrapper">
+    <a href="{{ card_product.url }}" class="productItem_img product-item__image-wrapper--multiple">
+      <div class="productItem_default">
+        <div class="media_box">
+          {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+          <img
+            src="{{ card_product.featured_media | img_url: 'master' }}"
+
+            alt="{{ card_product.featured_media.alt | escape }}"
+            class="motion_reduce {% if card_product.media[1] != null %} product-item__primary-image {% endif %}"
+            {% unless lazy_load == false %}
+              loading="lazy"
+            {% endunless %}
+          >
+          {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
+          {%- if card_product.media[1] != null -%}
+            <img
+              src="{{ card_product.media[1] | img_url: 'master' }}"
+
+              alt="{{ card_product.media[1].alt | escape }}"
+              class="motion_reduce product-item__secondary-image"
+              loading="lazy"
+            >
+          {%- endif -%}
+        </div>
+      </div>
+    </a>
+
+    {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
+
+    <div class="quick-add no-js-hidden productItem_cart">
+      {%- liquid
+        assign qty_rules = false
+        if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
+          assign qty_rules = true
+        endif
+      -%}
+
+      <product-form data-section-id="{{ section.id }}">
+        {%- form 'product',
+          card_product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ card_product.selected_or_first_available_variant.id }}"
+            class="product-variant-id"
+            {% if card_product.selected_or_first_available_variant.available == false %}
+              disabled
+            {% endif %}
+          >
+
+          <button
+            id="{{ product_form_id }}-submit"
+            type="submit"
+            name="add"
+            class="productItem_cartButton {% if horizontal_quick_add %} card--horizontal__quick-add{% endif %}"
+            aria-haspopup="dialog"
+            aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+            aria-live="polite"
+            data-sold-out-message="true"
+            {% if card_product.selected_or_first_available_variant.available == false %}
+              disabled
+            {% endif %}
+          >
+            <span>
+              {%- if card_product.selected_or_first_available_variant.available -%}
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0659/6385/1946/files/Frame_7595f0b3-72ad-4093-b611-9a5249ca24b0.svg?v=1752744775"
+                  alt="{{ shop.name }}"
+                >
+              {%- else -%}
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <g clip-path="url(#clip0_931_5801)">
+                    <path
+                      d="M11.0481 2.92607C11.0481 2.70788 10.8299 2.54425 10.6117 2.54425H8.81172V2.38061C8.81172 1.07152 7.66626 0.0351562 6.30263 0.0351562C4.93899 0.0351562 3.79354 1.07152 3.79354 2.38061V2.54425H1.99354C1.77536 2.54425 1.61172 2.70788 1.55717 2.92607L1.01172 11.5988C1.01172 11.7079 1.06626 11.817 1.12081 11.9261C1.17536 11.9806 1.28445 12.0352 1.39354 12.0352H11.2117C11.3208 12.0352 11.4299 11.9806 11.539 11.9261C11.5935 11.817 11.6481 11.7079 11.6481 11.5988L11.0481 2.92607ZM4.61172 2.38061C4.61172 1.56243 5.37536 0.853338 6.30263 0.853338C7.2299 0.853338 7.99354 1.50788 7.99354 2.38061V2.54425H4.61172V2.38061ZM1.8299 11.217L2.37536 3.36243H3.79354V4.26243C3.79354 4.48836 3.97669 4.67152 4.20263 4.67152C4.42856 4.67152 4.61172 4.48836 4.61172 4.26243V3.36243H7.99354V4.26243C7.99354 4.48836 8.17669 4.67152 8.40263 4.67152C8.62856 4.67152 8.81172 4.48836 8.81172 4.26243V3.36243H10.2299L10.7208 11.217H1.8299Z"
+                      fill="#270207" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_931_5801">
+                      <rect width="12" height="12" fill="white" transform="translate(0.333008 0.0351562)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              {%- endif -%}
+            </span>
+            <span class="sold-out-message hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <g clip-path="url(#clip0_931_5801)">
+                  <path
+                    d="M11.0481 2.92607C11.0481 2.70788 10.8299 2.54425 10.6117 2.54425H8.81172V2.38061C8.81172 1.07152 7.66626 0.0351562 6.30263 0.0351562C4.93899 0.0351562 3.79354 1.07152 3.79354 2.38061V2.54425H1.99354C1.77536 2.54425 1.61172 2.70788 1.55717 2.92607L1.01172 11.5988C1.01172 11.7079 1.06626 11.817 1.12081 11.9261C1.17536 11.9806 1.28445 12.0352 1.39354 12.0352H11.2117C11.3208 12.0352 11.4299 11.9806 11.539 11.9261C11.5935 11.817 11.6481 11.7079 11.6481 11.5988L11.0481 2.92607ZM4.61172 2.38061C4.61172 1.56243 5.37536 0.853338 6.30263 0.853338C7.2299 0.853338 7.99354 1.50788 7.99354 2.38061V2.54425H4.61172V2.38061ZM1.8299 11.217L2.37536 3.36243H3.79354V4.26243C3.79354 4.48836 3.97669 4.67152 4.20263 4.67152C4.42856 4.67152 4.61172 4.48836 4.61172 4.26243V3.36243H7.99354V4.26243C7.99354 4.48836 8.17669 4.67152 8.40263 4.67152C8.62856 4.67152 8.81172 4.48836 8.81172 4.26243V3.36243H10.2299L10.7208 11.217H1.8299Z"
+                    fill="#270207" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_931_5801">
+                    <rect width="12" height="12" fill="white" transform="translate(0.333008 0.0351562)" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </span>
+            {%- if horizontal_quick_add -%}
+              <span class="icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <g clip-path="url(#clip0_931_5801)">
+                    <path
+                      d="M11.0481 2.92607C11.0481 2.70788 10.8299 2.54425 10.6117 2.54425H8.81172V2.38061C8.81172 1.07152 7.66626 0.0351562 6.30263 0.0351562C4.93899 0.0351562 3.79354 1.07152 3.79354 2.38061V2.54425H1.99354C1.77536 2.54425 1.61172 2.70788 1.55717 2.92607L1.01172 11.5988C1.01172 11.7079 1.06626 11.817 1.12081 11.9261C1.17536 11.9806 1.28445 12.0352 1.39354 12.0352H11.2117C11.3208 12.0352 11.4299 11.9806 11.539 11.9261C11.5935 11.817 11.6481 11.7079 11.6481 11.5988L11.0481 2.92607ZM4.61172 2.38061C4.61172 1.56243 5.37536 0.853338 6.30263 0.853338C7.2299 0.853338 7.99354 1.50788 7.99354 2.38061V2.54425H4.61172V2.38061ZM1.8299 11.217L2.37536 3.36243H3.79354V4.26243C3.79354 4.48836 3.97669 4.67152 4.20263 4.67152C4.42856 4.67152 4.61172 4.48836 4.61172 4.26243V3.36243H7.99354V4.26243C7.99354 4.48836 8.17669 4.67152 8.40263 4.67152C8.62856 4.67152 8.81172 4.48836 8.81172 4.26243V3.36243H10.2299L10.7208 11.217H1.8299Z"
+                      fill="#270207" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_931_5801">
+                      <rect width="12" height="12" fill="white" transform="translate(0.333008 0.0351562)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            {%- endif -%}
+            {%- render 'loading-spinner' -%}
+          </button>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </div>
+  <div class="productItem_info">
+    <h3
+      class="card__heading hide_margin productItem_title"
+      {% if card_product.featured_media == null and settings.card_style == 'standard' %}
+        id="title-{{ section_id }}-{{ card_product.id }}"
+      {% endif %}
+    >
+      <a
+        href="{{ card_product.url }}"
+        id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+        class="full-unstyled-link t_color3 my_h_14 my_m_14"
+        aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+      >
+        {{ card_product.title | escape }}
+      </a>
+    </h3>
+    <!-- Start of Judge.me code -->
+
+    <div
+      class="product_jdgm_widget jdgm-widget jdgm-preview-badge"
+      data-id="{{ card_product.id }}"
+      data-template="manual-installation"
+    >
+      {{ card_product.metafields.judgeme.badge }}
+    </div>
+    <!-- End of Judge.me code -->
+
+    <div class="productItem_price">
+      {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+    </div>
+  </div>
+  <div
+    class="wishlist-engine"
+    data-product_id="{{  card_product.id }}"
+    data-variant_id="{{ card_product.selected_or_first_available_variant.id }}"
+    data-full_button="false"
+    data-css="true"
+  ></div>
+</div>

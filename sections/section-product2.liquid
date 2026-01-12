@@ -1,0 +1,268 @@
+<style>
+  #shopify-section-{{section.id}} .section_Product2All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_Product2All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+  .section_Product2_box img,.section_Product2_box video {
+      width: 100%;
+  }
+  .section_Product2_box {
+      position: relative;
+  }
+  .section_Product2_position {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      bottom: 0;
+  }
+  @media (min-width: 1000px) {
+    .section_Product2_position {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .section_Product2_positionBox {
+      max-width: 1072px;
+    }
+  }
+  @media (max-width:999px) {
+    .section_Product2_position {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .section_Product2_positionBox {
+      max-width: 1072px;
+    }
+  }
+  .section_Product2_position {
+    transition: all 0.3s;
+  }
+  .is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
+<div class="section_Product2All color-{{ section.settings.color_scheme }} gradient">
+  <div class="{% if section.settings.full_width %}{%- else -%} page-width{% endif %}">
+    <div class="section_Product2_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {% if section.settings.video != blank %}
+        {{-
+          section.settings.video
+          | video_tag:
+            playsinline: true,
+            muted: true,
+            autoplay: false,
+            loop: true,
+            controls: false,
+            preload: 'none',
+            image_size: 'master',
+            class: 'pad_pc'
+        -}}
+      {%- else -%}
+        <img
+          loading="lazy"
+          src="{{ section.settings.img | img_url:'master' }}"
+          alt="{{ section.settings.img.alt }}"
+          class="hover_img pad_pc"
+        >
+      {% endif %}
+      {% if section.settings.video_mobile != blank %}
+        {{-
+          section.settings.video_mobile
+          | video_tag:
+            playsinline: true,
+            muted: true,
+            autoplay: false,
+            loop: true,
+            controls: false,
+            preload: 'none',
+            image_size: 'master',
+            class: 'pad_mobile'
+        -}}
+      {%- else -%}
+        <img
+          loading="lazy"
+          src="{{ section.settings.img_mobile | img_url:'master' }}"
+          alt="{{ section.settings.img_mobile.alt }}"
+          class="pad_mobile"
+        >
+      {% endif %}
+      <div class="section_Product2_position page-width">
+        <div class="section_Product2_positionBox">
+          {% if section.settings.text != blank %}
+            <h2 class="section_Product2_positionBoxTitle my_h_64 my_m_24 font2">
+              {{ section.settings.text }}
+            </h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector(' #shopify-section-{{section.id}} .section_Product2_box');
+    if (!section) return;
+
+    // 兼容 PC / Mobile 两个视频
+    const videos = section.querySelectorAll('video');
+    const title = section.querySelector('.section_Product2_position');
+
+    if (!videos.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 进入视口
+            videos.forEach((video) => {
+              // 防止重复 play 报错
+              if (video.paused) {
+                video.play().catch(() => {});
+              }
+            });
+            if (title) {
+              title.classList.add('is-hidden');
+            }
+          } else {
+            // 离开视口
+            videos.forEach((video) => {
+              video.pause();
+            });
+
+            if (title) {
+              title.classList.remove('is-hidden');
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.6, // 50% 进入视口才触发
+      }
+    );
+
+    observer.observe(section);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "section Product2",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "full width",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "img"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_mobile",
+      "label": "img mobile"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "video"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "video mobile"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Product2",
+      "category": "product"
+    }
+  ]
+}
+{% endschema %}

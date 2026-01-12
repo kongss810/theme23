@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "product_pop_up_window_waGBDQ": {
+      "type": "product-pop-up-window",
+      "blocks": {
+        "image_FhiTwA": {
+          "type": "image",
+          "settings": {
+            "product": "s21max",
+            "label": "Someone Purchased!",
+            "text": "<p>{{ block.settings.product.metafields.custom.short_description.value }}</p>",
+            "time": "30 Minutes Ago"
+          }
+        },
+        "image_xFbmpG": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "product": "ex",
+            "label": "Someone Purchased!",
+            "text": "<p>Wired USB 7.1 surround Esports Gaming Headset</p>",
+            "time": "30 Minutes Ago"
+          }
+        }
+      },
+      "block_order": [
+        "image_FhiTwA",
+        "image_xFbmpG"
+      ],
+      "name": "Product pop-up window",
+      "settings": {}
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Free shipping for order over $100.00</p>"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "background": "#0091da",
+        "text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_QpUjc6": {
+          "type": "mega_menu",
+          "settings": {
+            "column": "1",
+            "left_img": "shopify://shop_images/Rectangle_97_dfc99236-aabf-4947-b229-8a124b7695fc.png",
+            "left_text": "GAME MICE",
+            "left_text_link": "shopify://collections/game-mice",
+            "left_img2": "shopify://shop_images/Rectangle_98.png",
+            "left_text2": "GAMING HEADSET",
+            "left_text_link2": "shopify://collections/gaming-headset",
+            "left_img3": "shopify://shop_images/Rectangle_99.png",
+            "left_text3": "KEYBOARDS",
+            "left_text_link3": "shopify://collections/keyborads",
+            "left_text4": "",
+            "left_text_link4": "",
+            "left_img5": "shopify://shop_images/Rectangle_101.png",
+            "left_text5": "ACCESSORIES",
+            "left_text_link5": "",
+            "left_menu": "shop-left-menu",
+            "right_img": "shopify://shop_images/Rectangle_138_95c4159b-2a6b-4604-ba98-6f8cd5773d49.png",
+            "right_img_mobile": "shopify://shop_images/Rectangle_138_95c4159b-2a6b-4604-ba98-6f8cd5773d49.png",
+            "right_text": "Crosiris@ax",
+            "right_text_link": "",
+            "right_img2": "shopify://shop_images/Rectangle_163.png",
+            "right_img2_mobile": "shopify://shop_images/Rectangle_163.png",
+            "right_text2": "Xiberia@verkot",
+            "right_text_link2": "",
+            "right_img3": "shopify://shop_images/Rectangle_164.png",
+            "right_img3_mobile": "shopify://shop_images/Rectangle_164.png",
+            "right_text3": "xiberira@ex",
+            "right_text_link3": "",
+            "right_img4": "shopify://shop_images/Rectangle_165.png",
+            "right_img4_mobile": "shopify://shop_images/Rectangle_165.png",
+            "right_text4": "xiberia@np",
+            "right_text_link4": "",
+            "right_menu": "shop-right-menu"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_QpUjc6"
+      ],
+      "settings": {
+        "enable_sticky_header": true,
+        "logo": "shopify://shop_images/Logo.svg",
+        "logo_max_width": 240,
+        "mobile_logo_max_width": 125,
+        "enable_transparent_header": true,
+        "suffixList_text": "index,support,about",
+        "transparent_header_text_color": "#ffffff",
+        "menu": "main-menu",
+        "sidebar_navigation_menu": "",
+        "menu_type_desktop": "dropdown",
+        "enable_customer_avatar": true,
+        "header_background": "#1e1e1e",
+        "header_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "product_pop_up_window_waGBDQ",
+    "announcement-bar",
+    "header"
+  ]
+}

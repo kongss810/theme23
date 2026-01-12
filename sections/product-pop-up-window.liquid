@@ -1,0 +1,223 @@
+<style>
+  .ProductPopUp_all {
+    position: fixed;
+    z-index: 10;
+    bottom: 80px;
+    right: 8vw;
+    max-width: 368px;
+    width: 100%;
+  }
+  .ProductPopUpAll {
+    background-color: unset;
+  }
+  .ProductPopUp_all .section_button1 {
+    width: 100%;
+    background-color: #75787b33;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    padding-right: 38px;
+  }
+  .ProductPopUp_all .dis1,
+  .ProductPopUp_all .dis2 {
+    background-color: var(--t_color2);
+  }
+
+  .ProductPopUp_Box {
+    position: relative;
+    position: relative;
+    --x-offset: 0px;
+    --y-offset: 4px;
+    --blur-radius: 4px;
+    --shadow-color: rgb(0 0 0 / 61%);
+    backdrop-filter: blur(-9px);
+    -webkit-backdrop-filter: blur(8px);
+    filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--shadow-color));
+  }
+  .ProductPopUp_Box_left img {
+    width: 100%;
+    max-width: 130px;
+    min-width: 130px;
+    height: auto;
+  }
+  .ProductPopUp_BoxRightLabel {
+    color: var(--t_color2);
+  }
+  .ProductPopUp_BoxRightText {
+    line-height: 1.4;
+  }
+  .ProductPopUp_BoxRightTime {
+    color: var(--f_color3);
+  }
+  .ProductPopUp_Box_right {
+    display: grid;
+    padding: 10px 0;
+    gap: 6px;
+    height: max-content;
+  }
+  .ProductPopUp_Box_close {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    z-index: 5;
+    cursor: pointer;
+  }
+  .ProductPopUp_Box {
+    display: none;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+  }
+
+  .ProductPopUp_Box.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  @media (min-width: 1000px) {
+  }
+  @media (max-width: 999px) {
+    .ProductPopUp_all {
+      width: calc(100% - 40px);
+      right: 20px;
+      bottom: 60px;
+    }
+    .ProductPopUp_Box_left img {
+      max-width: 90px;
+      min-width: 90px;
+    }
+  }
+</style>
+<div class="ProductPopUpAll color-{{ section.settings.color_scheme }} gradient">
+  <div class="">
+    <div class="ProductPopUp_box">
+      {% for block in section.blocks %}
+        {%- assign product = block.settings.product -%}
+        <div class="ProductPopUp_Box">
+          <div class="section_button1">
+            <a href="{{ product.url }}" class="ProductPopUp_Box_left">
+              {% if block.settings.img != blank %}
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img | img_url:'master' }}"
+                  alt="{{ block.settings.img.alt }}"
+                  class="hover_img"
+                >
+              {%- else -%}
+                <img
+                  loading="lazy"
+                  src="{{ product.featured_image | img_url:'master' }}"
+                  alt="{{ product.featured_image.alt }}"
+                  class="hover_img"
+                >
+              {% endif %}
+            </a>
+            <div class="ProductPopUp_Box_right">
+              <div class="ProductPopUp_BoxRightLabel my_h_14 my_m_12">
+                {{ block.settings.label }}
+              </div>
+              <a href="{{product.url}}" class="ProductPopUp_BoxRightTitle font2 my_h_20 my_m_16">
+                {{ product.title }}
+              </a>
+              {% if block.settings.text != blank %}
+                <div class="ProductPopUp_BoxRightText my_h_14 my_m_14">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+              <div class="ProductPopUp_BoxRightTime my_h_14 my_m_14">
+                {{ block.settings.time }}
+              </div>
+            </div>
+            <span class="corner-tl"></span>
+            <span class="corner-br"></span>
+          </div>
+          <span class="dis1"></span>
+          <span class="dis2"></span>
+          <div class="ProductPopUp_Box_close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <g clip-path="url(#clip0_456_252)">
+                  <path d="M15.8333 5.34169L14.6583 4.16669L9.99996 8.82502L5.34163 4.16669L4.16663 5.34169L8.82496 10L4.16663 14.6584L5.34163 15.8334L9.99996 11.175L14.6583 15.8334L15.8333 14.6584L11.175 10L15.8333 5.34169Z" fill="white"/>
+              </g>
+              <defs>
+                  <clipPath id="clip0_456_252">
+                  <rect width="20" height="20" fill="white"/>
+                  </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $('.ProductPopUp_Box_close').click(function () {
+      $(this).parents('.ProductPopUp_Box').removeClass('active');
+    });
+    setTimeout(function () {
+      // 所有可弹出的盒子
+      var boxes = $('.ProductPopUp_Box');
+
+      if (boxes.length === 0) return; // 无盒子则不执行
+
+      // 随机选一个索引
+      var randomIndex = Math.floor(Math.random() * boxes.length);
+
+      // 选中的那个
+      var randomBox = $(boxes[randomIndex]);
+
+      // 加 active 显示
+      randomBox.addClass('active');
+    }, 3000); // 3 秒后执行
+  });
+</script>
+{% schema %}
+{
+  "name": "Product pop-up window",
+  "class": "ProductPopUp_all",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "product"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "textarea",
+          "id": "label",
+          "label": "label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "textarea",
+          "id": "time",
+          "label": "How many times ago"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product pop-up window",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

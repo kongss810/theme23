@@ -1,0 +1,180 @@
+<style>
+  #shopify-section-{{section.id}} .section_crumbs{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  #shopify-section-{{section.id}} .breadcrumb__item {
+    list-style: none;
+  }
+
+  #shopify-section-{{section.id}} .breadcrumb__list {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-block: 0;
+    padding-inline: 0;
+
+  }
+   @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_crumbs{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+      .breadcrumb__list span {
+        font-size: 12px
+      }
+      #shopify-section-{{section.id}} .breadcrumb__list {
+        gap: 6px;
+      }
+  }
+</style>
+<div class="section_crumbs">
+  <div class="page-width">
+    <nav
+      aria-label=""
+      class="breadcrumb breadcrumb--floating text--xsmall hidden-phone"
+    >
+      <ul class="breadcrumb__list font2" role="list">
+        <li class="breadcrumb__item">
+          <a class="breadcrumb__link my_h_14 my_m_12" href="{{ routes.root_url }}">
+            {{- 'general.search.home' | t -}}
+          </a>
+        </li>
+        <li class="breadcrumb__item my_h_14"><span>/</span></li>
+        {% if section.settings.text != blank %}
+          <li class="breadcrumb__item my_h_14">
+            <a
+              href="{{ section.settings.link }}"
+              class="breadcrumb__link breadcrumb__link1 my_h_14 my_m_12"
+              aria-current="page"
+            >
+              {{ section.settings.text }}
+            </a>
+          </li>
+          <li class="breadcrumb__item my_h_14"><span>/</span></li>
+        {% endif %}
+        <li class="breadcrumb__item">
+          {% if request.page_type == 'page' %}
+            <span class="breadcrumb__link breadcrumb__link1 my_h_14 my_m_12" aria-current="page">
+              {{- page.title -}}
+            </span>
+          {% elsif request.page_type == 'product' %}
+            {% liquid
+              assign current_collection = null
+              if collection
+                assign current_collection = collection
+              elsif product and product.collections.size > 0
+                assign current_collection = product.collections.first
+              endif
+            %}
+            {% if current_collection %}
+              {% if current_collection.handle %}
+                {% capture url %}/collections/{{ current_collection.handle }}{% endcapture %}
+                <a href="{{ url }}" class="breadcrumb__link my_h_14 my_m_12">{{ current_collection.title }}</a>
+              {% endif %}
+              <li class="breadcrumb__item my_h_14"><span>/</span></li>
+            {% endif %}
+            {% unless hide_current == true %}
+              <span class="breadcrumb__link breadcrumb__link1 my_h_14 my_m_12" aria-current="product">
+                {{- product.title -}}
+              </span>
+            {% endunless %}
+
+          {% elsif request.page_type == 'collection' %}
+            <span class="breadcrumb__link breadcrumb__link1 my_h_14 my_m_12" aria-current="collection">
+              {{- collection.title -}}
+            </span>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "section crumbs",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Section Crumbs"
+    }
+  ]
+}
+{% endschema %}

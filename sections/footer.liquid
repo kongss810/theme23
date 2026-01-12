@@ -1,0 +1,511 @@
+<style>
+  #shopify-section-{{ section.id }} .footer {
+    background: rgb(var(--background));
+    color: rgb(var(--text-color));
+    --background: {{ section.settings.footer_background.red }}, {{ section.settings.footer_background.green }}, {{ section.settings.footer_background.blue }};
+    --text-color: {{ section.settings.footer_text_color.red }}, {{ section.settings.footer_text_color.green }}, {{ section.settings.footer_text_color.blue }};
+  }
+  .footer .list-social__item {
+    position: relative;
+    box-shadow: 1px 0 #d8d4d1, 0 1px #d8d4d1, 1px 1px #d8d4d1, 1px 0 #d8d4d1 inset, 0 1px #d8d4d1 inset;
+    transform: translateZ(0);
+  }
+  .footer .list-social__item svg {
+    width: auto;
+    height: 28px;
+  }
+  @media(min-width:1000px) {
+    .footer{
+      padding: 40px 0;
+    }
+    .footer__item-list {
+      display: flex;
+      gap: 100px;
+      justify-content: space-between;
+    }
+    .footer_itemLeft {
+      max-width: 370px;
+      width: 100%;
+    }
+    .footer_imageContent {
+      margin-top: 40px;
+    }
+    .footer .list-social {
+      gap: 28px;
+      margin-top: 122px;
+    }
+    .footer .list-social__item {
+      box-shadow: unset;
+    }
+    .footer .list-social__link {
+      padding: 0;
+    }
+    .footer .list-social__link .svg-wrapper {
+      width: 28px;
+      height: 28px;
+    }
+    .footer_itemRight {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      width: 100%;
+      max-width: 890px;
+      height: max-content;
+      gap: 20px;
+    }
+    .footer_itemRightBox {
+      max-width: 435px;
+      width: 100%;
+    }
+    .footer_itemRightBox .linklist__item {
+      padding-top: 28px;
+      transition: all 0.3s;
+    }
+     .footer_itemRightBox .linklist__item a {
+      opacity: 1 !important;
+     }
+    .footer_itemRightBox .linklist__item::after {
+        content: "";
+        width: 100%;
+        margin-top: 28px;
+        display: block;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          #75787b 0%,
+          rgba(117, 120, 123, 0) 100%
+        );
+    }
+    .footer_itemRightBox .linklist__item:first-child {
+      padding-top: unset;
+    }
+    .footer_itemRightBox .linklist__item:last-child{
+      padding-bottom: unset;
+      border-bottom: unset;
+    }
+    .footer_itemRightBox .linklist__item:last-child::after {
+      content: unset;
+    }
+    .footer_aside {
+      display: flex;
+      align-items: center;
+      padding-top: 128px;
+      gap: 60px;
+      row-gap: 24px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .footer_aside_left {
+      display: flex;
+      max-width: 794px;
+      width: 100%;
+      gap: 102px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer_aside_leftBox ul,.footer_aside_leftBox ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 102px;
+    }
+    .footer_aside_leftBox li {
+      line-height: 1;
+    }
+    .footer_aside_leftBox a {
+      transition: all 0.3s;
+    }
+    .footer_aside_leftBox a:hover,.footer_itemRightBox .linklist__item a:hover {
+      color: var(--f_color3);
+    }
+    .footer_aside_right {
+      display: flex;
+      gap: 20px;
+      line-height: 1;
+      flex-wrap: wrap;
+    }
+    .footer_aside_svg {
+      display: flex;
+    }
+  }
+  @media (max-width:999px) {
+   .footer{
+      padding: 100px 0 32px;
+    }
+    .footer_itemLeft {
+      width: 100%;
+    }
+    .footer_imageContent {
+      margin-top: 32px;
+    }
+    .footer .list-social {
+      gap: 26px;
+      margin-top: 32px;
+    }
+    .footer .list-social__item {
+      box-shadow: unset;
+    }
+    .footer .list-social__link {
+      padding: 0;
+    }
+    .footer .list-social__link .svg-wrapper {
+      width: 28px;
+      height: 28px;
+    }
+    .footer_itemLeft img {
+      height: 52px;
+      width: auto !important;
+    }
+    .footer_itemRight {
+      width: 100%;
+      padding-top: 100px;
+    }
+    .footer_itemRightBox {
+      width: 100%;
+    }
+    .footer_itemRightBox .linklist__item {
+      padding-top: 32px;
+      transition: all 0.3s;
+    }
+     .footer_itemRightBox .linklist__item a {
+      opacity: 1 !important;
+     }
+    .footer_itemRightBox .linklist__item::after {
+        content: "";
+        width: 100%;
+        margin-top: 32px;
+        display: block;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          #75787b 0%,
+          rgba(117, 120, 123, 0) 100%
+        );
+    }
+    .footer_itemRightBox:not(:last-child) {
+      margin-bottom: 32px;
+    }
+    .footer_itemRightBox:not(:last-child)::after {
+      content: "";
+      width: 100%;
+      margin-top: 32px;
+      display: block;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        #75787b 0%,
+        rgba(117, 120, 123, 0) 100%
+      );
+    }
+    .footer_itemRightBox .linklist__item:first-child {
+      padding-top: unset;
+    }
+    .footer_itemRightBox .linklist__item:last-child{
+      padding-bottom: unset;
+      border-bottom: unset;
+    }
+    .footer_itemRightBox .linklist__item:last-child::after {
+      content: unset;
+    }
+    .footer_aside {
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      row-gap: 32px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .footer_aside_left {
+      display: grid;
+      gap: 12px;
+      height: max-content;
+      width: 100%;
+      justify-items: center;
+    }
+    .footer_aside_leftBox ul,.footer_aside_leftBox ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-direction: column;
+    }
+    .footer_aside_leftBox li {
+      line-height: 1;
+    }
+    .footer_aside_leftBox a {
+      transition: all 0.3s;
+    }
+
+    .footer_aside_right {
+      display: flex;
+      gap: 12px;
+      line-height: 1;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer_aside_svg {
+      display: flex;
+    }
+  }
+</style>
+{%- assign images = section.blocks | where: 'type', 'image' -%}
+{%- assign links = section.blocks | where: 'type', 'links' -%}
+<footer class="footer {% if settings.footer_background == settings.background %}footer--bordered{% endif %}">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__item-list">
+        {% if images != blank %}
+          <div class="footer_itemLeft">
+            {%- for block in images -%}
+              {%- if block.settings.image != blank -%}
+                <img
+                  style="width: {{ block.settings.image_width }}px"
+                  loading="lazy"
+                  sizes="{{ block.settings.image_width }}px"
+                  class="footer__image"
+                  src="{{block.settings.image | img_url: 'master'}}"
+                >
+              {%- endif -%}
+
+              {% if block.settings.text != blank %}
+                <div class="footer_imageContent my_h_16 my_m_14">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+              {% if block.settings.social_icons != blank %}
+                {%- render 'social-icons' -%}
+              {% endif %}
+            {%- endfor -%}
+          </div>
+        {% endif %}
+        {% if links != blank %}
+          <div class="footer_itemRight">
+            {%- for block in links -%}
+              {%- assign menu = block.settings.menu -%}
+
+              {%- if menu != blank -%}
+                <div class="footer_itemRightBox">
+                  {% comment %} <p class="footer__item-title heading pad_pc my_h_18">{{ menu.title }}</p> {% endcomment %}
+
+                  <div class="footer__item-content footer_item_content">
+                    <ul class="linklist list--unstyled" role="list">
+                      {%- for link in menu.links -%}
+                        <li class="linklist__item font2 my_h_20 my_m_16">
+                          <a href="{{ link.url }}" class="link--faded">
+                            {{ link.title }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="footer_aside">
+        {% if section.settings.copyright_text == blank and section.settings.privacy_policy == blank %}
+        {% else %}
+          <div class="footer_aside_left">
+            {% if section.settings.copyright_text != blank %}
+              <div class="footer_aside_leftBox my_h_14 my_m_14">{{ section.settings.copyright_text }}</div>
+            {% endif %}
+            {% if section.settings.privacy_policy != blank %}
+              <div class="footer_aside_leftBox my_h_14 my_m_14">
+                {{ section.settings.privacy_policy }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="footer_aside_right">
+          {% if section.settings.svg_icon != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon2 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon2 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon3 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon3 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon4 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon4 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon5 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon5 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon6 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon6 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon7 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon7 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon8 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon8 }}
+            </div>
+          {% endif %}
+          {% if section.settings.svg_icon9 != blank %}
+            <div class="footer_aside_svg">
+              {{ section.settings.svg_icon9 }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "shopify-section--footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "textarea",
+      "id": "copyright_text",
+      "label": "copyright text"
+    },
+    {
+      "type": "richtext",
+      "id": "privacy_policy",
+      "label": "privacy policy text"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon1",
+      "label": "SVG Icon 1"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon2",
+      "label": "SVG Icon 2"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon3",
+      "label": "SVG Icon 3"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon4",
+      "label": "SVG Icon 4"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon5",
+      "label": "SVG Icon 5"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon6",
+      "label": "SVG Icon 6"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon7",
+      "label": "SVG Icon 7"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon8",
+      "label": "SVG Icon 8"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_icon9",
+      "label": "SVG Icon 9"
+    },
+
+    {
+      "type": "color",
+      "id": "footer_background",
+      "label": "Background",
+      "default": "#f3f5f6"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "label": "Text",
+      "default": "#677279"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "300 x 300px .png recommended"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 150
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "text",
+          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons",
+          "label": "social icons",
+          "default": true
+        }
+      ]
+    },
+
+    {
+      "type": "links",
+      "name": "Links",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "This menu won't show dropdown items.",
+          "default": "footer"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "links",
+        "settings": {}
+      }
+    ]
+  }
+}
+{% endschema %}

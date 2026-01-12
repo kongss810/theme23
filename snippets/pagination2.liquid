@@ -1,0 +1,181 @@
+{% comment %}
+  # ** PURPOSE **
+  # Used to render pagination. Must be used within paginate tags.
+
+  # ** PARAMETERS **
+  # paginate          =>  REQUIRED | object
+  # pagination_style  =>  OPTIONAL | string: 'button', 'infinite'
+  # anchor            =>  OPTIONAL | string | This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+{% endcomment %}
+{%- if paginate.parts.size > 0 -%}
+  {% case pagination_type %}
+    {% when 'button', 'infinite' %}
+      {% if paginate.next %}
+        <div class="pagination mt-48 mb-48">
+          <infinite-scroll data-trigger-type="{{ pagination_type }}" data-next-url="{{ paginate.next.url }}">
+            <button type="button" class="btn pagination_lodeMore section_button2 font2">
+              <span>{{ 'general.pagination.load_more' | t }}</span>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+              <div
+                class="loading_overlay {% unless show %}hidden{% endunless %}"
+                {% if id %}
+                  id="{{ id }}"
+                {% endif %}
+              >
+                <div class="loading_overlay__spinner">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    style="width: 15px; height: 15px;"
+                    class="spinner"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+              </div>
+
+              <link
+                rel="stylesheet"
+                href="{{ 'component-loading.css' | asset_url }}"
+                media="print"
+                onload="this.media='all'"
+              >
+              <noscript>
+                {{ 'component-loading.css' | asset_url | stylesheet_tag }}
+              </noscript>
+            </div>
+          </infinite-scroll>
+        </div>
+      {% else %}
+        <div class="pagination mt-48 mb-48" style="display:none;">
+          <p class="end-of-items style--subdued size--tiny">{{ 'general.pagination.all_loaded' | t }}</p>
+        </div>
+      {% endif %}
+    {% else %}
+      <nav
+        class="pagination_list pagination mt-48 mb-48 {% if paginate.parts.size > 5 %}wide-parts{% endif %} size--tiny"
+        role="navigation"
+        aria-label="{{ 'general.pagination.label' | t }}"
+      >
+        {%- if paginate.previous -%}
+          <a
+            href="{{ paginate.previous.url }}{{ anchor }}#collection_templateAll"
+            class="pagination-item arrow-link arrow-link--prev"
+            aria-label="{{ 'general.pagination.previous' | t }}"
+          >
+            <svg
+              role="presentation"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-chevron-left"
+            >
+              <polyline points="12 6 8 10 12 14"/>
+            </svg>
+          </a>
+        {% else %}
+          <span class="pagination-item arrow-link arrow-link--prev disabled">
+            <svg
+              role="presentation"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-chevron-left"
+            >
+              <polyline points="12 6 8 10 12 14"/>
+            </svg>
+          </span>
+        {%- endif -%}
+
+        <div class="pagination-parts">
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}
+              <a
+                href="{{ part.url }}{{ anchor }}#collection_templateAll"
+                class="pagination-item page-link"
+                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+              >
+                <span>{{ part.title }}</span>
+              </a>
+            {%- else -%}
+              {%- if part.title == paginate.current_page -%}
+                <span
+                  class="pagination-item current-page"
+                  aria-current="page"
+                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                >
+                  <span>{{ part.title }}</span>
+                </span>
+              {%- else -%}
+                <span class="pagination-item dot-notation">
+                  <span>{{ part.title }}</span>
+                </span>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.next -%}
+          <a
+            href="{{ paginate.next.url }}{{ anchor }}#collection_templateAll"
+            class="pagination-item arrow-link arrow-link--next"
+            aria-label="{{ 'general.pagination.next' | t }}"
+          >
+            <svg
+              role="presentation"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-chevron-left"
+            >
+              <polyline points="8 14 12 10 8 6"/>
+            </svg>
+          </a>
+        {% else %}
+          <span class="pagination-item arrow-link arrow-link--next disabled">
+            <svg
+              role="presentation"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-chevron-left"
+            >
+              <polyline points="8 14 12 10 8 6"/>
+            </svg>
+          </span>
+        {%- endif -%}
+      </nav>
+  {% endcase %}
+{%- endif -%}

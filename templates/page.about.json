@@ -1,0 +1,497 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "section_index_HPn9La": {
+      "type": "section-index",
+      "blocks": {
+        "image_zYmyJi": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/10001.jpg",
+            "text_position": "middle_center",
+            "text_positionMobile": "middle_center",
+            "title": "About Us",
+            "text": "",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_zYmyJi"
+      ],
+      "name": "Section Index1",
+      "settings": {
+        "time": 5,
+        "Desktop_top": 20,
+        "Mobile_top": 0,
+        "Desktop_bottom": 100,
+        "Mobile_bottom": 0
+      }
+    },
+    "rich_text_dJLHPy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_eyHxQL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Who We Are",
+            "heading_size": "h1"
+          }
+        },
+        "text_x9AfdW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>XIBERIA, founded in 2011, is a professional brand dedicated to FPS gaming peripherals. Since its inception, we have focused on core FPS competitive scenarios, providing players with equipment that combines <strong>competitive-grade performance</strong> with <strong>tournament-level reliability</strong>, helping them gain a tactical advantage in high-intensity matches.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_eyHxQL",
+        "text_x9AfdW"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_hz3BdP": {
+      "type": "multirow",
+      "blocks": {
+        "row_JUAhnX": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/38_-125_1.png",
+            "caption": "",
+            "heading": "Our Mission",
+            "text": "<p><strong>Win by Sound, Win the Match.</strong><br/>XIBERIA believes that victory is not accidental—it comes from more precise information and reliable execution. Through professional sound positioning and stable control, we provide FPS players with a clear, trustworthy, and dependable competitive advantage.<br/>XIBERIA, helping players make decisions sooner, and making victory feel instinctive.</p><p> </p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_4qDQxn": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/3_-5_2.png",
+            "caption": "",
+            "heading": "Designed for FPS",
+            "text": "<p>FPS competition is fundamentally about information, reaction, and decision-making. XIBERIA puts <strong>“extreme sound positioning”</strong> at the core of product development. We focus on critical acoustic elements such as gunshot direction, footstep separation, and distance perception, ensuring players can gather information earlier and react faster in the heat of battle.<br/>Hardware design is also optimized for FPS scenarios. From control stability and fast-response ergonomics to long-term comfort during extended matches, every detail serves real competitive needs, rather than just technical specifications.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_jPJHQk": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/27_-88_1.png",
+            "caption": "",
+            "heading": "Tested by Professionals",
+            "text": "<p>XIBERIA believes truly professional esports gear must be born from real battlefield logic. During product development, we work closely with professional FPS players, teams, and test specialists. Through repeated validation in real competitive environments, we ensure that every product performs reliably under real match conditions.<br/>This practice guarantees that XIBERIA products don’t just “sound clear”—they allow for precise, confident, and fast actions.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_JUAhnX",
+        "row_4qDQxn",
+        "row_jPJHQk"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_Bt6ECE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8gXVNP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10004.png",
+            "title": "BUILT TO WIN",
+            "text": "<p>From servicing customers to building products, peak performance is non-negotiable. We always put forth our best efforts, and it shines through in everything we make.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FkjpWW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10005.png",
+            "title": "RELENTLESS INNOVATION",
+            "text": "<p>We push the limits of design and technology, crafting cutting-edge gear and solutions that redefine the gaming experience.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gMn9jc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10006.png",
+            "title": "COMMUNITY FIRST",
+            "text": "<p>We foster inclusivity, collaboration, and support, ensuring every player and creator feels valued and connected.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eXzYHT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10007.png",
+            "title": "NO COMPROMISES",
+            "text": "<p>Every gamer deserves peak performance, comfort, and durability - we never settle for less, and neither should they.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zrXcG7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10009.png",
+            "title": "INTEGRITY & TRANSPARENCY",
+            "text": "<p>We build trust through honesty, clarity, and a commitment to fair and ethical gaming solutions.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QgdynL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10008.png",
+            "title": "PASSION FOR GAMING",
+            "text": "<p>We are gamers at heart, driven by the same excitement and dedication that fuels our community.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_8gXVNP",
+        "column_FkjpWW",
+        "column_gMn9jc",
+        "column_eXzYHT",
+        "column_zrXcG7",
+        "column_QgdynL"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Core Values",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 20,
+        "padding_bottom": 100
+      }
+    },
+    "section_index_C93cmd": {
+      "type": "section-index",
+      "blocks": {
+        "image_aykrDK": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_84_1_1.png",
+            "text_position": "top_center",
+            "text_positionMobile": "middle_center",
+            "title": "Market-Proven Performance",
+            "text": "To date, XIBERIA has sold over <strong>10 million gaming headsets worldwide</strong>, establishing a leading position in the Chinese FPS headset market and earning recognition from global players and esports communities.",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_aykrDK"
+      ],
+      "name": "Section Index1",
+      "settings": {
+        "time": 5,
+        "Desktop_top": 20,
+        "Mobile_top": 0,
+        "Desktop_bottom": 100,
+        "Mobile_bottom": 0
+      }
+    },
+    "section_index8_tgNakf": {
+      "type": "section-index8",
+      "blocks": {
+        "item_apfM9L": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10010.png",
+            "name": ""
+          }
+        },
+        "item_rpjexg": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10011.png",
+            "name": ""
+          }
+        },
+        "item_GcRw4Q": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10012.png",
+            "name": ""
+          }
+        },
+        "item_46KgRX": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10013.png",
+            "name": ""
+          }
+        },
+        "item_Qh9EXN": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10014.png",
+            "name": ""
+          }
+        },
+        "item_rERUMr": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10015.png",
+            "name": ""
+          }
+        },
+        "item_K3F7CU": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/10016.png",
+            "name": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_apfM9L",
+        "item_rpjexg",
+        "item_GcRw4Q",
+        "item_46KgRX",
+        "item_Qh9EXN",
+        "item_rERUMr",
+        "item_K3F7CU"
+      ],
+      "name": "Section Index8",
+      "settings": {
+        "title": "",
+        "Desktop_top": 20,
+        "Mobile_top": 0,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 100,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "multicolumn_jY7r9g": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_zkrHrx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10017.png",
+            "title": "KOREA HQ",
+            "text": "<p>614, 58-1 Giheung-Ro, Giheung-Gu, Yongin-Si, Gyeonggi-Do 16976, Korea<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Nkr8FQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10018.png",
+            "title": "JAPAN",
+            "text": "<p>2-14-1-101 Maebara Nishi, Funabashi-shi,Chiba-ken 274-0825, Japan<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fGxzJt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10019.png",
+            "title": "UAE",
+            "text": "<p>38th Floor, Media One Hotel - Office Tower, Dubai Media City PO Box 334069, Dubai, United Arab Emirates<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kHy8Vb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10020.png",
+            "title": "EU",
+            "text": "<p>Johanneslundsvägen 14, 194 61 Upplands Väsby, Sweden<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3heJCN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10021.png",
+            "title": "CHINAN",
+            "text": "<p>anhuan Road 446, Xingzhan Plaza Bao'an, Shajing, Shenzhen, Guangdong China 518104<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ibXrPJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10022.png",
+            "title": "USA",
+            "text": "<p>3025 Trotters Pkwy STE A Alpharetta, GA 30004, USA<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wTGCpT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10023.png",
+            "title": "USA - WAREHOUSE 1",
+            "text": "<p>1601 S 92nd Pl suite A, Seattle, WA 98108 USA<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zK8wE3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10024.png",
+            "title": "USA - WAREHOUSE 2",
+            "text": "<p>18400 San Jose Avenue, City of Industry, CA 91748-1254 USA<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_zkrHrx",
+        "column_Nkr8FQ",
+        "column_fGxzJt",
+        "column_kHy8Vb",
+        "column_3heJCN",
+        "column_ibXrPJ",
+        "column_wTGCpT",
+        "column_zK8wE3"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 52,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_qe9KDc": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_arp3mE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join #XIBERIA Community",
+            "heading_size": "h1"
+          }
+        },
+        "text_aj7ieX": {
+          "type": "text",
+          "settings": {
+            "text": "We love esports, and we love gear. If you share the same passions, then you’re already off to a great start. As we continue to grow, we’ll add jobs to our board, which you can check out below. Follow us on LinkedIn to get notified when new opportunities open up.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_arp3mE",
+        "text_aj7ieX"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/10025.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-e81de678-9096-4876-982f-1c4c339cde20",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_index_HPn9La",
+    "rich_text_dJLHPy",
+    "multirow_hz3BdP",
+    "multicolumn_Bt6ECE",
+    "section_index_C93cmd",
+    "section_index8_tgNakf",
+    "multicolumn_jY7r9g",
+    "image_banner_qe9KDc"
+  ]
+}

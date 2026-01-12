@@ -1,0 +1,355 @@
+<style>
+   #shopify-section-{{section.id}} .section_Index6All{
+     margin-top: {{section.settings.Desktop_top}}px;
+     margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+     padding-top:{{section.settings.Desktop_paddingTop}}px;
+     padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+   }
+   @media(max-width:999px) {
+     #shopify-section-{{section.id}} .section_Index6All{
+         margin-top: {{section.settings.Mobile_top}}px;
+         margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+         padding-top:{{section.settings.Mobile_paddingTop}}px;
+         padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+     }
+   }
+  .section_Index6All {
+     background-attachment: unset !important;
+   }
+   @media (min-width: 1000px) {
+     .section_Index6All {
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+       background-image: url({{section.settings.img | img_url:'master'}});
+
+     }
+   }
+   @media (min-width:1000px) {
+     .section_Index6_title  {
+       margin-top: 12px;
+       max-width: 480px;
+     }
+      #shopify-section-{{section.id}} .wrapper {
+       --logo-width: 200px;
+       --logo-height: 200px;
+       --gap: 20px;
+       --duration: {{section.settings.duration}}s;
+       --scroll-start: 0;
+       --scroll-end: calc(-100% - var(--gap));
+       transform: rotate(-8deg);
+       display: flex;
+       flex-direction: column;
+       gap: var(--gap);
+       margin: auto;
+       max-width: 100vw;
+     }
+
+     .marquee {
+       display: flex;
+       overflow: hidden;
+       user-select: none;
+       gap: var(--gap);
+       mask-image: linear-gradient(
+         to right,
+         hsl(0 0% 0% / 0),
+         hsl(0 0% 0% / 1) 5%,
+         hsl(0 0% 0% / 1) 95%,
+         hsl(0 0% 0% / 0)
+       );
+     }
+
+     .marquee__group {
+       flex-shrink: 0;
+       display: flex;
+       align-items: center;
+       justify-content: space-around;
+       gap: var(--gap);
+       animation: scrollLeft var(--duration) linear infinite;
+     }
+
+
+     .marquee__group img {
+       width: var(--logo-width);
+       height: var(--logo-height);
+     }
+
+     @keyframes scrollLeft {
+       from {
+         transform: translateX(var(--scroll-start));
+       }
+       to {
+         transform: translateX(var(--scroll-end));
+       }
+     }
+     .section_Index6_button {
+         min-width: 161px;
+         height: 37px;
+         display: flex;
+         width: max-content;
+         justify-content: center;
+         padding: 0 16px;
+         color: #fff;
+         margin-top: 60px;
+         margin-left: auto;
+         background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+         align-items: center;
+     }
+
+
+   }
+   @media (max-width:999px) {
+    .section_Index6All  {
+      overflow: hidden;
+    }
+     .section_Index6_title  {
+       margin-top: 20px;
+       max-width: 480px;
+     }
+     .section_Index6All .page-width {
+      padding: 0;
+     }
+     .section_Index6_tag,.section_Index6_title {
+      margin-left: var(--container-gutter);
+      margin-right: var(--container-gutter);
+     }
+      #shopify-section-{{section.id}} .wrapper {
+       --logo-width:120px;
+       --logo-height: 120px;
+       --gap: 10px;
+       --duration: {{section.settings.duration}}s;
+       --scroll-start: 0;
+       --scroll-end: calc(-100% - var(--gap));
+       transform: rotate(-8deg);
+       display: flex;
+       flex-direction: column;
+       gap: var(--gap);
+       margin: auto;
+       max-width: 100vw;
+     }
+
+     .marquee {
+       display: flex;
+       overflow: hidden;
+       user-select: none;
+       gap: var(--gap);
+       mask-image: linear-gradient(
+         to right,
+         hsl(0 0% 0% / 0),
+         hsl(0 0% 0% / 1) 5%,
+         hsl(0 0% 0% / 1) 95%,
+         hsl(0 0% 0% / 0)
+       );
+     }
+
+     .section_Index6_tag {
+      max-width: 182px;
+     }
+     .marquee__group {
+       flex-shrink: 0;
+       display: flex;
+       margin-top: 70px;
+       align-items: center;
+       justify-content: space-around;
+       gap: var(--gap);
+       animation: scrollLeft var(--duration) linear infinite;
+     }
+
+
+     .marquee__group img {
+       width: var(--logo-width);
+       height: var(--logo-height);
+     }
+
+     @keyframes scrollLeft {
+       from {
+         transform: translateX(var(--scroll-start));
+       }
+       to {
+         transform: translateX(var(--scroll-end));
+       }
+     }
+     .section_Index6_button {
+         min-width: 145px;
+         height: 35px;
+         display: flex;
+         width: max-content;
+         justify-content: center;
+         margin: 0 auto;
+         padding: 0 16px;
+         color: #fff;
+         margin-top: 60px;
+         margin-left: auto;
+         background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+         align-items: center;
+     }
+   }
+</style>
+<div class="section_Index6All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="section_Index6_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {% if section.settings.label != blank %}
+        <div class="section_Index6_tag my_h_20 font2 my_m_16">
+          {{ section.settings.label }}
+        </div>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="section_Index6_title font2 my_h_64 my_m_36">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      <div class="wrapper">
+        <div class="marquee">
+          <div class="marquee__group">
+            {% for block in section.blocks %}
+              <img
+                loading="lazy"
+                src="{{ block.settings.img | img_url:'master' }}"
+                alt="{{ block.settings.img.alt }}"
+                class="hover_img"
+              >
+            {% endfor %}
+          </div>
+          <div class="marquee__group">
+            {% for block in section.blocks %}
+              <img
+                loading="lazy"
+                src="{{ block.settings.img | img_url:'master' }}"
+                alt="{{ block.settings.img.alt }}"
+                class="hover_img"
+              >
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if section.settings.button != blank %}
+        <a href="{{section.settings.link}}" class="section_Index6_button font2 my_h_16 my_m_14 section_button2">
+          {{ section.settings.button }}
+          <span class="corner-tl"></span>
+          <span class="corner-br"></span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "section Index6",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "img"
+    },
+    {
+      "type": "textarea",
+      "id": "label",
+      "label": "label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "button"
+    },
+    
+    {
+      "type": "url",
+      "id": "link",
+      "label": "link"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "label": "duration",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index6",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

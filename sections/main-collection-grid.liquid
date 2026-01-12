@@ -1,0 +1,468 @@
+<style>
+  #shopify-section-{{section.id}} .CollectionGridAll{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .CollectionGridAll{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+
+  .CollectionGridBox {
+      position: relative;
+      display: block;
+      height: max-content;
+  }
+  .CollectionGrid_img img {
+    width: 100%;
+  }
+  .CollectionGrid_img {
+    position: relative;
+  }
+  .CollectionGridBox_position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .CollectionGridBox {
+    --blur-radius: 10px;
+    --x-offset: 4px;
+    --y-offset: 4px;
+    --color: rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+  }
+
+  .CollectionGridAll .swiper-pagination-bullet{
+      opacity: 1;
+      background: #fff;
+      border-radius: 10px;
+  }
+  .CollectionGridAll .swiper-button-next::after,.CollectionGridAll .swiper-button-prev::after{
+      content: unset;
+  }
+  .CollectionGridAll .swiper-pagination {
+      position: unset;
+      height: auto;
+      line-height: 1;
+      margin-top: 35px ;
+  }
+  .CollectionGridAll .swiper-pagination span{
+      background: rgba(255, 255, 255, 0.5);
+      height: 4px;
+  }
+
+  .CollectionGridAll .swiper-pagination-bullet {
+      opacity: 1;
+      position: relative;
+      margin: 0 3px;
+      width: 8px;
+      height: 4px;
+      overflow: hidden;
+      transition: all .3s;
+      border-radius: 8px;
+  }
+
+  .CollectionGridAll .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      width: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+  }
+
+  .CollectionGrid_img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-image: url('https://cdn.shopify.com/s/files/1/0785/8421/7824/files/image_19_1.png?v=1765506282');
+      bottom: 0;
+      transition: all 0.3s;
+  }
+  .CollectionGridBox.active {
+    --blur-radius: 10px;
+    --x-offset: 2px;
+    --y-offset: -2px;
+    --color: #dab736ad;
+    filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+  }
+  .CollectionGridBox.active .CollectionGrid_img::after {
+      background-image: unset;
+  }
+  .CollectionGridBox.active .CollectionGrid_text {
+    display: none;
+  }
+  .CollectionGrid_text  {
+    z-index: 2;
+    text-align: center;
+  }
+  @media (min-width: 1000px) {
+    .CollectionGridAll .swiper-button-prev, .CollectionGridAll .swiper-button-next  {
+        width: 40px;
+        height: 40px;
+        position: unset;
+        margin-top: unset;
+    }
+    .CollectionGridAll .swiper-button-prev .section_button2, .CollectionGridAll .swiper-button-next .section_button2{
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+    .CollectionGridAll .swiper-button-prev svg, .CollectionGridAll .swiper-button-next svg {
+        height: 17px;
+        width: auto;
+    }
+    .CollectionGridAll .swiper-button-prev:hover .section_button2, .CollectionGridAll .swiper-button-next:hover .section_button2{
+        background-color: #ffffff33;
+    }
+
+
+    .CollectionGridBox.active .section_button1 {
+        border-color: #DAB736;
+    }
+    .CollectionGridBox.active .corner-tl,.CollectionGridBox.active .corner-br  {
+        background-color: #DAB736;
+    }
+    .CollectionGridBox.active .dis1, .CollectionGridBox.active .dis2 {
+        background-color: #DAB736;
+    }
+    .CollectionGrid_top {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .CollectionGrid_topRight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .CollectionGrid_box  {
+      margin: 0 -15px;
+    }
+
+    .CollectionGridSwiper {
+      padding: 15px;
+    }
+    .CollectionGrid_top {
+      margin-bottom: 25px;
+    }
+  }
+  @media (max-width:999px) {
+    .CollectionGridAll .swiper-button-prev, .CollectionGridAll .swiper-button-next  {
+       display: none;
+    }
+    .CollectionGridAll .swiper-pagination-bullet {
+      height: 2px !important;
+    }
+    .CollectionGridAll .swiper-pagination {
+      margin-top: 16px;
+    }
+    .CollectionGridBox.active .section_button1 {
+        border-color: #DAB736;
+    }
+    .CollectionGridBox.active .corner-tl,.CollectionGridBox.active .corner-br  {
+        background-color: #DAB736;
+    }
+    .CollectionGridBox.active .dis1, .CollectionGridBox.active .dis2 {
+        background-color: #DAB736;
+    }
+    .CollectionGrid_top {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .CollectionGrid_topRight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .CollectionGrid_box  {
+      margin: 0 -1px;
+    }
+
+    .CollectionGridSwiper2 {
+      padding: 16px 1px 0;
+    }
+    .CollectionGrid_top {
+      margin-bottom: 16px;
+    }
+    .CollectionGrid_title {
+      letter-spacing: -1.44px;
+    }
+    .CollectionGridAll .swiper-slide {
+      height: auto;
+      display: grid;
+      gap: 9px;
+      row-gap: 10px;
+      grid-template-columns: repeat(2,1fr);
+    }
+    .CollectionGridBox_position {
+      padding: 4px;
+    }
+    .active-facets__button--light .active-facets__button-inner {
+      font-size: 12px !important;
+    }
+  }
+</style>
+<div class="CollectionGridAll color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="CollectionGrid_top">
+      {% if section.settings.title != blank %}
+        <h2 class="CollectionGrid_title font2 my_h_48 my_m_24">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      {% if section.blocks.size > 0 %}
+        <div class="CollectionGrid_topRight">
+          <div class="swiper-button-prev">
+            <div class="section_button2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+              </svg>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+          </div>
+          <div class="swiper-button-next">
+            <div class="section_button2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                <path d="M1.25 17.125L0 15.875L7.37499 8.56249L0 1.25L1.25 0L9.87499 8.56249L1.25 17.125Z" fill="white"/>
+              </svg>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="CollectionGrid_box">
+      <div class="pad_pc">
+        <div class="swiper CollectionGridSwiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <a
+                href="{{ block.settings.link }}"
+                class="swiper-slide CollectionGridBox {% if block.settings.link contains collection.url %} active {% endif %}"
+              >
+                <div class="section_button1">
+                  <div class="CollectionGrid_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img | img_url:'master' }}"
+                      alt="{{ block.settings.img.alt }}"
+                    >
+                    <div class="CollectionGridBox_position">
+                      {% if block.settings.text != blank %}
+                        <div class="CollectionGrid_text my_h_24 font2">
+                          {{ block.settings.text }}
+                        </div>
+                      {% endif %}
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="pad_mobile">
+        <div class="swiper CollectionGridSwiper2">
+          <div class="swiper-wrapper">
+            {%- assign product_counter = 0 -%}
+            {%- assign products_in_row = 4 -%}
+            {% for block in section.blocks %}
+              {%- if product_counter == 0 -%}
+                <div class="swiper-slide">
+              {%- endif -%}
+
+              <a
+                href="{{ block.settings.link }}"
+                class="CollectionGridBox {% if block.settings.link contains collection.url %} active {% endif %}"
+              >
+                <div class="section_button1">
+                  <div class="CollectionGrid_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img | img_url:'master' }}"
+                      alt="{{ block.settings.img.alt }}"
+                    >
+                    <div class="CollectionGridBox_position">
+                      {% if block.settings.text != blank %}
+                        <div class="CollectionGrid_text my_h_24 my_m_16 font2">
+                          {{ block.settings.text }}
+                        </div>
+                      {% endif %}
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+              {%- assign product_counter = product_counter | plus: 1 -%}
+
+              {%- if product_counter == products_in_row or forloop.last -%}
+                </div>
+                {%- assign product_counter = 0 -%}
+              {%- endif -%}
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('.CollectionGridSwiper', {
+    // loop: true,
+    observer: true,
+    observeParents: true,
+    slidesPerView: 4,
+    spaceBetween: 22,
+    navigation: {
+      nextEl: '.CollectionGridAll .swiper-button-next',
+      prevEl: '.CollectionGridAll .swiper-button-prev',
+    },
+    pagination: {
+      el: '.CollectionGridSwiper .swiper-pagination', // 要识别为页面字符的类
+      clickable: true, //单击“页面”按钮后移动
+    },
+  });
+  var swiper2 = new Swiper('.CollectionGridSwiper2', {
+    // loop: true,
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 9,
+
+    pagination: {
+      el: '.CollectionGridSwiper2 .swiper-pagination', // 要识别为页面字符的类
+      clickable: true, //单击“页面”按钮后移动
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "Collection Grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Grid"
+    }
+  ]
+}
+{% endschema %}

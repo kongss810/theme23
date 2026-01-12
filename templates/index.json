@@ -1,0 +1,595 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_index_RA7bja": {
+      "type": "section-index",
+      "blocks": {
+        "image_qJm8Qk": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_91.png",
+            "img_mobile": "shopify://shop_images/Rectangle_91_1.png",
+            "text_position": "middle_left",
+            "text_positionMobile": "middle_left",
+            "title": "PRECISION AUDIO\nDEFINES EVERY WIN",
+            "text": "Pro-calibrated sound imaging and uncompromised wireless speed designed for high-pressure gameplay",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "image_hBUFcU": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_91.png",
+            "img_mobile": "shopify://shop_images/Rectangle_91_1.png",
+            "text_position": "middle_left",
+            "text_positionMobile": "middle_left",
+            "title": "PRECISION AUDIO\nDEFINES EVERY WIN",
+            "text": "Pro-calibrated sound imaging and uncompromised wireless speed designed for high-pressure gameplay",
+            "link": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_qJm8Qk",
+        "image_hBUFcU"
+      ],
+      "name": "Section Index1",
+      "settings": {
+        "time": 0,
+        "Desktop_top": 0,
+        "Mobile_top": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "section_index2_BWVFRp": {
+      "type": "section-index2",
+      "blocks": {
+        "item_7tNTk3": {
+          "type": "item",
+          "settings": {
+            "tab_img": "shopify://shop_images/image_16_1.png",
+            "tab_text": "mobile game",
+            "product_list": [
+              "t10",
+              "t20"
+            ],
+            "shop_all_url": "shopify://collections/game-mice"
+          }
+        },
+        "item_L8Q3kd": {
+          "type": "item",
+          "settings": {
+            "tab_img": "shopify://shop_images/image_20.png",
+            "tab_text": "mobile game",
+            "product_list": [
+              "t20",
+              "t10"
+            ],
+            "shop_all_url": "shopify://collections/frontpage"
+          }
+        },
+        "item_zfGmqm": {
+          "type": "item",
+          "settings": {
+            "tab_img": "shopify://shop_images/image_20_1.png",
+            "tab_text": "Console Game",
+            "product_list": [
+              "t20",
+              "t10"
+            ],
+            "shop_all_url": ""
+          }
+        },
+        "item_Namima": {
+          "type": "item",
+          "settings": {
+            "tab_img": "shopify://shop_images/image_21.png",
+            "tab_text": "VR/AR game",
+            "product_list": [
+              "t10"
+            ],
+            "shop_all_url": ""
+          }
+        },
+        "item_R8GzFF": {
+          "type": "item",
+          "settings": {
+            "tab_img": "shopify://shop_images/image_16_1.png",
+            "tab_text": "mobile game",
+            "product_list": [
+              "t10"
+            ],
+            "shop_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_7tNTk3",
+        "item_L8Q3kd",
+        "item_zfGmqm",
+        "item_Namima",
+        "item_R8GzFF"
+      ],
+      "name": "Section Index2",
+      "settings": {
+        "title": "Sound that Fits Your Game",
+        "text": "Choose THE GAME:",
+        "more_products": "More Products:",
+        "shop_all": "SHOP ALL",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index3_fCz3jk": {
+      "type": "section-index3",
+      "blocks": {
+        "left_PXXxYi": {
+          "type": "left",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_33.png",
+            "img_mobile": "shopify://shop_images/Rectangle_14_1.png",
+            "text": "Game Mice",
+            "link": "shopify://collections/game-mice",
+            "img2": "shopify://shop_images/Rectangle_97_5.png",
+            "img_mobile2": "shopify://shop_images/Rectangle_97_5.png",
+            "text2": "ACCESSORIES",
+            "link2": ""
+          }
+        },
+        "banner_MTQX4x": {
+          "type": "banner",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_14.png",
+            "img_mobile": "shopify://shop_images/Rectangle_14_1.png",
+            "text": "Gaming Headset",
+            "link": "shopify://collections/gaming-headset",
+            "text2": "",
+            "link2": ""
+          }
+        },
+        "right_9Fe6BN": {
+          "type": "right",
+          "settings": {
+            "text": "",
+            "link": "",
+            "img2": "shopify://shop_images/Rectangle_97_3_30f08cf8-2c35-461c-bcad-1370dcc7f2d1.png",
+            "img_mobile2": "shopify://shop_images/Rectangle_97_3_30f08cf8-2c35-461c-bcad-1370dcc7f2d1.png",
+            "text2": "KEYBOARDS",
+            "link2": "shopify://collections/keyborads"
+          }
+        }
+      },
+      "block_order": [
+        "left_PXXxYi",
+        "banner_MTQX4x",
+        "right_9Fe6BN"
+      ],
+      "name": "Section Index3",
+      "settings": {
+        "title": "Shop by Category",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index4_4WK9yD": {
+      "type": "section-index4",
+      "blocks": {
+        "item_J9ppcw": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_54.png",
+            "img_mobile": "shopify://shop_images/Rectangle_106.png",
+            "label": "Black Friday deal",
+            "title": "Pro-Level Sound at a Limited-Time Price",
+            "text": "A simple moment to upgrade performance—made even better.",
+            "button": "SHOP NOW",
+            "link": "#"
+          }
+        },
+        "item_Pcd6dz": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_55_2.png",
+            "img_mobile": "shopify://shop_images/Rectangle_108.png",
+            "label": "",
+            "title": "WHICH HEADSET  IS RIGHT FOR YOU?",
+            "text": "Take the quiz to find out",
+            "button": "TAKE THE QUIZ",
+            "link": ""
+          }
+        },
+        "item_pMfJqM": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_55.png",
+            "img_mobile": "shopify://shop_images/Rectangle_107_1.png",
+            "label": "",
+            "title": "Powered by Elite Esports Teams",
+            "text": "Tested in real competition. Proven by players who fight to win.",
+            "button": "SHOP NOW",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_J9ppcw",
+        "item_Pcd6dz",
+        "item_pMfJqM"
+      ],
+      "name": "Section Index4",
+      "settings": {
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index5_ghRmzT": {
+      "type": "section-index5",
+      "blocks": {
+        "item_yYrxnG": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_1_57a8648e-d15e-4dea-8e75-2768ed1c3e79.png",
+            "icon": "shopify://shop_images/Frame_64_1.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.1"
+          }
+        },
+        "item_NcjFyU": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_3_c72a8804-54e5-415e-be7a-f26eb26a9d1a.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.2"
+          }
+        },
+        "item_yt6FN4": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_4_a84ab3ba-2258-4444-9aff-1a3131be6a72.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.3"
+          }
+        },
+        "item_XB3znX": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_1_57a8648e-d15e-4dea-8e75-2768ed1c3e79.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.4"
+          }
+        },
+        "item_B3QPBF": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_3_c72a8804-54e5-415e-be7a-f26eb26a9d1a.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.5"
+          }
+        },
+        "item_mReEYt": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_2_0342efa9-012d-4359-ab76-8b5632f3cea6.png",
+            "text": "Everything about the headset is just perfect, \nespecially its sound controller.6"
+          }
+        }
+      },
+      "block_order": [
+        "item_yYrxnG",
+        "item_NcjFyU",
+        "item_yt6FN4",
+        "item_XB3znX",
+        "item_B3QPBF",
+        "item_mReEYt"
+      ],
+      "name": "Section Index5",
+      "settings": {
+        "title": "Chosen by Gamers Who Play to Win",
+        "Desktop_top": 160,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 40,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index6_NaKewn": {
+      "type": "section-index6",
+      "blocks": {
+        "item_iAFtt4": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_64.png"
+          }
+        },
+        "item_FEe6Lj": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_66.png"
+          }
+        },
+        "item_6mhrDR": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_67.png"
+          }
+        },
+        "item_HcfyBA": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_68.png"
+          }
+        },
+        "item_pX8caD": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_69.png"
+          }
+        },
+        "item_bUnzkB": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_70.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_iAFtt4",
+        "item_FEe6Lj",
+        "item_6mhrDR",
+        "item_HcfyBA",
+        "item_pX8caD",
+        "item_bUnzkB"
+      ],
+      "name": "Section Index6",
+      "settings": {
+        "img": "shopify://shop_images/Rectangle_84_1_1.png",
+        "label": "Our Partners and Signed Teams",
+        "title": "<p>Allies of<br/>Champions</p>",
+        "button": "SEE OUR TEAM",
+        "link": "shopify://pages/esport",
+        "duration": 30,
+        "Desktop_top": 0,
+        "Mobile_top": 0,
+        "Desktop_paddingTop": 180,
+        "Mobile_paddingTop": 100,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 180,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index7_hmAVCi": {
+      "type": "section-index7",
+      "blocks": {
+        "article_m8rd7U": {
+          "type": "article",
+          "settings": {
+            "article": "news/siberia-x-pegt-national-esports-league-kicks-off"
+          }
+        },
+        "article_pc4Lf9": {
+          "type": "article",
+          "settings": {
+            "article": "news/siberia-forms-a-strategic-alliance-with-tec-esports-club"
+          }
+        },
+        "article_a3bEyM": {
+          "type": "article",
+          "settings": {
+            "article": "news/siberia-k02bs-with-2-4g-zero-sense-low-latency-tri-mode-connectivity-now-available"
+          }
+        },
+        "article_jp4Wqi": {
+          "type": "article",
+          "settings": {
+            "article": "news/siberia-x-the-king-s-avatar-launch-a-limited-headset"
+          }
+        }
+      },
+      "block_order": [
+        "article_m8rd7U",
+        "article_pc4Lf9",
+        "article_a3bEyM",
+        "article_jp4Wqi"
+      ],
+      "name": "Section Index7",
+      "settings": {
+        "title": "NEWS",
+        "blog": "news",
+        "button": "get more news",
+        "link": "shopify://blogs/news",
+        "Desktop_top": 0,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index8_Ttb77N": {
+      "type": "section-index8",
+      "blocks": {
+        "item_Q6aNUr": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_42_1.png",
+            "video": "shopify://files/videos/1fed3923c37645fbba0c83e47d0524a9.HD-1080p-7.2Mbps-44838208.mp4",
+            "name": "@jesh_gamer"
+          }
+        },
+        "item_xNweJB": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_50.png",
+            "name": ""
+          }
+        },
+        "item_7XjYXe": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_51.png",
+            "name": ""
+          }
+        },
+        "item_eBiD3t": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_42_1.png",
+            "name": "@jesh_gamer"
+          }
+        },
+        "item_qfLWnM": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_48.png",
+            "name": ""
+          }
+        },
+        "item_wi8V4V": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_49.png",
+            "name": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_Q6aNUr",
+        "item_xNweJB",
+        "item_7XjYXe",
+        "item_eBiD3t",
+        "item_qfLWnM",
+        "item_wi8V4V"
+      ],
+      "name": "Section Index8",
+      "settings": {
+        "title": "Tested in Battle. Trusted by Gamers.",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index9_6b7mMm": {
+      "type": "section-index9",
+      "blocks": {
+        "item_ymjkLW": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/free_delivery.png",
+            "title": "Free Delivery",
+            "text": "Free shipping on all order"
+          }
+        },
+        "item_hNC3dp": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Money.png",
+            "title": "money return",
+            "text": "Back guarantee in 7 days"
+          }
+        },
+        "item_7FWbCt": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Discount.png",
+            "title": "member discount",
+            "text": "On every order over $130.00"
+          }
+        },
+        "item_7CdTqc": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Return.png",
+            "title": "return policy",
+            "text": "Support 24 hours a day"
+          }
+        }
+      },
+      "block_order": [
+        "item_ymjkLW",
+        "item_hNC3dp",
+        "item_7FWbCt",
+        "item_7CdTqc"
+      ],
+      "name": "Section Index9",
+      "settings": {
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_index10_nBerq9": {
+      "type": "section-index10",
+      "name": "Section Index10",
+      "settings": {
+        "title": "<p>Join our community<br/><strong>Get 20% off </strong><br/>your first order</p>",
+        "text": "Subscribe to our newsletter for exclusive updates on new products and sales. \nAct Now and enjoy 20% off your first full-price purchase!",
+        "newsletter_content": "<p>I authorize the transfer of my contact information and agree to it use according to the privacy policy and terms of service.</p>",
+        "img": "shopify://shop_images/Group_12.png",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 100,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "section_index_RA7bja",
+    "section_index2_BWVFRp",
+    "section_index3_fCz3jk",
+    "section_index4_4WK9yD",
+    "section_index5_ghRmzT",
+    "section_index6_NaKewn",
+    "section_index7_hmAVCi",
+    "section_index8_Ttb77N",
+    "section_index9_6b7mMm",
+    "section_index10_nBerq9"
+  ]
+}

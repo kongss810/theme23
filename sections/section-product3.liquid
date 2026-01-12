@@ -1,0 +1,377 @@
+<style>
+    #shopify-section-{{section.id}} .section_product3All{
+        margin-top: {{section.settings.Desktop_top}}px;
+        margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+        padding-top:{{section.settings.Desktop_paddingTop}}px;
+        padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+    }
+    @media(max-width:999px) {
+        #shopify-section-{{section.id}} .section_product3All{
+            margin-top: {{section.settings.Mobile_top}}px;
+            margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+            padding-top:{{section.settings.Mobile_paddingTop}}px;
+            padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+        }
+    }
+    .section_product3Box {
+        position: relative;
+    }
+    .section_product3_img img {
+        width: 100%;
+    }
+    .section_product3_img {
+        position: relative;
+    }
+    .section_product3Box_position {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .section_product3Box {
+        --blur-radius: 10px;
+        --x-offset: 4px;
+        --y-offset: 4px;
+        --color: rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+    }
+    .section_product3_sub strong {
+        color: var(--t_color);
+    }
+    .section_product3_sub {
+        max-width: 260px;
+        letter-spacing: -1.44px;
+        line-height: 1 !important;
+    }
+    @media (min-width: 1000px) {
+        .section_product3_box  {
+            display: flex;
+            gap: 22px;
+            justify-content: space-between;
+        }
+        .section_product3Left {
+            width: 50%;
+            max-width: 756px;
+        }
+        .section_product3Right {
+            width: 50%;
+            display: grid;
+            gap: 20px;
+            height: max-content;
+        }
+        .section_product3Left .section_product3Box,.section_product3Left .section_product3_img {
+            height: 100%;
+        }
+        .section_product3Left .section_product3_img img {
+            height: 100%;
+            object-fit: cover;
+        }
+        .section_product3Box {
+            width: 100%;
+        }
+        .section_product3Box_position {
+            display: flex;
+            align-items: center;
+            padding: 38px;
+        }
+        .section_product3Box_positionBox {
+            max-width: 495px;
+            display: grid;
+            gap: 20px;
+        }
+        .section_product3_title,.section_product3_tag{
+            line-height: 1;
+        }
+        .section_product3_text  {
+            color: var(--f_color3);
+        }
+        .section_product3_button {
+            min-width: 128px;
+            height: 37px;
+            display: flex;
+            width: max-content;
+            justify-content: center;
+            padding: 0 16px;
+            color: #fff;
+            background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+            align-items: center;
+        }
+        .section_product3Left .section_product3Box_position{
+            align-items: flex-end;
+        }
+        .section_product3Right .section_product3Box:nth-child(2) .section_product3Box_position{
+        justify-content: flex-end;
+        }
+        .section_product3Right .section_button1  { 
+            border: unset;
+        }
+        .section_product3Right .section_button1 .corner-tl,.section_product3Right .section_button1 .corner-br {
+            background-color: unset;
+        }
+    }
+    @media (max-width:999px) {
+        .section_product3Box_position {
+            display: flex;
+            padding: 20px 16px;
+        }
+        .section_product3Left .section_product3Box_position {
+            align-items: flex-end;
+        }
+        .section_product3Right .section_product3Box_position{
+            align-items: center;
+        }
+        .section_product3Box_positionBox {
+            display: grid;
+            gap: 6px;
+        }
+        .section_product3_text {
+            color: var(--f_color3);
+        }
+        .section_product3Right {
+            display: grid;
+            gap: 12px;
+            margin-top: 12px;
+            height: max-content;
+        }
+        .section_product3_button {
+            min-width: 116px;
+            height: 35px;
+            display: flex;
+            width: max-content;
+            justify-content: center;
+            padding: 0 16px;
+            color: #fff;
+            background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+            align-items: center;
+        }
+    }
+</style>
+<div class="section_product3All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="section_product3_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {%- assign left_item = section.blocks | where: 'type', 'left_item' -%}
+      {%- assign right_item = section.blocks | where: 'type', 'right_item' -%}
+      <div class="section_product3Left">
+        {% for block in left_item %}
+          <div class="section_product3Box">
+            <div class="section_button1 img_hover">
+              <div class="section_product3_img">
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img | img_url:'master' }}"
+                  alt="{{ block.settings.img.alt }}"
+                  class="hover_img pad_pc"
+                >
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img_mobile | img_url:'master' }}"
+                  alt="{{ block.settings.img_mobile.alt }}"
+                  class="pad_mobile"
+                >
+                <div class="section_product3Box_position">
+                  <div class="section_product3Box_positionBox">
+                    {% if block.settings.title != blank %}
+                      <h2 class="section_product3_title font2 my_h_48 my_m_24">
+                        {{ block.settings.title }}
+                      </h2>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <div class="section_product3_text my_h_16 my_m_14">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.button != blank %}
+                      <a
+                        href="{{block.settings.link}}"
+                        class="section_product3_button my_h_16 section_button2 font2 my_m_14"
+                      >
+                        {{ block.settings.button }}
+                        <span class="corner-tl"></span>
+                        <span class="corner-br"></span>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+            <span class="dis1"></span>
+            <span class="dis2"></span>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="section_product3Right">
+        {% for block in right_item %}
+          <div class="section_product3Box">
+            <div class="section_button1 img_hover">
+              <div class="section_product3_img">
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img | img_url:'master' }}"
+                  alt="{{ block.settings.img.alt }}"
+                  class="hover_img pad_pc"
+                >
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img_mobile | img_url:'master' }}"
+                  alt="{{ block.settings.img_mobile.alt }}"
+                  class="pad_mobile"
+                >
+                <div class="section_product3Box_position">
+                  <div class="section_product3Box_positionBox">
+                    
+                    {% if block.settings.text != blank %}
+                      <div class="section_product3_sub font2 my_h_24 my_m_16">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+        
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "section product3",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "left_item",
+      "name": "left item",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "text",
+          "id": "button",
+          "label": "button"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    },
+    {
+      "type": "right_item",
+      "name": "right item",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Product3",
+      "category": "product"
+    }
+  ]
+}
+{% endschema %}

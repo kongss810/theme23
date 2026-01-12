@@ -1,0 +1,193 @@
+<style>
+  .productStickyText_as {
+    z-index: 5;
+    width: 100%;
+    position: fixed;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    top: calc(var(--header-height, 0px) * var(--enable-sticky-header) + var(--announcement-bar-height, 0px) * var(--enable-sticky-announcement-bar));
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9 ;
+    box-shadow: 0 6px 5px -5px #d9d9d966, 0 1px #d9d9d9  inset;
+    transition: opacity .25s ease-in-out, transform .25s ease-in-out, visibility .25s ease-in-out;
+  }
+  .productStickyText_leftTab {
+    position: relative;
+  }
+  .productStickyText_all .is-visible::after {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: -23px;
+    border-bottom: 2px solid #ff9900;
+  }
+  .productStickyText_buyNow {
+    cursor: pointer;
+    color: #fff;
+    min-width: 200px;
+    padding: 7px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 100px;
+    background-color: #e05f5a;
+  }
+  @media (min-width: 1000px) {
+    .productStickyText_left {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+    }
+    .productStickyText_all .Amazon {
+      font-weight: 700;
+      line-height: 110%;
+
+      border: 1px solid #000;
+      border-radius: 114px;
+      padding: 10px;
+      width: max-content;
+      min-width: 240px;
+      background-image: unset !important;
+    }
+    .productStickyText_all .Amazon:hover {
+      background: #ff9900;
+      transition: all 0.5s;
+      border-color: #ff9900;
+      color: #fff;
+    }
+    .productStickyText_box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 999px) {
+ 
+    .productStickyText_as {
+      padding-bottom: 15px;
+              transform: translateY(0px) !important;
+    }
+    .productStickyText_buyNow {
+      font-size: 14px;
+    }
+    .productStickyText_left {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .productStickyText_right {
+      width: 100%;
+    }
+    .productStickyText_all .is-visible {
+      color: #ff9900;
+    }
+    .productStickyText_all .is-visible:after {
+      content: unset;
+    }
+    .productStickyText_box {
+      display: flex;
+
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    .productStickyText_all .Amazon {
+      font-weight: 700;
+      line-height: 110%;
+
+      border: 1px solid #ff9900;
+      padding: 10px 20px;
+      border-radius: 114px;
+      background: #ff9900;
+      color: #fff;
+      background-image: unset !important;
+    }
+    .productStickyText_as {
+      top: unset;
+      bottom: 0;
+    }
+  }
+  .productStickyText_all .Amazon {
+    display: none;
+  }
+  .productStickyText_all .active {
+    display: flex;
+  }
+</style>
+<product-sticky-form form-id="{{ product_form_id }}" hidden class="productStickyText_as product-sticky-form">
+  <div class="productStickyText_all">
+    <div class="productStickyText_Box">
+      <div class="container">
+        <div class="productStickyText_box">
+          <div class="productStickyText_left">
+            {% if section.settings.tab_text != blank %}
+              <div class="productStickyText_leftTab my_h_16 my_m_14 is-visible">
+                <a href="{{section.settings.tab_textUrl}}" class="productStickyText_leftTab_text">
+                  {{- section.settings.tab_text -}}
+                </a>
+              </div>
+            {% endif %}
+            {% if section.settings.tab_text2 != blank %}
+              <div class="productStickyText_leftTab my_h_16 my_m_14">
+                <a
+                  href="{{section.settings.tab_text2Url}}"
+                  class="productStickyText_leftTab_text productStickyText_leftTab2"
+                >
+                  {{- section.settings.tab_text2 -}}
+                </a>
+              </div>
+            {% endif %}
+            {% if section.settings.tab_text3 != blank %}
+              <div class="productStickyText_leftTab my_h_16 my_m_14">
+                <a href="{{section.settings.tab_text3Url}}" class="productStickyText_leftTab_text">
+                  {{- section.settings.tab_text3 -}}
+                </a>
+              </div>
+            {% endif %}
+            {% if section.settings.tab_text4 != blank %}
+              <div class="productStickyText_leftTab my_h_16 my_m_14">
+                <a href="{{section.settings.tab_text4Url}}" class="productStickyText_leftTab_text">
+                  {{- section.settings.tab_text4 -}}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="productStickyText_right">
+            {%- if product.selected_or_first_available_variant.available -%}
+              <span
+                class="productStickyText_buyNow"
+                data-variantId="{{ product.selected_or_first_available_variant.id }}"
+                >BUY NOW</span
+              >
+            {%- else -%}
+              <span
+                class="disabled productStickyText_buyNow"
+                data-variantId="{{ product.selected_or_first_available_variant.id }}"
+                >BUY NOW</span
+              >
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</product-sticky-form>
+<script>
+  $('#shopify-section-{{ section.id }} .productStickyText_buyNow').click(function () {
+    const variantId = $('#shopify-section-{{ section.id }} .product_form_id').val();
+    let quantity = $(
+      '#shopify-section-{{ section.id }} .product__info .product-form__quantity .quantity-selector__input'
+    ).val();
+
+    // 如果 quantity 不存在或为空，默认设置为 1
+    quantity = quantity && parseInt(quantity) > 0 ? quantity : 1;
+
+    if (variantId) {
+      window.location.href = `/cart/${variantId}:${quantity}`;
+    }
+  });
+</script>

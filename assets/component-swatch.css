@@ -1,0 +1,28 @@
+/* swatch lives in its own file for reusability of the swatch in swatch-input and dropdown */
+.swatch {
+  cursor: pointer;
+  --swatch--size: 36px;
+  display: flex;
+  --swatch--border-radius: var(--swatch-input--border-radius, 50%);
+  width: var(--swatch--size);
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  background: var(--swatch--background);
+  background-position: var(--swatch-focal-point, initial);
+  background-size: cover;
+  background-origin: border-box;
+  border: 2px solid var(--f_color3);
+  border-radius: var(--swatch--border-radius);
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch--square {
+  --swatch--border-radius: var(--swatch-input--border-radius, 0.2rem);
+}
+
+.swatch--unavailable {
+  border-style: dashed;
+  border-color: rgba(var(--color-foreground), 0.5);
+}

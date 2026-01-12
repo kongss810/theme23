@@ -1,0 +1,109 @@
+{% comment %}
+  Renders product variant-picker
+
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  Usage:
+  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
+{%- unless product.has_only_default_variant -%}
+  <variant-selects
+    id="variant-selects-{{ section.id }}"
+    data-section="{{ section.id }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- for option in product.options_with_values -%}
+      {%- liquid
+        assign swatch_count = option.values | map: 'swatch' | compact | size
+        assign picker_type = block.settings.picker_type
+
+        if swatch_count > 0 and block.settings.swatch_shape != 'none'
+          if block.settings.picker_type == 'dropdown'
+            assign picker_type = 'swatch_dropdown'
+          else
+            assign picker_type = 'swatch'
+          endif
+        endif
+      -%}
+      {%- if picker_type == 'swatch' -%}
+        <fieldset class="js product-form__input product-form__input--swatch">
+          <legend class="form__label my_h_14">
+            {{ option.name }}:
+            <span data-selected-value>
+              {{- option.selected_value -}}
+            </span>
+          </legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+      {%- elsif picker_type == 'button' -%}
+        <fieldset class="js product-form__input product-form__input--pill">
+          <legend class="form__label my_h_14">{{ option.name }}</legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+      {%- else -%}
+        <div class="product-form__input product-form__input--dropdown">
+          <label class="form__label my_h_14" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+            {{ option.name }}
+          </label>
+          {%- if picker_type == 'swatch_dropdown' -%}
+            <fieldset class="js product-form__input product-form__input--swatch">
+              {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block,
+                picker_type: picker_type
+              %}
+            </fieldset>
+          {%- else -%}
+            <div class="select section_button2">
+              {%- if picker_type == 'swatch_dropdown' -%}
+                <span
+                  data-selected-value
+                  class="dropdown-swatch"
+                >
+                  {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+                </span>
+              {%- endif -%}
+              <select
+                id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                class="select__select"
+                name="options[{{ option.name | escape }}]"
+                form="{{ product_form_id }}"
+              >
+                {% render 'product-variant-options',
+                  product: product,
+                  option: option,
+                  block: block,
+                  picker_type: picker_type
+                %}
+              </select>
+              <span class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M2 6.8125L3.25 5.5625L10.5625 12.9375L17.875 5.5625L19.125 6.8125L10.5625 15.4375L2 6.8125Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    <script type="application/json" data-selected-variant>
+      {{ product.selected_or_first_available_variant | json }}
+    </script>
+  </variant-selects>
+{%- endunless -%}

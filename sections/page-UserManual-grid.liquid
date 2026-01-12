@@ -1,0 +1,360 @@
+<style>
+  #shopify-section-{{section.id}} .UserManualGridAll{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .UserManualGridAll{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+
+  .UserManualGridBox {
+      position: relative;
+  }
+  .UserManualGrid_img img {
+    width: 100%;
+  }
+  .UserManualGrid_img {
+    opacity: 0.4;
+    position: relative;
+  }
+  .UserManualGridBox.active .UserManualGrid_img {
+    opacity: 1;
+  }
+  .UserManualGridBox {
+    --blur-radius: 10px;
+    --x-offset: 4px;
+    --y-offset: 4px;
+    height: auto;
+    --color: rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+  }
+
+  .UserManualGridAll .swiper-pagination-bullet{
+      opacity: 1;
+      background: #fff;
+      border-radius: 10px;
+  }
+  .UserManualGridAll .swiper-button-next::after,.UserManualGridAll .swiper-button-prev::after{
+      content: unset;
+  }
+  .UserManualGridAll .swiper-pagination {
+      position: unset;
+      height: auto;
+      line-height: 1;
+      margin-top: 35px ;
+  }
+  .UserManualGridAll .swiper-pagination span{
+      background: rgba(255, 255, 255, 0.5);
+      height: 4px;
+  }
+
+  .UserManualGridAll .swiper-pagination-bullet {
+      opacity: 1;
+      position: relative;
+      margin: 0 3px !important;
+      width: 8px;
+      height: 4px;
+      overflow: hidden;
+      transition: all .3s;
+      border-radius: 8px;
+  }
+
+  .UserManualGridAll .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      width: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+  }
+
+  .UserManualGridBox.active {
+    --blur-radius: 10px;
+    --x-offset: 2px;
+    --y-offset: -2px;
+    --color: #dab736ad;
+    filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+  }
+
+  .UserManualGrid_text  {
+    z-index: 2;
+  }
+    .UserManualGridAll .swiper-button-prev:hover .section_button2, .UserManualGridAll .swiper-button-next:hover .section_button2{
+        background-color: #ffffff33;
+    }
+    .UserManualGridBox.active .section_button1 {
+        border-color: #DAB736;
+    }
+    .UserManualGridBox.active .corner-tl,.UserManualGridBox.active .corner-br  {
+        background-color: #DAB736;
+    }
+    .UserManualGridBox.active .dis1, .UserManualGridBox.active .dis2 {
+        background-color: #DAB736;
+    }
+  @media (min-width: 1000px) {
+    .UserManualGridAll .swiper-button-prev, .UserManualGridAll .swiper-button-next  {
+        width: 40px;
+        height: 40px;
+        position: unset;
+        margin-top: unset;
+    }
+    .UserManualGridAll .swiper-button-prev .section_button2, .UserManualGridAll .swiper-button-next .section_button2{
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+    .UserManualGridAll .swiper-button-prev svg, .UserManualGridAll .swiper-button-next svg {
+        height: 17px;
+        width: auto;
+    }
+
+    .UserManualGrid_top {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .UserManualGrid_topRight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .UserManualGrid_box  {
+      margin: 0 -15px;
+    }
+
+    .UserManualGridSwiper {
+      padding: 15px;
+    }
+    .UserManualGrid_top {
+      margin-bottom: 25px;
+    }
+    .UserManualGrid_text {
+        text-align: center;
+        padding: 10px 20px 35px;
+    }
+  }
+  @media (max-width:999px) {
+    .UserManualGridAll {
+        overflow: hidden;
+    }
+    .UserManualGridSwiper {
+        overflow: unset;
+    }
+    .UserManualGridAll .swiper-pagination {
+        margin-top: 16px;
+    }
+    .UserManualGridAll .swiper-pagination span {
+        width: 8px;
+        height: 2px;
+    }
+    .UserManualGridAll .swiper-button-prev, .UserManualGridAll .swiper-button-next  {
+        width: 40px;
+        height: 40px;
+        position: unset;
+        margin-top: unset;
+    }
+    .UserManualGridAll .swiper-button-prev .section_button2, .UserManualGridAll .swiper-button-next .section_button2{
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+    .UserManualGridAll .swiper-button-prev svg, .UserManualGridAll .swiper-button-next svg {
+        height: 17px;
+        width: auto;
+    }
+
+    .UserManualGrid_top {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .UserManualGrid_topRight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .UserManualGrid_box  {
+      margin: 0 -15px;
+    }
+
+    .UserManualGridSwiper {
+      padding: 15px;
+    }
+    .UserManualGrid_top {
+      margin-bottom: 25px;
+    }
+    .UserManualGrid_text {
+        text-align: center;
+        padding: 12px 10px 16px;
+        letter-spacing: -0.72px;
+    }
+  }
+</style>
+<div class="UserManualGridAll color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="UserManualGrid_box">
+      <div class="swiper UserManualGridSwiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <a
+              href="{{ block.settings.link }}"
+              class="swiper-slide UserManualGridBox {% if block.settings.link contains page.url %} active {% endif %}"
+            >
+              <div class="section_button1">
+                <div class="UserManualGrid_img">
+                  <img
+                    loading="lazy"
+                    src="{{ block.settings.img | img_url:'master' }}"
+                    alt="{{ block.settings.img.alt }}"
+                  >
+                  {% if block.settings.text != blank %}
+                    <div class="UserManualGrid_text my_h_20 my_m_12 font2">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                </div>
+                <span class="corner-tl"></span>
+                <span class="corner-br"></span>
+              </div>
+              <span class="dis1"></span>
+              <span class="dis2"></span>
+            </a>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('.UserManualGridSwiper', {
+    // loop: true,
+    observer: true,
+    observeParents: true,
+    breakpoints: {
+      300: {
+        slidesPerView: 2.4,
+        spaceBetween: 16,
+      },
+      680: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      },
+      1280: {
+        slidesPerView: 5,
+        spaceBetween: 24,
+      },
+    },
+    navigation: {
+      nextEl: '.UserManualGridAll .swiper-button-next',
+      prevEl: '.UserManualGridAll .swiper-button-prev',
+    },
+    pagination: {
+      el: '.UserManualGridSwiper .swiper-pagination', // 要识别为页面字符的类
+      clickable: true, //单击“页面”按钮后移动
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "User Manual",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "User Manual",
+      "category": "User Manual Page"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,243 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index9All{
+    margin-top: {{section.settings.Desktop_top}}px;
+    margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+    padding-top:{{section.settings.Desktop_paddingTop}}px;
+    padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+    #shopify-section-{{section.id}} .section_Index9All{
+        margin-top: {{section.settings.Mobile_top}}px;
+        margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+        padding-top:{{section.settings.Mobile_paddingTop}}px;
+        padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+    }
+  }
+
+  @media (min-width:1000px) {
+    .section_Index9_box {
+        display: flex;
+        justify-content: space-between;
+    }
+    .section_Index9_box>div:last-child {
+        display: none;
+    }
+    .section_Index9Box {
+        text-align: center;
+        max-width: 212px;
+    }
+    .section_Index9Box_title {
+        margin-top: 20px;
+    }
+    .section_Index9Box_text {
+        margin-top: 10px;
+        color: var(--f_color3);
+    }
+    .section_Index9_box .line {
+      background: linear-gradient(to bottom, #75787B 0%, rgba(117, 120, 123, 0) 100%);
+      height: auto;
+      width: 1px;
+    }
+  }
+  @media (max-width:999px) {
+    .section_Index9_box {
+      display: grid;
+      gap: 32px;
+      height: max-content;
+    }
+    .section_Index9Group {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between
+    }
+
+    .section_Index9Box {
+        text-align: center;
+        max-width: 146px;
+    }
+    .section_Index9Box img {
+      width: 50px;
+      height: auto;
+    }
+    .section_Index9Box_title {
+        margin-top: 20px;
+    }
+    .section_Index9Box_text {
+        margin-top: 10px;
+        color: var(--f_color3);
+    }
+    .section_Index9_box .line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, #75787b, #75787b00);
+    }
+  }
+</style>
+<div class="section_Index9All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="pad_pc">
+      <div class="section_Index9_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% for block in section.blocks %}
+          <div class="section_Index9Box">
+            {% if block.settings.icon != blank %}
+              <img
+                loading="lazy"
+                src="{{ block.settings.icon | img_url:'master' }}"
+                alt="{{ block.settings.icon.alt }}"
+              >
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <div class="section_Index9Box_title font2 my_h_20">
+                {{ block.settings.title }}
+              </div>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div class="section_Index9Box_text my_h_16">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+          </div>
+          <div class="line"></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="pad_mobile">
+      <div class="section_Index9_box">
+        {% assign block_count = section.blocks.size %}
+        {% assign current_index = 0 %}
+
+        {% for block in section.blocks %}
+          {% if current_index == 0 or current_index == 2 %}
+            <div class="section_Index9Group">
+          {% endif %}
+
+          <div class="section_Index9Box">
+            {% if block.settings.icon != blank %}
+              <img
+                loading="lazy"
+                src="{{ block.settings.icon | img_url:'master' }}"
+                alt="{{ block.settings.icon.alt }}"
+              >
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <div class="section_Index9Box_title font2 my_m_16">
+                {{ block.settings.title }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="section_Index9Box_text my_m_14">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+          </div>
+
+          {% assign current_index = current_index | plus: 1 %}
+
+          {% if current_index == 2 or forloop.last %}
+            </div>
+            <div class="line"></div>
+            {% assign current_index = 0 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "section Index9",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "icon"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index9",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

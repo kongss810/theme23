@@ -1,0 +1,827 @@
+<style>
+  #shopify-section-{{section.id}} .page_UserManual2All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .page_UserManual2All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+  .no_button {
+    opacity: .35;
+    cursor: auto; 
+    pointer-events: none;
+  }
+  .sectionBrandCollection3_button,.page_UserManual2All .left-btn, .page_UserManual2All .right-btn {
+    cursor: pointer;
+  }
+  @media (min-width: 1000px) {
+    .page_UserManual2All .line {
+        width: 100%;
+        height: 1px;
+        margin: 80px 0;
+        display: block;
+        height: 1px;
+        background: linear-gradient(to right, #75787b, #75787b00);
+    }
+    .page_UserManual2_top {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .page_UserManual2_Search {
+        position: relative;
+        width: 100%;
+        background: rgba(117, 120, 123, 0.20);
+        border: 1px solid #75787B;
+        width: 40%;
+        max-width: 584px;
+    }
+    .page_UserManual2_Search input {
+        width: 100%;
+        height: 57px;
+        border-radius: unset;
+        color: #fff;
+        border: unset;
+        padding-left: 16px;
+        padding-right: 16px;
+        letter-spacing: -0.28px;
+        font-size: 14px;
+        background-color: unset;
+    }
+    .page_UserManual2_Search input::placeholder {
+        color: #fff;
+    }
+    .sectionBrandCollection3_button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        bottom: 0;
+        display: flex;
+        width: max-content;
+        padding: 4px 16px;
+        align-items: center;
+        height: 37px;
+        color: #ffff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+    }
+    .page_UserManual2_left {
+        max-width: 878px;
+        display: grid;
+        width: 60%;
+        gap: 80px;
+    }
+    .UserManual2_leftTitle  {
+        display: flex;
+        cursor: pointer;
+        gap: 20px;
+        row-gap: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .UserManual2_leftTitle::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #75787b, #75787b00);
+    }
+    .UserManual2_leftTitle .animated-plus {
+        width: 16px;
+        height: 16px;
+    }
+    .UserManual2_leftTitle .animated-plus::before {
+        width: 16px;
+        height: 2px;
+    }
+    .UserManual2_leftTitle .animated-plus::after {
+        width: 2px;
+        height: 16px;
+    }
+    .UserManual2_leftBox.active .animated-plus:before {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    .UserManual2_leftBox.active .animated-plus:after {
+        transform: translate(-50%,-50%) rotate(90deg);
+    }
+    .UserManual2_leftBox.active .animated-plus::before {
+        opacity: 0;
+    }
+    .UserManual2_leftListSmall {
+        padding-top: 40px;
+    }
+
+    .page_UserManual2All .left-btn, .page_UserManual2All .right-btn  {
+        width: 40px;
+        height: 40px;
+    }
+    .page_UserManual2All .left-btn .section_button2, .page_UserManual2All .right-btn .section_button2{
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+
+    .page_UserManual2All .left-btn svg, .page_UserManual2All .right-btn svg {
+        height: 17px;
+        width: auto;
+    }
+    .page_UserManual2All .left-btn .section_button2, .page_UserManual2All .right-btn .section_button2 {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+
+    .page_UserManual2All .left-btn:hover .section_button2, .page_UserManual2All .right-btn:hover .section_button2{
+        background-color: #ffffff33;
+    }
+    .page_UserManual2All #paginationContainer {
+        display: flex;
+        gap: 80px;
+        justify-content: center;
+        align-items: center;
+    }
+    .pagination_boxItem {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        color: var(--f_color3);
+    }
+    .pagination_boxItem div  {
+        transition: all 0.35s;
+        cursor: pointer;
+    }
+    .pagination_boxItem .active, .pagination_boxItem div:not(.ellipsis):hover{
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .page_UserManual2_bottom {
+        min-height: 460px;
+        display: flex;
+        gap: 80px;
+    }
+    .page_UserManual2_bottom .line2 {
+        height: auto;
+        width: 2px;
+        max-height: 460px;
+        background-color: #fff;
+    }
+    .UserManual2_leftListSmall_titleLeft {
+        display: flex;
+        gap: 40px;
+        align-items: baseline;
+    }
+    .UserManual2_leftListSmall_title {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .UserManual2_leftListSmall_text svg path {
+        transition: all 0.35s;
+    }
+    .UserManual2_leftListSmall_text:hover svg path {
+        fill: var(--f_color3);
+    }
+    .page_UserManual2_right {
+        width: 40%;
+        max-width: 484px;
+        height: max-content;
+        position: sticky;
+        top: 60px;
+    }
+    .page_UserManual2_rightTitle {
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .page_UserManual2_rightListBox {
+        display: inline-block;
+    }
+    .page_UserManual2_rightListBox:not(:last-child) {
+        margin-bottom: 40px;
+    }
+    .page_UserManual2_rightListBox a {
+        transition: all 0.35s;
+    }
+    .page_UserManual2_rightListBox a:hover {
+        color: var(--f_color3);
+    }
+
+  }
+  @media (max-width:999px) {
+     .page_UserManual2All .line {
+        display: none;
+     }
+    .page_UserManual2_Search {
+        position: relative;
+        width: 100%;
+        margin-top: 32px;
+        background: rgba(117, 120, 123, 0.20);
+        border: 1px solid #75787B;
+    }
+    .page_UserManual2_Search input {
+        width: 100%;
+        height: 47px;
+        border-radius: unset;
+        color: #fff;
+        border: unset;
+        padding-left: 16px;
+        padding-right: 16px;
+        letter-spacing: -0.28px;
+        font-size: 12px;
+        background-color: unset;
+    }
+    .page_UserManual2_Search input::placeholder {
+        color: #fff;
+    }
+    .sectionBrandCollection3_button {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        bottom: 0;
+        display: flex;
+        width: max-content;
+        padding: 4px 16px;
+        align-items: center;
+        height: 35px;
+        color: #ffff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+    }
+    .page_UserManual2_bottom {
+        margin-top: 46px;
+    }
+    .page_UserManual2_left {
+        display: grid;
+        gap: 32px;
+    }
+    .UserManual2_leftTitle  {
+        display: flex;
+        cursor: pointer;
+        gap: 20px;
+        row-gap: 32px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .UserManual2_leftTitle::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #75787b, #75787b00);
+    }
+    .UserManual2_leftTitle .animated-plus {
+        min-width: 16px;
+        width: 16px;
+        height: 16px;
+    }
+    .UserManual2_leftListSmall_text svg {
+      min-width: 16px;
+    }
+    .UserManual2_leftTitle .animated-plus::before {
+        width: 16px;
+        height: 2px;
+    }
+    .UserManual2_leftTitle .animated-plus::after {
+        width: 2px;
+        height: 16px;
+    }
+    .UserManual2_leftBox.active .animated-plus:before {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    .UserManual2_leftBox.active .animated-plus:after {
+        transform: translate(-50%,-50%) rotate(90deg);
+    }
+    .UserManual2_leftBox.active .animated-plus::before {
+        opacity: 0;
+    }
+    .UserManual2_leftListSmall {
+        padding-top: 32px;
+    }
+
+    .page_UserManual2All .left-btn, .page_UserManual2All .right-btn  {
+        width: 28px;
+        height: 28px;
+    }
+    .page_UserManual2All .left-btn .section_button2, .page_UserManual2All .right-btn .section_button2{
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--f_color3);
+    }
+
+    .page_UserManual2All .left-btn svg, .page_UserManual2All .right-btn svg {
+        height: 12px;
+        width: auto;
+    }
+    .page_UserManual2All .left-btn .section_button2, .page_UserManual2All .right-btn .section_button2 {
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--f_color3);
+        clip-path: polygon(5px 0%, 100% 0%, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0% 100%, 0% 5px);
+    }
+    .page_UserManual2All .section_button2 .corner-tl, .page_UserManual2All .section_button2 .corner-br {
+        width: 5px;
+        height: 5px;
+    }
+    .page_UserManual2All .left-btn:hover .section_button2, .page_UserManual2All .right-btn:hover .section_button2{
+        background-color: #ffffff33;
+    }
+    .page_UserManual2All #paginationContainer {
+        display: flex;
+        gap: 32px;
+        margin-top: 14px;
+        justify-content: center;
+        align-items: center;
+    }
+    .pagination_boxItem {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        color: var(--f_color3);
+    }
+    .pagination_boxItem div  {
+        transition: all 0.35s;
+        cursor: pointer;
+    }
+    .pagination_boxItem .active, .pagination_boxItem div:not(.ellipsis):hover{
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .page_UserManual2_bottom .line2 {
+        display: none;
+    }
+    .UserManual2_leftListSmall_titleLeft {
+        display: flex;
+        gap: 16px;
+        align-items: baseline;
+    }
+    .UserManual2_leftListSmall_title {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .UserManual2_leftListSmall_text svg path {
+        transition: all 0.35s;
+    }
+    .UserManual2_leftListSmall_text:hover svg path {
+        fill: var(--f_color3);
+    }
+    .page_UserManual2_right {
+      padding-top: 100px;
+    }
+    .page_UserManual2_rightTitle {
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .page_UserManual2_rightListBox {
+        display: inline-block;
+    }
+    .page_UserManual2_rightListBox:not(:last-child) {
+        margin-bottom: 32px;
+    }
+    .page_UserManual2_rightListBox a {
+        transition: all 0.35s;
+    }
+    .page_UserManual2_rightListBox a:hover {
+        color: var(--f_color3);
+    }
+  }
+</style>
+<div class="page_UserManual2All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="page_UserManual2_box {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="page_UserManual2_top">
+        {%- if section.settings.title != blank -%}
+          <h2 class="page_UserManual2_boxTitle my_h_48 font2 my_m_24">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.show_search != blank -%}
+          <div class="page_UserManual2_Search section_button2">
+            <input
+              type="text"
+              placeholder="{{ 'general.search.search2' | t }}"
+              name=""
+              id="searchInput"
+              class="my_h_16"
+            >
+            <div class="sectionBrandCollection3_button my_h_16 my_m_14 font2 section_button2">
+              {{ 'general.search.search' | t }}
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+            <span class="corner-tl"></span>
+            <span class="corner-br"></span>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="line"></div>
+      <div class="page_UserManual2_bottom">
+        {% assign leftDatas = page.metafields.custom.user_manual.value.left_datas %}
+        <div class="page_UserManual2_left">
+          <!-- 你的 leftBox 循环 -->
+          <div class="page_UserManual2_noEmpty my_h_16 my_m_14" style="display: none;">
+            {{ 'general.search.search_empty' | t }}
+          </div>
+          <div id="paginationContainer" class="pagination"></div>
+        </div>
+
+        <div class="line2"></div>
+        <div class="page_UserManual2_right">
+          {% if section.settings.right_title != blank %}
+            <h3 class="page_UserManual2_rightTitle my_h_24 my_m_24 font2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="50" viewBox="0 0 6 50" fill="none">
+                <path d="M6 45L0 50V5L6 0V45Z" fill="#DAB736"/>
+              </svg>
+              {{ section.settings.right_title }}
+            </h3>
+          {% endif %}
+          <div class="page_UserManual2_rightList">
+            {% assign rightDatas = page.metafields.custom.user_manual.value.right_data %}
+            {% for article in rightDatas.value.more_topic_you_may_interested.value %}
+              <div class="page_UserManual2_rightListBox my_h_16 my_m_14">
+                <a href="{{ article.url }}">
+                  {{ article.title }}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="userManualData" type="application/json">
+  [
+    {% for item in leftDatas.value %}
+      {
+        "product_list_title": "{{ item.product_list_title }}",
+        "product_list_faqs": [
+          {% for faq in item.product_list_faqs.value %}
+            {
+              "title": "{{ faq.title }}",
+              "link": "{{ faq.link }}"
+            }{% if forloop.last == false %},{% endif %}
+          {% endfor %}
+        ]
+      }{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+  ]
+</script>
+
+<script>
+  $(function () {
+    const rawData = $('#userManualData').text();
+    const data = JSON.parse(rawData);
+
+    const $root = $('.page_UserManual2_left'); // 容器
+    const $paginationContainer = $('#paginationContainer'); // 分页
+    const $searchInput = $('#searchInput');
+
+    const perPage = `{{ section.settings.data_per_page  }}`;
+    let filteredData = [...data];
+    let currentPage = 1;
+
+    function toggleEmptyState() {
+        if (filteredData.length === 0) {
+            $('.page_UserManual2_noEmpty').show();
+            $('#paginationContainer').hide();
+        } else {
+            $('.page_UserManual2_noEmpty').hide();
+            $('#paginationContainer').show();
+        }
+    }
+
+    function renderHTML(items) {
+      // 清空旧节点，保留分页容器
+      $root.find('.UserManual2_leftBox').remove();
+
+      items.forEach((item, index) => {
+        const $box = $(`
+        <div class="UserManual2_leftBox">
+          <div class="UserManual2_leftTitle my_h_24 my_m_16 font2">
+            ${item.product_list_title}
+            <span class="animated-plus"></span>
+          </div>
+          <div class="UserManual2_leftList">
+            ${(item.product_list_faqs || [])
+              .map((faq) => {
+                if (!faq.title) return '';
+                return `
+                <div class="UserManual2_leftListSmall">
+                  <div class="UserManual2_leftListSmall_title my_h_16 my_m_14">
+                    <div class="UserManual2_leftListSmall_titleLeft">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="1" viewBox="0 0 10 1" fill="none">
+                          <path d="M0 0.5H10" stroke="white"/>
+                        </svg>
+                      </span>
+                      ${faq.title}
+                    </div>
+                    <a href="${faq.link}" target="_blank" class="UserManual2_leftListSmall_text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <g clip-path="url(#clip0_1441_3537)">
+                                <path d="M0 14H16V16H0V14ZM8 13L13 8H10V0H6V8H3L8 13Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1441_3537">
+                                <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                  </div>
+                </div>
+              `;
+              })
+              .join('')}
+          </div>
+        </div>
+      `); 
+
+        // 默认展开第一页第一个
+        if (currentPage === 1 && index === 0) {
+            {% if section.settings.show_first %}
+                $box.addClass('active');
+                $box.find('.UserManual2_leftList').show();
+            {% else %}
+                $box.find('.UserManual2_leftList').hide();
+            {% endif %}
+        } else {
+            $box.find('.UserManual2_leftList').hide();
+        }
+
+        $box.insertBefore($paginationContainer);
+      });
+
+      bindToggle(); // 每次渲染后绑定折叠事件
+    }
+
+    function render(page = 1) {
+      currentPage = page;
+
+        toggleEmptyState(); // 👈 先判断是否为空
+        if (filteredData.length === 0) {
+            // 清空列表
+            $('.UserManual2_leftBox').remove();
+            return;
+        }
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
+      renderHTML(filteredData.slice(start, end));
+      renderPagination();
+
+    }
+
+    function renderPagination() {
+      $paginationContainer.empty();
+      const totalPages = Math.ceil(filteredData.length / perPage);
+      if (totalPages <= 1) return;
+
+      const $prev = $(`
+        <div class="left-btn">
+            <div class="section_button2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                </svg>
+                <span class="corner-tl"></span>
+                <span class="corner-br"></span>
+            </div>
+        </div>
+    `)
+        .prop('disabled', currentPage === 1)
+        .click(() => {
+            render(currentPage - 1);
+            $('html, body').animate({
+                scrollTop: $('.page_UserManual2All').offset().top
+            }, 300);
+        });
+      if (currentPage === 1) {
+        $prev.addClass('no_button'); // 前五不可点击加 no_button
+      }
+      $paginationContainer.append($prev);
+
+      // 清空旧的页码
+      $paginationContainer.find('.pagination_boxItem').remove();
+
+      // 创建容器
+      const $box = $('<div class="pagination_boxItem my_h_20 my_m_16 font2"></div>');
+
+      // 生成页码
+      let start = Math.max(1, currentPage - 2);
+      let end = Math.min(totalPages, currentPage + 2);
+
+      // 如果第一页不在显示范围，显示第一页
+     if (start > 1) {
+        $box.append($('<div></div>').text(1).click(() => {
+        render(1);
+        $('html, body').animate({scrollTop: $('.page_UserManual2All').offset().top}, 300);
+        }));
+        if (start > 2) $box.append('<div class="ellipsis">...</div>');
+    }
+
+    for (let i = start; i <= end; i++) {
+        const $btn = $('<div></div>').text(i).click(() => {
+        render(i);
+        $('html, body').animate({scrollTop: $('.page_UserManual2All').offset().top}, 300);
+        });
+        if (i === currentPage) $btn.addClass('active');
+        $box.append($btn);
+    }
+
+    if (end < totalPages) {
+        if (end < totalPages - 1) $box.append('<div class="ellipsis">...</div>');
+        $box.append($('<div></div>').text(totalPages).click(() => {
+        render(totalPages);
+        $('html, body').animate({scrollTop: $('.page_UserManual2All').offset().top}, 300);
+        }));
+    }
+
+
+      // 插入到分页容器中，放在已有的左右按钮之间
+      // 假设 $paginationContainer 已经有左右按钮存在
+      $paginationContainer.find('.left-btn').after($box);
+
+      const $next = $(`
+     <div class="right-btn">
+        <div class="section_button2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                <path d="M1.25 17.125L0 15.875L7.37499 8.56249L0 1.25L1.25 0L9.87499 8.56249L1.25 17.125Z" fill="white"/>
+            </svg>
+            <span class="corner-tl"></span>
+            <span class="corner-br"></span>
+        </div>
+        </div>
+    `)
+        .prop('disabled', currentPage === totalPages)
+        .click(() => {
+        render(currentPage + 1);
+            $('html, body').animate({scrollTop: $('.page_UserManual2All').offset().top}, 300);
+        });
+      if (currentPage === totalPages) {
+        $next.addClass('no_button'); // 后五不可点击加 no_button
+      }
+      $paginationContainer.append($next);
+    }
+
+    // 搜索
+    $('.sectionBrandCollection3_button').on('click', function () {
+      const keyword = $('#searchInput').val().trim().toLowerCase();
+      filteredData = keyword
+        ? data.filter((item) => {
+            // 匹配分类标题
+            if (item.product_list_title.toLowerCase().includes(keyword)) return true;
+
+            // 匹配每个 FAQ 标题
+            return (item.product_list_faqs || []).some((faq) => faq.title && faq.title.toLowerCase().includes(keyword));
+          })
+        : [...data];
+
+      render(1); // 执行渲染
+    });
+
+    // 展开折叠
+    function bindToggle() {
+      $('.UserManual2_leftTitle')
+        .off('click')
+        .on('click', function () {
+          const $box = $(this).closest('.UserManual2_leftBox');
+          const $list = $box.find('.UserManual2_leftList');
+
+          if ($box.hasClass('active')) {
+            $box.removeClass('active');
+            $list.slideUp();
+          } else {
+            // 关闭其他
+            // $('.UserManual2_leftBox.active').removeClass('active')
+            //   .find('.UserManual2_leftList').slideUp();
+
+            $box.addClass('active');
+            $list.slideDown();
+          }
+        });
+    }
+
+    // 初始渲染
+    render(1);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "User Manual2",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_first",
+      "label": "show first",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "show search",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "data_per_page",
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "data per page"
+    },
+    {
+      "type": "richtext",
+      "id": "right_title",
+      "label": "right title"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "User Manual2",
+      "category": "User Manual Page"
+    }
+  ]
+}
+{% endschema %}

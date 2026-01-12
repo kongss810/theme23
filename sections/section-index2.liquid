@@ -1,0 +1,1481 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index2All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_Index2All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+
+  @media (min-width: 1000px) {
+    .section_Index2Left_tab img,.sectionIndex2_ProductListBox img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+    .sectionIndex2_ProductListBox  .dis1,
+    .sectionIndex2_ProductListBox  .dis2 {
+      background-color: var(--t_color2);
+    }
+    .sectionIndex2RightSwiper {
+        padding: 2px;
+    }
+    .sectionIndex2Right_ProductList_box .swiper-pagination-bullet{
+        opacity: 1;
+        background: #fff;
+        border-radius: 10px;
+    }
+    .sectionIndex2Right_ProductList_box .swiper-button-next::after,.sectionIndex2Right_ProductList_box .swiper-button-prev::after{
+        content: unset;
+    }
+    .sectionIndex2Right_ProductList_box .swiper-pagination {
+        position: unset;
+        height: auto;
+        line-height: 1;
+        margin-top: 5px;
+    }
+    .sectionIndex2Right_ProductList_box .swiper-pagination span{
+        background: rgba(255, 255, 255, 0.5);
+        height: 4px;
+    }
+
+    .sectionIndex2Right_ProductList_box .swiper-pagination-bullet {
+        opacity: 1;
+        position: relative;
+        margin: 0 3px;
+        width: 8px;
+        height: 4px;
+        overflow: hidden;
+        transition: all .3s;
+        border-radius: 8px;
+    }
+
+    .sectionIndex2Right_ProductList_box .swiper-pagination-bullet.swiper-pagination-bullet-active{
+        width: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .section_Index2Left_tab {
+        transition: all 0.35s;
+    }
+    .section_Index2Left_tab.active {
+        --blur-radius: 10px;
+        --x-offset: 2px;
+        --y-offset: -2px;
+        --color: #dab736ad;
+        filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+    }
+    .section_Index2Left_tabPosition {
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      align-items: center;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      padding: 12px;
+    }
+    .section_Index2Left_tab.active .section_Index2Left_tabPosition {
+      display: none;
+    }
+    .section_Index2Left_tab.active .section_button1 {
+        border-color: #DAB736;
+    }
+    .section_Index2Left_tab.active .corner-tl,.section_Index2Left_tab.active .corner-br  {
+        background-color: #DAB736;
+    }
+    .section_Index2Left_tab.active .dis1, .section_Index2Left_tab.active .dis2 {
+        background-color: #DAB736;
+    }
+    .section_Index2Left_tabImg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-image: url('https://cdn.shopify.com/s/files/1/0785/8421/7824/files/image_19_1.png?v=1765506282');
+        bottom: 0;
+        transition: all 0.3s;
+    }
+    .section_Index2Left_tab.active .section_Index2Left_tabImg::after {
+        background-image: unset;
+    }
+    .section_Index2Right_TopBox {
+      display: none;
+    }
+    .section_Index2Right_TopBox.active {
+      display: block;
+    }
+    .section_Index2BannerBox {
+        display: none;
+    }
+    .section_Index2BannerBox.active {
+        display: block;
+    }
+    .section_Index2BannerBox_productBox {
+        display: none;
+    }
+    .section_Index2BannerBox_productBox.active {
+        display: block;
+    }
+    .section_Index2_text {
+        margin-top: 10px;
+        color: var(--f_color3);
+    }
+    .section_Index2_box {
+        margin-top: 44px;
+        display: flex;
+        gap: 132px;
+    }
+    .section_Index2Left {
+        position: relative;
+        margin-top: 40px;
+        height: max-content;
+    }
+    .section_Index2Left_tab {
+        position: relative;
+        height: 149px;
+    }
+    .section_Index2Left_tabImg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-width: 160px;
+    }
+
+    .section_Index2Right_bottomTitle  {
+        color: var(--f_color3);
+        margin-top: 20px;
+    }
+    .section_Index2Right_bottomButton {
+
+        height: 37px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 0 16px;
+        color: #fff;
+        margin-top: 40px;
+        margin-left: auto;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+        align-items: center;
+    }
+    .section_Index2RightBox {
+        display: none;
+    }
+    .section_Index2RightBox.active {
+        display: block;
+    }
+    .sectionIndex2LeftSwiper {
+        height: 702px;
+        padding-left: 2px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        padding-right: 28px;
+    }
+    .section_Index2Left .swiper-button-next-vertical,
+    .section_Index2Left .swiper-button-prev-vertical {
+        position: absolute;
+        z-index: 2 !important;
+        width: 46px;
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+    .section_Index2Left .swiper-button-next-vertical {
+        bottom: -46px;
+        top: unset;
+    }
+
+    .section_Index2Left .swiper-button-prev-vertical {
+        top: -16px;
+    }
+    .section_Index2Banner {
+        width: 40%;
+    }
+    .section_Index2BannerBox{
+        position: relative;
+        height: 772px;
+    }
+    .section_Index2BannerBox img {
+        width: 100% ;
+    }
+    .section_Index2Right {
+        width: 30%;
+        min-width: 375px;
+    }
+    .section_Index2Right .swiper-button-prev {
+        left: 0;
+    }
+    .section_Index2Right .swiper-button-next {
+        right: 0;
+    }
+    .sectionIndex2_ProductListBox {
+        max-width: 240px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .sectionIndex2_ProductListBox  .section_button1 {
+        text-align: center;
+        display: block;
+    }
+    .sectionIndex2_ProductListBox img {
+        height: 175px;
+        width: auto;
+        margin: 0 auto;
+    }
+    .sectionIndex2Right_ProductList_box {
+        position: relative;
+        margin-top: 10px;
+    }
+    .section_Index2All .swiper-button-prev, .section_Index2All .swiper-button-next  {
+        width: 40px;
+        height: 40px;
+    }
+    .section_Index2All .swiper-button-prev .section_button2, .section_Index2All .swiper-button-next .section_button2{
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--f_color3);
+    }
+    .section_Index2Right .swiper-button-prev svg, .section_Index2Right .swiper-button-next svg {
+        height: 17px;
+        width: auto;
+    }
+    .section_Index2Left .swiper-button-prev svg, .section_Index2Left .swiper-button-next svg {
+        height: auto;
+        width: 17px;
+    }
+    .section_Index2All .swiper-button-prev:hover .section_button2, .section_Index2All .swiper-button-next:hover .section_button2{
+        background-color: #ffffff33;
+    }
+
+    .section_Index2Right_TopBoxSmall {
+        display: grid;
+        gap: 20px;
+        height: max-content;
+    }
+    .sectionIndex2Right_topBox_title {
+        color: var(--t_color2);
+    }
+    .sectionIndex2Right_topBox_text {
+        margin-top: 10px;
+        color: var(--f_color3);
+    }
+    .sectionIndex2Right_topBox {
+        position: relative;
+        padding: 20px 28px;
+        height: 138px;
+        background-image: url(https://cdn.shopify.com/s/files/1/0785/8421/7824/files/Subtract.png?v=1765519739);
+        background-size: 100% 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sectionIndex2Right_topBox::after {
+        width: 2px;
+        height: 40px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 40px;
+        background-color: var(--t_color2);
+    }
+
+    .section_Index2BannerBox_img img{
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        width: calc(100% + 130px); /* 左右各加 65px */
+        margin-left: -65px;        /* 居中补偿 */
+        margin-right: -65px;
+        display: block;
+    }
+    .section_Index2BannerBox {
+        text-align: center;
+    }
+    .section_Index2BannerBox_text    {
+        color: var(--f_color3);
+    }
+    .section_Index2BannerBox .section_button1 {
+        padding: 26px;
+        background: linear-gradient(
+            180deg,
+            rgba(117, 120, 123, 0.06) 35.58%,
+            rgba(218, 183, 54, 0.08) 100%
+        );
+        border-color: var(--t_color2);
+    }
+    .section_Index2BannerBox .corner-tl,.section_Index2BannerBox .corner-br  {
+        background-color: var(--t_color2);
+    }
+    .section_Index2BannerBox .dis1,
+    .section_Index2BannerBox .dis2,
+    .section_Index2BannerBox .dis3,
+    .section_Index2BannerBox .dis4 {
+      background-color: var(--t_color2);
+    }
+    .section_Index2Banner {
+        position: relative;
+    }
+    .section_Index2BannerBox_svg {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: -131px;
+    }
+    /* .section_Index2BannerBox_svg svg {
+        transition: all 0.5s;
+    }
+    .section_Index2Banner.active .section_Index2BannerBox_svg svg {
+        transform: translateX(-131px);
+    } */
+    .section_Index2BannerBox_svg1 {
+        top: 40px;
+    }
+    .section_Index2BannerBox_svg2 {
+        top: 196px;
+    }
+    .section_Index2BannerBox_svg3 {
+        top: 352px;
+    }
+
+  }
+  @media (max-width:999px) {
+    .section_IndexM2Left_tab img,.sectionIndex2M_ProductListBox img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+    .sectionIndex2M_ProductListBox  .dis1,
+    .sectionIndex2M_ProductListBox  .dis2 {
+      background-color: var(--t_color2);
+    }
+    .sectionIndexM2RightSwiper {
+        padding: 2px;
+        position: relative;
+    }
+    .sectionIndex2MRight_ProductList_box .swiper-pagination-bullet{
+        opacity: 1;
+        background: #fff;
+        border-radius: 10px;
+    }
+    .sectionIndex2MRight_ProductList_box .swiper-button-next::after,.sectionIndex2MRight_ProductList_box .swiper-button-prev::after{
+        content: unset;
+    }
+
+    .section_IndexM2Left_tab {
+        transition: all 0.35s;
+    }
+    .section_IndexM2Left_tab.active {
+        --blur-radius: 10px;
+        --x-offset: 2px;
+        --y-offset: -2px;
+        --color: #dab736ad;
+        filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+    }
+    .section_IndexM2Left_tabPosition {
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      align-items: center;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      padding: 12px;
+    }
+    .section_IndexM2Left_tab.active .section_IndexM2Left_tabPosition {
+      display: none;
+    }
+    .section_IndexM2Left_tab.active .section_button1 {
+        border-color: #DAB736;
+    }
+    .section_IndexM2Left_tab.active .corner-tl,.section_IndexM2Left_tab.active .corner-br  {
+        background-color: #DAB736;
+    }
+    .section_IndexM2Left_tab.active .dis1, .section_IndexM2Left_tab.active .dis2 {
+        background-color: #DAB736;
+    }
+    .section_IndexM2Left_tabImg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-image: url('https://cdn.shopify.com/s/files/1/0785/8421/7824/files/image_19_1.png?v=1765506282');
+        bottom: 0;
+        transition: all 0.3s;
+    }
+    .section_IndexM2Left_tab.active .section_IndexM2Left_tabImg::after {
+        background-image: unset;
+    }
+    .section_IndexM2Right_TopBox {
+      display: none;
+    }
+    .section_IndexM2Right_TopBox.active {
+      display: block;
+    }
+    .section_IndexM2BannerBox_productBox {
+        display: none;
+    }
+    .section_IndexM2BannerBox_productBox.active {
+        display: block;
+    }
+    .section_Index2_title {
+      max-width: 300px;
+    }
+    .section_Index2_text {
+        margin-top: 10px;
+        color: var(--f_color3);
+    }
+    .section_IndexM2Left {
+        position: relative;
+        margin-top: 16px;
+        height: max-content;
+    }
+    .section_IndexM2Left_tab {
+        position: relative;
+        height: 104px;
+    }
+    .section_IndexM2Left_tabImg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .section_IndexM2Right_bottomTitle  {
+        color: var(--f_color3);
+        margin-top: 20px;
+    }
+    .section_IndexM2Right_bottomButton {
+      width: max-content;
+      height: 35px;
+      display: flex;
+      min-width: 116px;
+      margin: 0 auto;
+      justify-content: center;
+      padding: 0 16px;
+      color: #fff;
+      margin-top: 30px;
+      margin-left: auto;
+      background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+      align-items: center;
+    }
+    .section_IndexM2Right {
+      margin-top: 30px;
+    }
+    .section_IndexM2RightBox {
+        display: none;
+    }
+    .section_IndexM2RightBox.active {
+        display: block;
+    }
+
+    .section_IndexM2BannerBox{
+        position: relative;
+        height: 338px;
+        max-width: 247px;
+    }
+    .section_IndexM2BannerBox img {
+        width: 100% ;
+    }
+
+    .section_IndexM2Right .swiper-button-prev {
+        left: 0;
+    }
+    .section_IndexM2Right .swiper-button-next {
+        right: 0;
+    }
+
+
+    .section_IndexM2_box .swiper-button-prev, .section_IndexM2_box .swiper-button-next  {
+        width: 28px;
+        height: 28px;
+    }
+    .section_IndexM2_box .swiper-button-prev .section_button2, .section_IndexM2_box .swiper-button-next .section_button2{
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--f_color3);
+    }
+
+    .section_IndexM2_box .swiper-button-next svg,.section_IndexM2_box .swiper-button-prev svg {
+      width: 6px;
+      height: auto;
+    }
+
+    .sectionIndex2MRight_topBox_title {
+        color: var(--t_color2);
+    }
+    .sectionIndex2MRight_topBox_text {
+        margin-top: 8px;
+        color: var(--f_color3);
+    }
+    .sectionIndex2MRight_topBox {
+        position: relative;
+        padding: 20px;
+        height: 116px;
+
+        background-image: url(https://cdn.shopify.com/s/files/1/0785/8421/7824/files/Frame_1110.png?v=1767662213);
+        background-size: 100% 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+    }
+    .section_IndexM2BannerBox_img img{
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        width: calc(100% + 20px); /* 左右各加 65px */
+        margin-left: -10px;        /* 居中补偿 */
+        margin-right: -10px;
+        display: block;
+    }
+    .section_IndexM2BannerBox {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .section_IndexM2BannerBox_text  {
+        color: var(--f_color3);
+        margin-top: 6px;
+        letter-spacing: -0.96px;
+    }
+    .section_IndexM2BannerBox .section_button1 {
+        padding: 18px 14px;
+        background: linear-gradient(
+            180deg,
+            rgba(117, 120, 123, 0.06) 35.58%,
+            rgba(218, 183, 54, 0.08) 100%
+        );
+        border-color: var(--t_color2);
+    }
+    .section_IndexM2BannerBox .corner-tl,.section_IndexM2BannerBox .corner-br  {
+        background-color: var(--t_color2);
+    }
+    .section_IndexM2BannerBox .dis1,
+    .section_IndexM2BannerBox .dis2,
+    .section_IndexM2BannerBox .dis3,
+    .section_IndexM2BannerBox .dis4 {
+      background-color: var(--t_color2);
+    }
+    .section_IndexM2Banner {
+      position: relative;
+      margin-top: 16px;
+    }
+    .section_Index2All {
+      overflow: hidden;
+    }
+    .sectionIndex2MLeftSwiper {
+      padding: 16px 1px;
+      overflow: unset;
+    }
+    .sectionIndexM2BannerSwiper {
+      padding: 1px 0;
+    }
+    .sectionIndexM2RightSwiper .swiper-pagination-bullet{
+        opacity: 1;
+        background: #fff;
+        border-radius: 10px;
+    }
+    .sectionIndexM2RightSwiper .swiper-pagination {
+        height: auto;
+        line-height: 1;
+        margin-top: 5px;
+        bottom: 20px;
+    }
+    .sectionIndexM2RightSwiper .swiper-pagination span{
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .sectionIndexM2RightSwiper .swiper-pagination-bullet {
+        opacity: 1;
+        position: relative;
+        margin: 0 3px;
+        width: 8px;
+        height: 2px;
+        overflow: hidden;
+        transition: all .3s;
+        border-radius: 8px;
+    }
+
+    .sectionIndexM2RightSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+        width: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+    .section_IndexM2_box .swiper-button-prev {
+      left: 0;
+    }
+    .section_IndexM2_box .swiper-button-next {
+      right: 0;
+    }
+    .section_IndexM2_box .section_button2, .section_IndexM2_box .section_button2 {
+      clip-path: polygon(5px 0%, 100% 0%, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0% 100%, 0% 5px);
+    }
+    .section_IndexM2_box .section_button2 .corner-tl,.section_IndexM2_box .section_button2 .corner-br {
+        width: 5px;
+        height: 5px;
+
+    }
+  }
+    /* 保证 path 可见并可动画化（兼容性保底） */
+  .section_Index2BannerBox_svg svg path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* 不设置 stroke-dasharray/dashoffset 这里，由 JS 动态写入 */
+    will-change: stroke-dashoffset;
+  }
+</style>
+<div class="section_Index2All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="section_Index2_title font2 my_h_48 my_m_24">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <div class="section_Index2_text my_h_20 font2 my_m_16">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+    <div class="pad_pc">
+      <div class="section_Index2_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="section_Index2Left">
+          <div class="swiper-button-prev swiper-button-prev-vertical">
+            <div class="section_button2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                <path d="M3.8296e-06 8.625L1.25 9.875L8.56251 2.50001L15.875 9.875L17.125 8.625L8.56251 7.52729e-06L3.8296e-06 8.625Z" fill="white"/>
+              </svg>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+          </div>
+          <div class="swiper sectionIndex2LeftSwiper">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide section_Index2Left_tab  {% if forloop.first %} active {% endif %}">
+                  <div class="section_button1 section_Index2Left_tabImg">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.tab_img | img_url:'master' }}"
+                      alt="{{ block.settings.tab_img.alt }}"
+                    >
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                    <div class="section_Index2Left_tabPosition my_h_24 font2">
+                      {{ block.settings.tab_text }}
+                    </div>
+                  </div>
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-button-next swiper-button-next-vertical">
+            <div class="section_button2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                <path d="M17.125 1.25L15.875 6.93918e-07L8.56249 7.37499L1.25 5.46392e-08L-5.46392e-08 1.25L8.56249 9.87499L17.125 1.25Z" fill="white"/>
+              </svg>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+          </div>
+        </div>
+        <div class="section_Index2Banner">
+          <div class="section_Index2BannerBox_small">
+            {% for block in section.blocks %}
+              {%- assign productList = block.settings.product_list -%}
+              <div class="section_Index2BannerBox_productBox  {% if forloop.first %} active {% endif %}">
+                {% for product in productList %}
+                  {% assign item = product.metafields.custom.index_product_metafields.value %}
+
+                  <div class="section_Index2BannerBox {% if forloop.first %} active {% endif %}">
+                    <div class="section_button1">
+                      <div class="section_Index2BannerBox_title my_h_64 font2">
+                        {{ product.title }}
+                      </div>
+                      {% if product.metafields.custom.short_description.value != blank %}
+                        <div class="section_Index2BannerBox_text my_h_20 font2">
+                          {{ product.metafields.custom.short_description.value }}
+                        </div>
+                      {% endif %}
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                    <span class="dis3"></span>
+                    <span class="dis4"></span>
+
+                    <div class="section_Index2BannerBox_img">
+                      <img
+                        loading="lazy"
+                        src="{{ item.img | img_url:'master' }}"
+                        alt="{{ item.img.alt }}"
+                      >
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="section_Index2BannerBox_svg section_Index2BannerBox_svg1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="131" height="21" viewBox="0 0 131 21" fill="none">
+              <path d="M0 0.25H60L80 20.25H131" stroke="url(#paint0_linear_456_304)" stroke-width="0.5"/>
+              <defs>
+                  <linearGradient id="paint0_linear_456_304" x1="0" y1="10.25" x2="131" y2="10.25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75787B"/>
+                  <stop offset="1" stop-color="#75787B" stop-opacity="0"/>
+                  </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="section_Index2BannerBox_svg section_Index2BannerBox_svg2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="131" height="21" viewBox="0 0 131 21" fill="none">
+              <path d="M0 0.25H60L80 20.25H131" stroke="url(#paint0_linear_456_304)" stroke-width="0.5"/>
+              <defs>
+                  <linearGradient id="paint0_linear_456_304" x1="0" y1="10.25" x2="131" y2="10.25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75787B"/>
+                  <stop offset="1" stop-color="#75787B" stop-opacity="0"/>
+                  </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="section_Index2BannerBox_svg section_Index2BannerBox_svg3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="131" height="21" viewBox="0 0 131 21" fill="none">
+              <path d="M0 0.25H60L80 20.25H131" stroke="url(#paint0_linear_456_304)" stroke-width="0.5"/>
+              <defs>
+                  <linearGradient id="paint0_linear_456_304" x1="0" y1="10.25" x2="131" y2="10.25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75787B"/>
+                  <stop offset="1" stop-color="#75787B" stop-opacity="0"/>
+                  </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="section_Index2Right">
+          {% for block in section.blocks %}
+            {%- assign productList = block.settings.product_list -%}
+            <div class="section_Index2RightBox {% if forloop.first %} active {% endif %}">
+              <div class="section_Index2Right_top">
+                {% for product in productList %}
+                  {% assign item = product.metafields.custom.index_product_metafields.value %}
+                  <div class="section_Index2Right_TopBox  {% if forloop.first %} active {% endif %}">
+                    <div class="section_Index2Right_TopBoxSmall">
+                      <div class="sectionIndex2Right_topBox">
+                        {% if item.title != blank %}
+                          <div class="sectionIndex2Right_topBox_title font2 my_h_24 h_2">
+                            {{ item.title }}
+                          </div>
+                        {% endif %}
+                        {% if item.text != blank %}
+                          <div class="sectionIndex2Right_topBox_text my_h_16 h_2">
+                            {{ item.text }}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="sectionIndex2Right_topBox">
+                        {% if item.title2 != blank %}
+                          <div class="sectionIndex2Right_topBox_title font2 my_h_24 h_2">
+                            {{ item.title2 }}
+                          </div>
+                        {% endif %}
+                        {% if item.text != blank %}
+                          <div class="sectionIndex2Right_topBox_text my_h_16 h_2">
+                            {{ item.text2 }}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="sectionIndex2Right_topBox">
+                        {% if item.title3 != blank %}
+                          <div class="sectionIndex2Right_topBox_title font2 my_h_24 h_2">
+                            {{ item.title3 }}
+                          </div>
+                        {% endif %}
+                        {% if item.text3 != blank %}
+                          <div class="sectionIndex2Right_topBox_text my_h_16 h_2">
+                            {{ item.text3 }}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="section_Index2Right_bottom">
+                <div class="section_Index2Right_ProductList">
+                  {% if section.settings.more_products != blank %}
+                    <div class="section_Index2Right_bottomTitle my_h_20 font2">
+                      {{ section.settings.more_products }}
+                    </div>
+                  {% endif %}
+                  <div class="sectionIndex2Right_ProductList_box">
+                    <div class="swiper sectionIndex2RightSwiper">
+                      <div class="swiper-wrapper">
+                        {% for product in productList %}
+                          <div class="swiper-slide">
+                            <div class="sectionIndex2_ProductListBox">
+                              <a href="{{ product.url }}" class="section_button1">
+                                <img
+                                  src="{{ product.featured_image | img_url:'master' }}"
+                                  alt="{{ product.featured_image.alt }}"
+                                >
+                                <span class="corner-tl"></span>
+                                <span class="corner-br"></span>
+                              </a>
+                              <span class="dis1"></span>
+                              <span class="dis2"></span>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+
+                    <div class="swiper-button-prev">
+                      <div class="section_button2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                          <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                        </svg>
+                        <span class="corner-tl"></span>
+                        <span class="corner-br"></span>
+                      </div>
+                    </div>
+                    <div class="swiper-button-next">
+                      <div class="section_button2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                          <path d="M1.25 17.125L0 15.875L7.37499 8.56249L0 1.25L1.25 0L9.87499 8.56249L1.25 17.125Z" fill="white"/>
+                        </svg>
+                        <span class="corner-tl"></span>
+                        <span class="corner-br"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="section_Index2Right_bottomList"></div>
+                {% if section.settings.shop_all != blank %}
+                  <a
+                    href="{{ block.settings.shop_all_url }}"
+                    class="section_Index2Right_bottomButton my_h_16 section_button2 font2"
+                  >
+                    {{ section.settings.shop_all }}
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="pad_mobile">
+      <div class="section_IndexM2_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="section_IndexM2Left">
+          <div class="swiper sectionIndex2MLeftSwiper">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide section_IndexM2Left_tab  {% if forloop.first %} active {% endif %}">
+                  <div class="section_button1 section_IndexM2Left_tabImg">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.tab_img | img_url:'master' }}"
+                      alt="{{ block.settings.tab_img.alt }}"
+                    >
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                    <div class="section_IndexM2Left_tabPosition my_m_16 font2">
+                      {{ block.settings.tab_text }}
+                    </div>
+                  </div>
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="section_IndexM2Banner">
+          <div class="section_IndexM2BannerBox_small">
+            {% for block in section.blocks %}
+              {%- assign productList = block.settings.product_list -%}
+              <div class="section_IndexM2BannerBox_productBox  {% if forloop.first %} active {% endif %}">
+                <div class="swiper sectionIndexM2BannerSwiper">
+                  <div class="swiper-wrapper">
+                    {% for product in productList %}
+                      {% assign item = product.metafields.custom.index_product_metafields.value %}
+                      <div class="swiper-slide">
+                        <div class="section_IndexM2BannerBox">
+                          <div class="section_button1">
+                            <div class="section_IndexM2BannerBox_title my_m_36 font2">
+                              {{ product.title }}
+                            </div>
+                            {% if product.metafields.custom.short_description.value != blank %}
+                              <div class="section_IndexM2BannerBox_text my_m_16 font2">
+                                {{ product.metafields.custom.short_description.value }}
+                              </div>
+                            {% endif %}
+                            <span class="corner-tl"></span>
+                            <span class="corner-br"></span>
+                          </div>
+                          <span class="dis1"></span>
+                          <span class="dis2"></span>
+
+                          <div class="section_IndexM2BannerBox_img">
+                            <img
+                              loading="lazy"
+                              src="{{ item.img | img_url:'master' }}"
+                              alt="{{ item.img.alt }}"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="swiper-button-prev">
+                    <div class="section_button2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                        <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                      </svg>
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                  </div>
+                  <div class="swiper-button-next">
+                    <div class="section_button2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+                        <path d="M1.25 17.125L0 15.875L7.37499 8.56249L0 1.25L1.25 0L9.87499 8.56249L1.25 17.125Z" fill="white"/>
+                      </svg>
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="section_IndexM2Right">
+          {% for block in section.blocks %}
+            {%- assign productList = block.settings.product_list -%}
+            <div class="section_IndexM2RightBox {% if forloop.first %} active {% endif %}">
+              <div class="section_IndexM2Right_top">
+                {% for product in productList %}
+                  {% assign item = product.metafields.custom.index_product_metafields.value %}
+
+                  <div class="section_IndexM2Right_TopBox  {% if forloop.first %} active {% endif %}">
+                    <div class="section_IndexM2Right_TopBoxSmall">
+                      <div class="swiper sectionIndexM2RightSwiper">
+                        <div class="swiper-wrapper">
+                          <div class="sectionIndex2MRight_topBox swiper-slide">
+                            {% if item.title != blank %}
+                              <div class="sectionIndex2MRight_topBox_title font2 my_m_16 h_2">
+                                {{ item.title }}
+                              </div>
+                            {% endif %}
+                            {% if item.text != blank %}
+                              <div class="sectionIndex2MRight_topBox_text my_m_14 h_2">
+                                {{ item.text }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <div class="sectionIndex2MRight_topBox swiper-slide">
+                            {% if item.title2 != blank %}
+                              <div class="sectionIndex2MRight_topBox_title font2 my_m_16 h_2">
+                                {{ item.title2 }}
+                              </div>
+                            {% endif %}
+                            {% if item.text != blank %}
+                              <div class="sectionIndex2MRight_topBox_text my_m_14 h_2">
+                                {{ item.text2 }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <div class="sectionIndex2MRight_topBox swiper-slide">
+                            {% if item.title3 != blank %}
+                              <div class="sectionIndex2MRight_topBox_title font2 my_m_16 h_2">
+                                {{ item.title3 }}
+                              </div>
+                            {% endif %}
+                            {% if item.text3 != blank %}
+                              <div class="sectionIndex2MRight_topBox_text my_m_14 h_2">
+                                {{ item.text3 }}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="section_IndexM2Right_bottom">
+                <div class="section_IndexM2Right_bottomList"></div>
+                {% if section.settings.shop_all != blank %}
+                  <a
+                    href="{{ block.settings.shop_all_url }}"
+                    class="section_IndexM2Right_bottomButton my_h_16 section_button2 font2"
+                  >
+                    {{ section.settings.shop_all }}
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $('.section_Index2Left_tab').click(function () {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+    var swiper = new Swiper('.sectionIndex2LeftSwiper', {
+      // loop: true,
+      direction: 'vertical', // 关键
+      observer: true,
+      observeParents: true,
+      slidesPerView: 'auto',
+      spaceBetween: 22,
+      allowTouchMove: false,
+      navigation: {
+        nextEl: '.section_Index2Left .swiper-button-next-vertical',
+        prevEl: '.section_Index2Left .swiper-button-prev-vertical',
+      },
+    });
+
+    document.querySelectorAll('.sectionIndex2RightSwiper').forEach(function (swiperEl) {
+      const swiperWrapper = swiperEl.querySelector('.swiper-wrapper');
+      const slideCount = swiperWrapper.querySelectorAll('.swiper-slide').length;
+
+      const prevBtn = swiperEl.parentElement.querySelector('.sectionIndex2Right_ProductList_box .swiper-button-prev');
+      const nextBtn = swiperEl.parentElement.querySelector('.sectionIndex2Right_ProductList_box .swiper-button-next');
+
+      let swiperInstance;
+
+      if (slideCount > 1) {
+        swiperInstance = new Swiper(swiperEl, {
+          observeParents: true,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          // allowTouchMove: false,
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn,
+          },
+          pagination: {
+            el: swiperEl.querySelector('.sectionIndex2RightSwiper .swiper-pagination'),
+            clickable: true,
+          },
+        });
+
+        if (prevBtn) prevBtn.style.display = 'block';
+        if (nextBtn) nextBtn.style.display = 'block';
+      } else {
+        // 如果只有1个，不初始化，按钮隐藏
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+      }
+    });
+
+    /*
+  ----------------------------------------------
+  ① 大类切换：section_Index2Left_tab
+  ----------------------------------------------
+  */
+    $('.section_Index2Left_tab').each(function (tabIndex) {
+      $(this).on('click', function () {
+        // 左侧激活
+        $(this).addClass('active').siblings().removeClass('active');
+
+        /*
+        ==========================================
+        显示对应中间 Banner （大类）
+        ==========================================
+        */
+        const bannerBoxes = document.querySelectorAll('.section_Index2BannerBox_productBox');
+        bannerBoxes.forEach((box, i) => {
+          box.classList.toggle('active', i === tabIndex);
+
+          if (i === tabIndex) {
+            // 小分类重置为 0
+            const innerBanner = box.querySelectorAll('.section_Index2BannerBox');
+            innerBanner.forEach((b, idx) => b.classList.toggle('active', idx === 0));
+            $('.section_Index2Banner').addClass('active');
+            setTimeout(function () {
+              $('.section_Index2Banner').removeClass('active');
+            }, 500);
+          }
+        });
+
+        /*
+    ==========================================
+    显示对应右侧内容（大类）
+    ==========================================
+    */
+        const rightBoxes = document.querySelectorAll('.section_Index2RightBox');
+        rightBoxes.forEach((box, i) => {
+          box.classList.toggle('active', i === tabIndex);
+
+          if (i === tabIndex) {
+            // 重置小分类文案
+            const topItems = box.querySelectorAll('.section_Index2Right_TopBox');
+            topItems.forEach((item, idx) => item.classList.toggle('active', idx === 0));
+            $('.section_Index2Banner').addClass('active');
+            setTimeout(function () {
+              $('.section_Index2Banner').removeClass('active');
+            }, 500);
+          }
+        });
+
+        /*
+    ==========================================
+    重置右侧 swiper 到 slide 0
+    ==========================================
+    */
+        const currentSwiperEl = document.querySelectorAll('.sectionIndex2RightSwiper')[tabIndex];
+        if (currentSwiperEl && currentSwiperEl.swiper) {
+          currentSwiperEl.swiper.slideTo(0, 0); // 非动画立即切换
+        }
+      });
+    });
+
+    /*
+  ----------------------------------------------
+  ② 小分类切换：右侧 Swiper
+  ----------------------------------------------
+  */
+    document.querySelectorAll('.sectionIndex2RightSwiper').forEach(function (swiperEl, blockIndex) {
+      const slider = swiperEl.swiper;
+      if (!slider) return;
+
+      slider.on('slideChange', function () {
+        const idx = slider.activeIndex;
+
+        // 右侧主体
+        const rightBox = document.querySelectorAll('.section_Index2RightBox')[blockIndex];
+
+        // 顶部文案切换
+        const topBoxes = rightBox.querySelectorAll('.section_Index2Right_TopBox');
+        topBoxes.forEach((el, i) => el.classList.toggle('active', i === idx));
+
+        // 中间 Banner 小分类切换
+        const bannerWrap = document.querySelectorAll('.section_Index2BannerBox_productBox')[blockIndex];
+        const banners = bannerWrap.querySelectorAll('.section_Index2BannerBox');
+        banners.forEach((el, i) => el.classList.toggle('active', i === idx));
+
+        $('.section_Index2Banner').addClass('active');
+        setTimeout(function () {
+          $('.section_Index2Banner').removeClass('active');
+        }, 500);
+      });
+    });
+
+    // mobile
+
+    $('.section_IndexM2Left_tab').click(function () {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+    var sectionIndex2MLeftSwiper = new Swiper('.sectionIndex2MLeftSwiper', {
+      // loop: true,
+      observer: true,
+      observeParents: true,
+      slidesPerView: 2.4,
+      spaceBetween: 20,
+      // allowTouchMove: false,
+    });
+
+    document.querySelectorAll('.sectionIndexM2BannerSwiper').forEach(function (swiperEl) {
+      const swiperWrapper = swiperEl.querySelector('.swiper-wrapper');
+      const slideCount = swiperWrapper.querySelectorAll('.swiper-slide').length;
+
+      const prevBtn = swiperEl.parentElement.querySelector('.sectionIndexM2BannerSwiper .swiper-button-prev');
+      const nextBtn = swiperEl.parentElement.querySelector('.sectionIndexM2BannerSwiper .swiper-button-next');
+
+      let swiperInstance;
+
+      if (slideCount > 1) {
+        swiperInstance = new Swiper(swiperEl, {
+          observeParents: true,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          // allowTouchMove: false,
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn,
+          },
+          pagination: {
+            el: swiperEl.querySelector('.sectionIndexM2BannerSwiper .swiper-pagination'),
+            clickable: true,
+          },
+        });
+
+        if (prevBtn) prevBtn.style.display = 'block';
+        if (nextBtn) nextBtn.style.display = 'block';
+      } else {
+        // 如果只有1个，不初始化，按钮隐藏
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.sectionIndexM2RightSwiper').forEach(function (swiperEl) {
+      const swiperWrapper = swiperEl.querySelector('.swiper-wrapper');
+      const slideCount = swiperWrapper.querySelectorAll('.swiper-slide').length;
+
+      const prevBtn = swiperEl.parentElement.querySelector('.sectionIndexM2RightSwiper .swiper-button-prev');
+      const nextBtn = swiperEl.parentElement.querySelector('.sectionIndexM2RightSwiper .swiper-button-next');
+
+      let swiperInstance;
+
+      if (slideCount > 1) {
+        swiperInstance = new Swiper(swiperEl, {
+          observeParents: true,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          // allowTouchMove: false,
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn,
+          },
+          pagination: {
+            el: swiperEl.querySelector('.sectionIndexM2RightSwiper .swiper-pagination'),
+            clickable: true,
+          },
+        });
+
+        if (prevBtn) prevBtn.style.display = 'block';
+        if (nextBtn) nextBtn.style.display = 'block';
+      } else {
+        // 如果只有1个，不初始化，按钮隐藏
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+      }
+    });
+
+    $('.section_IndexM2Left_tab').each(function (tabIndex) {
+      $(this).on('click', function () {
+        // 左侧激活
+        $(this).addClass('active').siblings().removeClass('active');
+
+        /*
+        ==========================================
+        显示对应中间 Banner （大类）
+        ==========================================
+        */
+        const bannerBoxes = document.querySelectorAll('.section_IndexM2BannerBox_productBox');
+        bannerBoxes.forEach((box, i) => {
+          box.classList.toggle('active', i === tabIndex);
+        });
+
+        /*
+          ==========================================
+          显示对应右侧内容（大类）
+          ==========================================
+          */
+        const rightBoxes = document.querySelectorAll('.section_IndexM2RightBox');
+        rightBoxes.forEach((box, i) => {
+          box.classList.toggle('active', i === tabIndex);
+
+          if (i === tabIndex) {
+            // 重置小分类文案
+            const topItems = box.querySelectorAll('.section_IndexM2Right_TopBox');
+            topItems.forEach((item, idx) => item.classList.toggle('active', idx === 0));
+            $('.section_IndexM2Banner').addClass('active');
+            setTimeout(function () {
+              $('.section_IndexM2Banner').removeClass('active');
+            }, 500);
+          }
+        });
+
+        /*
+        ==========================================
+        重置右侧 swiper 到 slide 0
+        ==========================================
+        */
+        const currentSwiperEl = document.querySelectorAll('.sectionIndexM2RightSwiper')[tabIndex];
+        if (currentSwiperEl && currentSwiperEl.swiper) {
+          currentSwiperEl.swiper.slideTo(0, 0); // 非动画立即切换
+        }
+      });
+    });
+
+    document.querySelectorAll('.sectionIndexM2BannerSwiper').forEach(function (swiperEl, blockIndex) {
+      const slider = swiperEl.swiper;
+      if (!slider) return;
+
+      slider.on('slideChange', function () {
+        const idx = slider.activeIndex;
+
+        // 当前右侧大类
+        const rightBox = document.querySelectorAll('.section_IndexM2RightBox')[blockIndex];
+        if (!rightBox) return;
+
+        // 当前所有 TopBox
+        const topBoxes = rightBox.querySelectorAll('.section_IndexM2Right_TopBox');
+
+        topBoxes.forEach((el, i) => {
+          const isActive = i === idx;
+          el.classList.toggle('active', isActive);
+
+          // 只 reset 当前激活的 TopBox 里的 swiper
+          if (isActive) {
+            const innerSwiper = el.querySelector('.sectionIndexM2RightSwiper');
+
+            if (innerSwiper && innerSwiper.swiper) {
+              innerSwiper.swiper.slideTo(0, 0);
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "section Index2",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "text"
+    },
+    {
+      "type": "textarea",
+      "id": "more_products",
+      "label": "more products title"
+    },
+    {
+      "type": "text",
+      "id": "shop_all",
+      "label": "shop all text"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tab_img",
+          "label": "tab img"
+        },
+        {
+          "type": "textarea",
+          "id": "tab_text",
+          "label": "tab text"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "product list",
+          "limit": 5
+        },
+        {
+          "type": "url",
+          "id": "shop_all_url",
+          "label": "shop all url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index2",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,356 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index10All{
+    margin-top: {{section.settings.Desktop_top}}px;
+    margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+    padding-top:{{section.settings.Desktop_paddingTop}}px;
+    padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+    #shopify-section-{{section.id}} .section_Index10All{
+        margin-top: {{section.settings.Mobile_top}}px;
+        margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+        padding-top:{{section.settings.Mobile_paddingTop}}px;
+        padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+    }
+  }
+  .section_Index10_right img {
+    width: 100%;
+  }
+   .section_Index10All .field__input::placeholder {
+    opacity: 1;
+    color: #fff;
+   }
+   .section_Index10All .field__input {
+    margin: 0;
+    background-color: rgba(117, 120, 123, 0.20);
+  }
+  @media (min-width:1000px) {
+    .section_Index10_box {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+    }
+    .section_Index10_left {
+        width: 50%;
+        max-width: 630px;
+    }
+    .section_Index10Box_title strong {
+        font-weight: 400;
+        background: linear-gradient(180deg, #0091DA 44.24%, #004D74 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .section_Index10Box_text {
+        margin-top: 20px;
+    }
+    .section_Index10_right {
+        width: 50%;
+        max-width: 760px;
+    }
+    .section_Index10All .newsletter-form {
+        margin: 0;
+        max-width: unset;
+        margin-top: 40px;
+    }
+    .section_Index10All .field__input {
+      height: 57px;
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+    .section_Index10All .newsletter-form__button  {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      min-width: 134px;
+      height: 37px;
+      display: flex;
+      width: max-content;
+      justify-content: center;
+      padding: 0 16px;
+      color: #fff !important;
+      margin-left: auto;
+      background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+      align-items: center;
+    }
+    .section_Index10All .field_box {
+      border: 1px solid var(--f_color3);
+    }
+    .section_Index10All .field_box::after {
+      content: unset;
+    }
+    .footer__item_p {
+      display: flex;
+      gap: 7px;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
+    .footer__item_p .checkbox {
+      margin-right: unset;
+      border-radius: 2px;
+      width: 12px !important;
+      height: 12px !important;
+      background-color: unset !important;
+    }
+
+  }
+  @media (max-width:999px) {
+
+    .section_Index10Box_title strong {
+        font-weight: 400;
+        background: linear-gradient(180deg, #0091DA 44.24%, #004D74 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .section_Index10Box_text {
+        margin-top: 12px;
+    }
+
+    .section_Index10All .newsletter-form {
+        margin: 0;
+        max-width: unset;
+        margin-top: 32px;
+    }
+    .section_Index10All .field__input {
+      height: 47px;
+      font-size: 12px;
+      padding: 4px 16px;
+    }
+    .section_Index10All .newsletter-form__button  {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      min-width: 121px;
+      height: 35px;
+      display: flex;
+      width: max-content;
+      justify-content: center;
+      padding: 0 12px;
+      color: #fff !important;
+      margin-left: auto;
+      background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+      align-items: center;
+    }
+    .section_Index10All .field_box {
+      border: 1px solid var(--f_color3);
+    }
+    .section_Index10All .field_box::after {
+      content: unset;
+    }
+    .footer__item_p {
+      display: flex;
+      gap: 6px;
+      margin-top: 12px;
+      align-items: flex-start;
+    }
+    .footer__item_p .checkbox {
+      margin-right: unset;
+      border-radius: 2px;
+      width: 10px !important;
+      height: 10px !important;
+      background-color: unset !important;
+    }
+    .section_Index10Box_title {
+      letter-spacing: -1.44px;
+    }
+    .section_Index10_right {
+      padding-top: 32px;
+    }
+  }
+</style>
+<div class="section_Index10All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="section_Index10_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="section_Index10_left">
+        {% if section.settings.title != blank %}
+          <div class="section_Index10Box_title font2 my_h_48 my_m_24">
+            {{ section.settings.title }}
+          </div>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div class="section_Index10Box_text my_h_16 my_m_14">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div
+            class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            <div class="field field_box section_button2">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+
+              <button
+                type="submit"
+                class="newsletter-form__button field__button font2 section_button2 my_h_16 my_m_14"
+                name="commit"
+                id="Subscribe"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                {{ 'newsletter.button_label' | t }}
+                <span class="corner-tl"></span>
+                <span class="corner-br"></span>
+              </button>
+              <span class="corner-tl"></span>
+              <span class="corner-br"></span>
+            </div>
+            {%- if section.settings.newsletter_content != blank -%}
+              <label class="footer__item_p my_h_14 my_m_12" for="checkbox_my">
+                <input class="checkbox" type="checkbox" id="checkbox_my" required>
+                {{- section.settings.newsletter_content -}}
+              </label>
+            {%- endif -%}
+            {%- if form.errors -%}
+              <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+          </div>
+          {%- if form.posted_successfully? -%}
+            <h3
+              class="newsletter-form__message newsletter-form__message--success form__message"
+              id="Newsletter-success--{{ section.id }}"
+              tabindex="-1"
+              autofocus
+            >
+              <span class="svg-wrapper">
+                {{- 'icon-success.svg' | inline_asset_content -}}
+              </span>
+              {{- 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+        {% endform %}
+      </div>
+      <div class="section_Index10_right">
+        <img
+          loading="lazy"
+          src="{{ section.settings.img | img_url:'master' }}"
+          alt="{{ section.settings.img.alt }}"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "section Index10",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "text"
+    },
+
+    {
+      "type": "richtext",
+      "id": "newsletter_content",
+      "label": "newsletter content"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "img"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index10",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

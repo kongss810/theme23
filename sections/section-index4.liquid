@@ -1,0 +1,299 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index4All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_Index4All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+  .section_Index4Box {
+      position: relative;
+  }
+  .section_Index4_img img {
+    width: 100%;
+  }
+  .section_Index4_img {
+    position: relative;
+  }
+  .section_Index4Box_position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+    .section_Index4Box {
+        --blur-radius: 10px;
+        --x-offset: 4px;
+        --y-offset: 4px;
+        --color: rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+    }
+  @media (min-width: 1000px) {
+    .section_Index4_box  {
+        display: flex;
+        row-gap: 18px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .section_Index4Box {
+        width: 100%;
+    }
+    .section_Index4Box:nth-child(2),.section_Index4Box:nth-child(3) {
+        width: calc(50% - 12px);
+    }
+    .section_Index4Box:nth-child(2) .section_Index4Box_position, .section_Index4Box:nth-child(3) .section_Index4Box_position{
+        align-items: flex-end;
+    }
+    .section_Index4Box_position {
+        display: flex;
+        align-items: center;
+        padding: 38px;
+    }
+    .section_Index4Box_positionBox {
+        max-width: 495px;
+        display: grid;
+        gap: 20px;
+    }
+    .section_Index4_title,.section_Index4_tag{
+        line-height: 1;
+    }
+    .section_Index4_text  {
+        color: var(--f_color3);
+    }
+    .section_Index4_button {
+        min-width: 128px;
+        height: 37px;
+        display: flex;
+        width: max-content;
+        justify-content: center;
+        padding: 0 16px;
+        color: #fff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+        align-items: center;
+    }
+  }
+  @media (max-width:999px) {
+    .section_Index4_box  {
+        display: flex;
+        row-gap: 18px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .section_Index4Box {
+        width: 100%;
+    }
+
+    .section_Index4Box_position {
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+    }
+    .section_Index4Box_positionBox {
+        max-width: 495px;
+        display: grid;
+        gap: 6px;
+    }
+    .section_Index4_title,.section_Index4_tag{
+        line-height: 1;
+    }
+    .section_Index4_text  {
+        color: var(--f_color3);
+    }
+    .section_Index4_button {
+        min-width: 116px;
+        height: 35px;
+        display: flex;
+        width: max-content;
+        justify-content: center;
+        padding: 0 16px;
+        color: #fff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+        align-items: center;
+    }
+  }
+</style>
+<div class="section_Index4All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="section_Index4_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {% for block in section.blocks %}
+        <div class="section_Index4Box">
+          <div class="section_button1 img_hover">
+            <div class="section_Index4_img">
+              <img
+                loading="lazy"
+                src="{{ block.settings.img | img_url:'master' }}"
+                alt="{{ block.settings.img.alt }}"
+                class="hover_img pad_pc"
+              >
+              <img
+                loading="lazy"
+                src="{{ block.settings.img_mobile | img_url:'master' }}"
+                alt="{{ block.settings.img_mobile.alt }}"
+                class="pad_mobile"
+              >
+              <div class="section_Index4Box_position">
+                <div class="section_Index4Box_positionBox">
+                  {% if block.settings.label != blank %}
+                    <div class="section_Index4_tag my_h_20 font2 my_m_16">
+                      {{ block.settings.label }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.title != blank %}
+                    <div class="section_Index4_title font2 my_h_48 my_m_24">
+                      {{ block.settings.title }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <div class="section_Index4_text my_h_16 my_m_14 h_2">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.button != blank %}
+                    <a
+                      href="{{block.settings.link}}"
+                      class="section_Index4_button my_h_16 section_button2 font2 my_m_14"
+                    >
+                      {{ block.settings.button }}
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <span class="corner-tl"></span>
+            <span class="corner-br"></span>
+          </div>
+          <span class="dis1"></span>
+          <span class="dis2"></span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "section Index4",
+  "tag": "section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "label",
+          "label": "label"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "text",
+          "id": "button",
+          "label": "button"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index4",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

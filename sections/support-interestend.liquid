@@ -1,0 +1,122 @@
+<style>
+    @media screen and (min-width: 1000px) {
+        #shopify-section-{{section.id}}{
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+        #shopify-section-{{section.id}} .support-interestend-text{
+            padding-top:20px;
+        }
+        #shopify-section-{{section.id}} .support-interestend-wrapper{
+            display: grid;
+            grid-template-columns: 24% 67%;
+            gap: 9%;
+        }
+        #shopify-section-{{section.id}} .interestend_title{
+            border-left: 2px solid #dab736;
+            padding-left: 10px;
+        }
+        #shopify-section-{{section.id}} .support-interestend-slider-container{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 40px 20px;
+        }
+        .interestend_title {
+            width: auto;
+            transition: all 0.35s;
+        }
+        .interestend_title:hover {
+            color: var(--f_color3);
+        }
+    }
+    
+    @media (max-width: 999px) {
+        #shopify-section-{{section.id}}{
+            padding-top: {{ section.settings.h5_padding_top }}px;
+            padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+        }
+        #shopify-section-{{section.id}} .support-interestend-text{
+            padding-top:12px;
+        }
+        #shopify-section-{{section.id}} .interestend_title{
+            border-left: 2px solid #dab736;
+            padding-left: 10px;
+        }
+        #shopify-section-{{section.id}} .support-interestend-slider-container{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
+    }
+    
+    
+</style>
+{% if section.settings.anchor_id != blank %}
+  <div data-anchor-id="{{ section.settings.anchor_id }}"></div>
+{% endif %}
+<div class="page-width support-interestend-container">
+    <div class="support-interestend-wrapper">
+        <div class="support-interestend-header">
+            <h2 class="my_h_48 my_m_24 support-interestend-title font2">{{ section.settings.title }}</h2>
+            <div class="my_h_14 my_m_12 support-interestend-text">{{ section.settings.text }}</div>
+        </div>
+        <div class="support-interestend-slider-container">
+            {% for block in section.blocks %}
+                <a href="{{ block.settings.link }}" class="interestend_title my_h_16 my_m_14">
+                    {{ block.settings.title }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Support interestend",
+        "settings": [
+            {
+                "type": "text",
+                "id": "anchor_id",
+                "label": "Anchor Id"
+            },
+            {
+                "type": "richtext",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            { "type": "number", "id": "padding_top", "label": "Padding Top", "default": 120 },
+            { "type": "number", "id": "padding_bottom", "label": "Padding Bottom", "default": 120 },
+            { "type": "number", "id": "h5_padding_top", "label": "H5 Padding Top", "default": 80 },
+            { "type": "number", "id": "h5_padding_bottom", "label": "H5 Padding Bottom", "default": 80 }
+        ],  
+        "blocks": [
+            {
+                "name": "block",
+                "type": "block",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Support interestend"
+            }
+        ]
+    }
+{% endschema %}

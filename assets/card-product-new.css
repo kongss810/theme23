@@ -1,0 +1,280 @@
+.product_labelBox {
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product_label {
+    width: 47px;
+    top: 0;
+    position: absolute; 
+    height: 43px;
+    left: 46px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+.color-swatch-list {
+    display: grid;
+    gap: 20px;  
+    grid-auto-flow: column; 
+    grid-template-columns: repeat(auto-fit, 22px);
+    grid-auto-columns: 1fr;
+}
+.card_center .color-swatch-list,.card_center .save_labelBox {
+    justify-content: center;
+}
+.card_right .color-swatch-list,.card_right .save_labelBox {
+    justify-content: flex-end;
+}
+.color-swatch__radio:checked + .color-swatch__item {
+    border-color: #DAB736;
+}
+.color-swatch__item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid transparent;
+    padding: 1px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.checkbox:checked::after {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 0;
+    bottom: 0;
+    content: '';
+    border-radius: 50%;
+    background: #2c3748;
+}
+
+.collection .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-appearance: none;
+    flex: none;
+    margin: 0;
+    border: 1px solid #2c3748;
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.product-card-wrapper .price-item--sale {
+    font-size: 16px !important;
+}
+.product-card-wrapper .price-item--regular {
+    font-size: 16px !important;
+    margin-left: unset;
+}
+.product-card-wrapper s {
+    margin-left: 6px;
+}
+.card__content {
+    padding: 10px 20px 20px !important;
+    gap: 10px;
+}
+.color-swatch__item {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--f_color3);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.color-swatch-list {
+    margin-bottom: 10px;
+}
+.product_short_description  {
+    color: var(--f_color3);
+}
+.color-swatch  {
+    width: 20px;
+}
+.colorBox {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+} 
+.colorBox_checked {
+    position: absolute;
+    top: 0;
+    display: none;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    bottom: 0;
+    align-items: center;
+}
+.color-swatch__radio:checked + .color-swatch__item .colorBox_checked {
+    display: flex;
+}
+
+.product-item__image-wrapper--multiple .product-item__primary-image,
+.product-item__image-wrapper--multiple .product-item__secondary-image {
+transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.product-item__aspect-ratio { 
+isolation: isolate;
+}
+.product-item__secondary-image {
+    position: absolute;
+    display: none; /* Allows to make sure it does not trigger lazyload */
+    visibility: hidden;
+    opacity: 0;
+    top: 50% !important;
+    left: 50% !important; /* We must use this instead of logical property here */
+    transform: translate(-50%, -50%) !important;
+    -o-object-fit: contain;
+        object-fit: contain;
+    -o-object-position: center;
+        object-position: center;
+}
+@media screen and (pointer: fine) {
+    .product-item__secondary-image {
+        display: block;
+    }
+
+    .product-item__image-wrapper--multiple .media--transparent:hover .product-item__primary-image {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .product-item__image-wrapper--multiple .media--transparent:hover .product-item__secondary-image {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .product-item__image-wrapper:hover .product-item__quick-form {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+/* Desktop Specific */
+@media (min-width: 1000px) {
+    .collection_box .card_productAll:hover .card::before {
+        opacity: 1;
+    }
+     .collection_box .card_productAll:hover .card .quick-add__submit {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.card_productAll .card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景层 */
+.collection_box .card_productAll .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.shopify.com/s/files/1/0785/8421/7824/files/Subtract_8.png?v=1766461075');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* hover 显示 */
+
+.card_productAll .quick-add__submit {
+    min-width: max-content;
+    height: 37px;
+    display: inline-flex;
+    width: max-content;
+    justify-content: center;
+    border: unset;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 0 16px;
+    color: #fff;
+    background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+    align-items: center;  
+    opacity: 0;
+    visibility: hidden;  
+    transition: opacity 0.5s ease;
+}
+
+.card_productAll .quick-add__submit .loading__spinner  {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+    place-content: center;
+}
+.card_productAll .quick-add__submit .loading__spinner svg {
+    width: 18px;
+    height: auto;
+}
+.save_labelBox {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.save_labelBox_text {
+    color: var(--t_color);
+}
+.save_labelBox span {
+    padding: 2px 6px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: -0.84px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: var(--t_color);
+}
+@media (max-width: 999px) {
+    .product_label {
+        left: 0;
+    }
+    .card_productAll .quick-add {
+        display: none;
+    }
+    .card__content {
+        padding: 8px 0 12px !important;
+        gap: 8px;
+    }
+    .color-swatch-list {
+        gap: 12px;
+        margin-bottom: 4px;
+        grid-template-columns: repeat(auto-fit, 16px);
+    }
+    .color-swatch__item {
+        width: 16px;
+        height: 16px;
+    }
+    .product-card-wrapper .price-item--sale {
+        font-size: 14px !important;
+    }
+    .product-card-wrapper .price-item--regular {
+        font-size: 14px !important;
+        margin-left: unset;
+    }
+    .card_productAll .card .card__inner .card__media {
+        border-radius: 2px;
+    }
+}

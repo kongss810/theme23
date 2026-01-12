@@ -1,0 +1,244 @@
+<style>
+  #shopify-section-{{ section.id }} .support_banner{
+      position: relative;
+  }
+  #shopify-section-{{section.id}} {
+    position: relative;
+  }
+  #shopify-section-{{section.id}} .breadcrumb__item {
+    list-style: none;
+  }
+
+  #shopify-section-{{section.id}} .breadcrumb__list {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-block: 0;
+    padding-inline: 0;
+
+  }
+  {% if section.settings.checkbox_overlay %}
+    #shopify-section-{{ section.id }} .support_banner::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(30, 30, 30, 0.40) 0%, #1E1E1E 100%);
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} .content_wrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      height: 100%;
+      width: 100%;
+      max-width: 920px;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} img{
+      width: 100%;
+  }
+  #shopify-section-{{ section.id }} .search__input.field__input{
+      background: transparent;
+      border: none;
+      font-size: 12px;
+  }
+  #shopify-section-{{ section.id }} .search__input.field__input::placeholder{
+      opacity: 1;
+      color: #fff;
+  }
+  #shopify-section-{{ section.id }} .field::before,#shopify-section-{{ section.id }} .field::after{
+      display: none;
+  }
+  #shopify-section-{{ section.id }} .section_button1{
+      background: #75787B33;
+      height: auto;
+      clip-path: polygon(11px 0%, 100% 0%, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0% 100%, 0% 11px);
+  }
+  #shopify-section-{{ section.id }} .section_button1 .corner-tl, #shopify-section-{{ section.id }} .section_button1 .corner-br{
+      width: 10px;
+      height: 10px;
+  }
+  #shopify-section-{{ section.id }} .search__button{
+      background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+      padding: 10px 16px;
+      height: 38px;
+      width: 105px;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+       clip-path: polygon(11px 0%, 100% 0%, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0% 100%, 0% 11px);
+  }
+  #shopify-section-{{ section.id }} .support_search_form{
+      box-shadow: 3px 4px 4px 0px #302b2b40;
+      width: 100%;
+  }
+
+  @media (min-width: 1000px){
+      #shopify-section-{{section.id}} .breadcrumb--floating {
+        position: absolute;
+        top: 148px;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+      #shopify-section-{{ section.id }} .support_search_form{
+          margin-top: 40px;
+      }
+      #shopify-section-{{ section.id }} .search__input.field__input{
+          padding: 10px 10px 10px 16px;
+          height: 56px;
+      }
+  }
+  @media (max-width: 999px){
+      #shopify-section-{{ section.id }} .support_search_form{
+          margin-top: 32px;
+      }
+      #shopify-section-{{ section.id }} .search__input.field__input{
+          padding: 6px 6px 6px 16px;
+          height: 47px;
+      }
+      #shopify-section-{{section.id}} .breadcrumb--floating {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+  }
+</style>
+<nav
+  aria-label=""
+  class="breadcrumb breadcrumb--floating"
+>
+  <div class="page-width">
+    <ul class="breadcrumb__list font2" role="list">
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link my_h_14 my_m_12" href="{{ routes.root_url }}">
+          {{- 'general.search.home' | t -}}
+        </a>
+      </li>
+      <li class="breadcrumb__item my_h_14"><span>/</span></li>
+
+      <li class="breadcrumb__item">
+        <span class="breadcrumb__link breadcrumb__link1 my_h_14 my_m_12" aria-current="page">
+          {{- page.title -}}
+        </span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="support_banner">
+  <div class=" pad_pc">
+    <img src="{{ section.settings.image | img_url: '1920x'}}" alt="{{ section.settings.image.alt }}">
+  </div>
+  <div class="pad_mobile">
+    <img src="{{ section.settings.h5_image | img_url: '750x'}}" alt="{{ section.settings.h5_image.alt }}">
+  </div>
+  <div class="content_wrapper">
+    <div class="page-width">
+      <h1 class="my_h_64 my_m_36 font2">{{ section.settings.title }}</h1>
+      <div class="support_search_form">
+        <form
+          action="{{ routes.search_url }}"
+          method="get"
+          role="search"
+          class="section_button1 search search-modal__form"
+        >
+          <div class="field">
+            <input
+              class="search__input field__input my_m_12"
+              id="{{ input_id }}"
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="Enter your questions"
+              {%- if settings.predictive_search_enabled -%}
+                role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results"
+                aria-controls="predictive-search-results"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+              {%- endif -%}
+            >
+            {% comment %} <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label> {% endcomment %}
+            <input type="hidden" name="options[prefix]" value="last">
+            <button
+              type="reset"
+              class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+              aria-label="{{ 'general.search.reset' | t }}"
+            >
+              <span class="svg-wrapper">
+                {{- 'icon-reset.svg' | inline_asset_content -}}
+              </span>
+            </button>
+            <button
+              class="search__button my_h_16 my_m_14 font2 field__button"
+              aria-label="{{ 'general.search.search' | t }}"
+            >
+              <span class="svg-wrapper"> {{ 'general.search.search' | t }} </span>
+            </button>
+          </div>
+
+          {%- if settings.predictive_search_enabled -%}
+            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+              {% comment %} {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%} {% endcomment %}
+            </div>
+
+            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+          {%- endif -%}
+          <span class="corner-tl"></span>
+          <span class="corner-br"></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Support banner",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "checkbox_overlay",
+      "label": "Show Overlay",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support banner"
+    }
+  ]
+}
+{% endschema %}

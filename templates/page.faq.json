@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_6BTYp6": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_3q7hf8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I connect my Xiberia headset?",
+            "icon": "none",
+            "row_content": "<p>Wireless models can be paired via Bluetooth by holding the power or Bluetooth button until the indicator light flashes, then selecting “Xiberia” on your device. Wired models can be used by plugging in the 3.5mm or USB cable.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8DCWLK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will the headset reconnect automatically?",
+            "icon": "none",
+            "row_content": "<p>Yes. Once paired, the headset will automatically reconnect to the last device when powered on.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_3q7hf8",
+        "collapsible_row_8DCWLK"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Setup",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "Desktop_top": 36,
+        "Mobile_top": 0,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 80,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "collapsible_content_DmYdMh": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_cT6itP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I adjust sound settings?",
+            "icon": "none",
+            "row_content": "<p>Some Xiberia models support EQ or sound profiles through onboard controls or PC software, depending on the model.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_FdFBjA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does the headset support surround sound?",
+            "icon": "none",
+            "row_content": "<p>Certain models support virtual surround sound when connected via USB on PC with compatible software.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_cGwVP8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My microphone is not working. What should I do?",
+            "icon": "none",
+            "row_content": "<p>Check that the microphone is not muted, select Xiberia as the input device in system settings, and ensure the cable supports microphone input if using a 3.5mm connection.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_cT6itP",
+        "collapsible_row_FdFBjA",
+        "collapsible_row_cGwVP8"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Sound & Mic",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "Desktop_top": 36,
+        "Mobile_top": 0,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 80,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_6BTYp6",
+    "collapsible_content_DmYdMh"
+  ]
+}

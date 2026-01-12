@@ -1,0 +1,916 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+<style>
+  @media (max-width: 1200px) {
+    .mobile_close {
+      width: max-content;
+    }
+    .mobile_close .section_button3 {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--f_color3);
+    }
+    .mobile_close .section_button3 svg {
+      width: 6px;
+      height: auto;
+    }
+    #mobile-menu-drawer {
+      top: 48px;
+    }
+    .mobile_nav_item {
+      position: relative;
+    }
+    .mobile_navSvg {
+      position: absolute;
+      top: -3px;
+    }
+    .drawer__content {
+      overflow-x: hidden;
+      padding: 32px 20px;
+      height: 100%;
+      box-shadow: 4px 0 4px #00000040;
+      max-width: 335px;
+      background-color: rgb(var(--color-background));
+    }
+    .mobile-nav__item:not(:last-child) {
+      border-bottom: unset;
+    }
+    #mobile-menu-drawer {
+      width: 100%;
+      height: calc(100% - 48px);
+      /* top: 118px; */
+      transition: unset;
+    }
+
+    #mobile-menu-drawer .drawer__content {
+      padding-top: 12px;
+      padding-left: unset;
+      padding-right: unset;
+    }
+    .header_lastSvg {
+      display: flex;
+    }
+    .mobile_navSpan {
+      max-width: 120px;
+      position: relative;
+      font-weight: 700;
+      display: inline-flex;
+      padding-top: 8px;
+    }
+    .mobile_navSpan svg {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+    }
+    .mobile_mneuBox_title {
+      position: relative;
+      font-weight: 700;
+    }
+    .mobile_mneuBox_title svg {
+      transform: unset !important;
+      position: absolute;
+      top: -6px;
+      right: -10px;
+    }
+    .mobile_mneuBox_Title,
+    .mobile_mneuBox_Title2 {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-nav__link,
+    .mobile_nav_item {
+      font-weight: 700;
+      margin-top: 32px;
+    }
+
+    .mobile_nav__itemBox1 {
+      display: flex;
+      flex-direction: column;
+      transform: translateX(-100%);
+      opacity: 0;
+      visibility: visible;
+      overflow: auto;
+      transition: all 0.3s;
+      box-shadow: 4px 0 4px #00000040;
+      max-width: 335px;
+    }
+    .mobile_nav__itemBox1 {
+      position: fixed;
+      top: 0;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px 0;
+      background-color: rgb(var(--color-background));
+    }
+
+    .mobile-nav__link {
+      padding: 0 !important;
+    }
+    .mobile_nav__itemBox1_xia .mobile-nav__item {
+      margin: 0 !important;
+    }
+    .mobile_nav__itemBox1_xia {
+      padding: 0 10px;
+    }
+    .mobile_nav__itemBox1_xia .mobile-nav > .mobile-nav__item:not(:first-child) {
+      padding-top: 20px;
+      padding-bottom: 0 !important;
+    }
+    .mobile_nav__itemBox1.active {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .desktop_headerRightTop {
+      display: flex;
+      gap: 20px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 12px 20px;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background-color: rgb(var(--color-background));
+    }
+
+    .mobile_mneuBox_box {
+      flex: 1;
+      overflow: auto;
+      padding: 20px 20px 12px;
+    }
+    .mega_menu_leftBottom2_listTopM {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .mobile_mneuBox {
+      padding: 12px 0;
+      height: 100%;
+    }
+    .megaMobile_rightBox img {
+      width: 40px;
+      height: 40px;
+    }
+    .mega_menu_leftBottom2_bottom {
+      display: none;
+    }
+    .mega_menu_rightBox {
+      display: flex;
+      padding: 20px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      background-color: rgb(var(--color-background));
+    }
+    .mobileMneuBox_Box_img {
+      min-width: 58px;
+      max-width: 58px;
+    }
+    .mobileMneuBox_Box_img img {
+      width: 100%;
+    }
+    .mega_menu_leftBottom2_listTopM svg {
+      transition: all 0.5s;
+    }
+    .mega_menu_leftBottom2_listTopMs svg {
+      transform: rotate(180deg);
+    }
+    .megaMenu_rightTop_a {
+      font-size: 14px;
+      display: flex;
+      text-decoration: unset;
+    }
+    .megaMenu_rightTop_title {
+      font-weight: 400;
+      color: #777777;
+      margin-right: 12px;
+    }
+    .mobileMneuBox_Box_title {
+      text-align: left;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      font-weight: 400;
+    }
+    .mobile_navMenuList {
+      margin-top: 32px;
+    }
+    .mobile_navMenuList_item:not(:first-child) {
+      margin-top: 12px;
+    }
+    .mobile_navMenuList_itemTitle,
+    .mobile_navMenuList_itemTitle2 {
+      display: inline-flex;
+      gap: 9px;
+      cursor: pointer;
+      letter-spacing: -0.96px;
+      align-items: center;
+    }
+    .mega_menu_leftBottom1 {
+      display: grid;
+      row-gap: 12px;
+      height: max-content;
+    }
+    .mega_menu_leftBottomBox {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .mega_menu_leftBottomBox_img {
+      max-width: 92px;
+    }
+
+    .mega_menu_leftBottom2 {
+      margin-top: 32px;
+      display: grid;
+      gap: 32px;
+    }
+    /* .mega_menu_leftBottom2_list .font2:hover{ 
+      color: #fff;
+    } */
+    .mega_menu_leftBottom2_list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mega_menu_leftBottom2_bottom {
+      margin-top: 10px;
+      color: #b5b5b6;
+    }
+    .mega_menu_leftBottom2_bottomItem:not(:first-child) {
+      margin-top: 10px;
+    }
+    .mega_menu_rightTop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      row-gap: 12px;
+    }
+    .mega_menu_rightBottom {
+      display: grid;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .mega_menu_rightBottomBox {
+      position: relative;
+      display: block;
+    }
+    .mega_menu_rightBottomBox_text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 6px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .mega_menu_rightBottomBox_img {
+      position: relative;
+    }
+    .mega_menu_rightBottomBox_img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-image: url(https://cdn.shopify.com/s/files/1/0785/8421/7824/files/image_19_1.png?v=1765506282);
+      bottom: 0;
+      transition: all 0.3s;
+    }
+    .mega_menu_rightBottom_list a,
+    .mega_menu_leftBottom2_list a,
+    .mega_menu_leftBottomBox_text {
+      line-height: 1.2;
+      transition: all 0.35s;
+      letter-spacing: -0.84px;
+    }
+    .mega_menu_rightBottom_list a {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .mega_menu_leftBottom2_listTopM {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mega_menu_leftBottom2_bottom {
+      display: none;
+    }
+
+    .mega_menu_leftBottom2_listTopMs .animated-plus:before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .mega_menu_leftBottom2_listTopMs .animated-plus:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    .mega_menu_leftBottom2_listTopMs .animated-plus::before {
+      opacity: 0;
+    }
+
+    .mega_menu_leftBottom_noList {
+      display: grid;
+      gap: 16px;
+    }
+  }
+</style>
+<div
+  class="header-drawer"
+>
+  <div id="menu-drawer" class="menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+    <div class="drawer__content">
+      <div class="drawer__contenClose mobile_close">
+        <div class="section_button3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
+            <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+          </svg>
+          <span class="corner-tl"></span>
+          <span class="corner-br"></span>
+        </div>
+      </div>
+      <ul class="mobile-nav list--unstyled" role="list">
+        {%- for link in menu.links -%}
+          {%- assign link_title_downcase = forloop.index -%}
+          {%- assign mega_menu_block = '' -%}
+          {%- assign mega_menu_block2 = '' -%}
+          {%- for block in section.blocks -%}
+            {%- assign menu_item_downcase = block.settings.column | abs -%}
+
+            {%- case block.type -%}
+              {%- when 'mega_menu' -%}
+                {%- if menu_item_downcase == link_title_downcase -%}
+                  {%- assign mega_menu_block = block -%}
+                  {%- break -%}
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+          {%- for block in section.blocks -%}
+            {%- assign menu_item_downcase2 = block.settings.column | abs -%}
+            {%- case block.type -%}
+              {%- when 'mega_menu2' -%}
+                {%- if menu_item_downcase2 == link_title_downcase -%}
+                  {%- assign mega_menu_block2 = block -%}
+                  {%- break -%}
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+
+          <li class="mobile-nav__item mobile_nav_item" data-level="1">
+            {%- if link.links.size > 0 -%}
+              <div
+                is="toggle-button"
+                class="mobile_collapsible_title mobile-nav__link heading "
+                aria-controls="mobile-menu-{{ forloop.index }}"
+                aria-expanded="false"
+              >
+                <div class="mobile_navSvg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="294" height="21" viewBox="0 0 294 21" fill="none">
+                    <path d="M0 0.5H108L128 20.5H294" stroke="url(#paint0_linear_2003_101)"/>
+                    <defs>
+                      <linearGradient id="paint0_linear_2003_101" x1="0" y1="10.5" x2="294" y2="10.5" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#75787B"/>
+                        <stop offset="1" stop-color="#75787B" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                {%- if link.url == '#' -%}
+                  <span class="mobile_navSpan font2 my_m_16">
+                    {{- link.title -}}
+                    {% if mega_menu_block2 != '' %}
+                      {{ mega_menu_block2.settings.hot_svg }}
+                    {% endif %}
+                  </span>
+                {% else %}
+                  <a href="{{ link.url }}" class="mobile_navSpan font2 my_m_16">
+                    {{- link.title -}}
+                    {% if mega_menu_block2 != '' %}
+                      {{ mega_menu_block2.settings.hot_svg }}
+                    {% endif %}
+                  </a>
+                {% endif %}
+                {% if mega_menu_block != '' %}
+                  <div class="mobile_navMenuList font2">
+                    <div class="mobile_navMenuList_item">
+                      <div class="mobile_navMenuList_itemTitle my_m_16">
+                        {{ link.links[0].title }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M5.45001 14.4L4.45001 13.4L10.35 7.54999L4.45001 1.7L5.45001 0.699998L12.35 7.54999L5.45001 14.4Z" fill="white"/>
+                        </svg>
+                      </div>
+                      <div id="mobile-menu-{{ forloop.index }}" class="mobile_collapsible_text mobile_nav__itemBox1">
+                        <div class="desktop_headerRightTop">
+                          <div class="mobile_close">
+                            <div class="section_button3">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="18"
+                                viewBox="0 0 10 18"
+                                fill="none"
+                              >
+                                <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                              </svg>
+                              <span class="corner-tl"></span>
+                              <span class="corner-br"></span>
+                            </div>
+                          </div>
+                          <div class="my_m_16 font2">{{ link.links[0].title }}</div>
+                        </div>
+                        <div class="mobile_mneuBox_box">
+                          <div class="mega_menu_leftBottom">
+                            <div class="mega_menu_leftBottom1">
+                              {% if mega_menu_block.settings.left_img != blank %}
+                                <a href="{{ mega_menu_block.settings.left_text_link }}" class="mega_menu_leftBottomBox">
+                                  <div class="mega_menu_leftBottomBox_img">
+                                    <img
+                                      src="{{ mega_menu_block.settings.left_img | img_url:'master' }}"
+                                      alt="{{ mega_menu_block.settings.left_img.alt }}"
+                                    >
+                                  </div>
+                                  {% if mega_menu_block.settings.left_text != blank %}
+                                    <div class="mega_menu_leftBottomBox_text my_m_14 font2">
+                                      {{ mega_menu_block.settings.left_text }}
+                                    </div>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                              {% if mega_menu_block.settings.left_img2 != blank %}
+                                <a
+                                  href="{{ mega_menu_block.settings.left_text_link2 }}"
+                                  class="mega_menu_leftBottomBox"
+                                >
+                                  <div class="mega_menu_leftBottomBox_img">
+                                    <img
+                                      src="{{ mega_menu_block.settings.left_img2 | img_url:'master' }}"
+                                      alt="{{ mega_menu_block.settings.left_img2.alt }}"
+                                    >
+                                  </div>
+                                  {% if mega_menu_block.settings.left_text2 != blank %}
+                                    <div class="mega_menu_leftBottomBox_text my_m_14 font2 ">
+                                      {{ mega_menu_block.settings.left_text2 }}
+                                    </div>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                              {% if mega_menu_block.settings.left_img3 != blank %}
+                                <a
+                                  href="{{ mega_menu_block.settings.left_text_link3 }}"
+                                  class="mega_menu_leftBottomBox"
+                                >
+                                  <div class="mega_menu_leftBottomBox_img">
+                                    <img
+                                      src="{{ mega_menu_block.settings.left_img3 | img_url:'master' }}"
+                                      alt="{{ mega_menu_block.settings.left_img3.alt }}"
+                                    >
+                                  </div>
+                                  {% if mega_menu_block.settings.left_text3 != blank %}
+                                    <div class="mega_menu_leftBottomBox_text my_m_14 font2 ">
+                                      {{ mega_menu_block.settings.left_text3 }}
+                                    </div>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                              {% if mega_menu_block.settings.left_img4 != blank %}
+                                <a
+                                  href="{{ mega_menu_block.settings.left_text_link4 }}"
+                                  class="mega_menu_leftBottomBox"
+                                >
+                                  <div class="mega_menu_leftBottomBox_img">
+                                    <img
+                                      src="{{ mega_menu_block.settings.left_img4 | img_url:'master' }}"
+                                      alt="{{ mega_menu_block.settings.left_img4.alt }}"
+                                    >
+                                  </div>
+                                  {% if mega_menu_block.settings.left_text4 != blank %}
+                                    <div class="mega_menu_leftBottomBox_text my_m_14 font2 ">
+                                      {{ mega_menu_block.settings.left_text4 }}
+                                    </div>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                              {% if mega_menu_block.settings.left_img5 != blank %}
+                                <a
+                                  href="{{ mega_menu_block.settings.left_text_link5 }}"
+                                  class="mega_menu_leftBottomBox"
+                                >
+                                  <div class="mega_menu_leftBottomBox_img">
+                                    <img
+                                      src="{{ mega_menu_block.settings.left_img5 | img_url:'master' }}"
+                                      alt="{{ mega_menu_block.settings.left_img5.alt }}"
+                                    >
+                                  </div>
+                                  {% if mega_menu_block.settings.left_text5 != blank %}
+                                    <div class="mega_menu_leftBottomBox_text my_m_14 font2 ">
+                                      {{ mega_menu_block.settings.left_text5 }}
+                                    </div>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                            </div>
+                            {% if mega_menu_block.settings.left_menu != blank %}
+                              <div class="mega_menu_leftBottom2">
+                                {%- for sub_link in mega_menu_block.settings.left_menu.links -%}
+                                  <div class="mega_menu_leftBottom2_list">
+                                    <div class="mega_menu_leftBottom2_listTopM">
+                                      <a
+                                        class="font2 my_m_14"
+                                        href="{{ sub_link.url }}"
+                                      >
+                                        {{- sub_link.title -}}
+                                        {%- if sub_link.links.size > 0 -%}
+                                        {%- else -%}
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="10"
+                                            height="10"
+                                            viewBox="0 0 10 10"
+                                            fill="none"
+                                          >
+                                            <path d="M3.40625 9L2.78125 8.375L6.46875 4.71874L2.78125 1.0625L3.40625 0.4375L7.71875 4.71874L3.40625 9Z" fill="white"/>
+                                          </svg>
+                                        {%- endif -%}
+                                      </a>
+                                      {%- if sub_link.links.size > 0 -%}
+                                        <span class="animated-plus"></span>
+                                      {%- endif -%}
+                                    </div>
+                                    {%- if sub_link.links.size > 0 -%}
+                                      <div class="mega_menu_leftBottom2_bottom">
+                                        {%- for sub_sub_link in sub_link.links -%}
+                                          <div class="mega_menu_leftBottom2_bottomItem">
+                                            <a href="{{ sub_sub_link.url }}" class="my_m_14">
+                                              {{- sub_sub_link.title -}}
+                                            </a>
+                                          </div>
+                                        {%- endfor -%}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endfor -%}
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mobile_navMenuList_item">
+                      <div class="mobile_navMenuList_itemTitle my_m_16">
+                        {{ link.links[1].title }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M5.45001 14.4L4.45001 13.4L10.35 7.54999L4.45001 1.7L5.45001 0.699998L12.35 7.54999L5.45001 14.4Z" fill="white"/>
+                        </svg>
+                      </div>
+                      <div id="mobile-menu-{{ forloop.index }}" class="mobile_collapsible_text mobile_nav__itemBox1">
+                        <div class="desktop_headerRightTop">
+                          <div class="mobile_close">
+                            <div class="section_button3">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="18"
+                                viewBox="0 0 10 18"
+                                fill="none"
+                              >
+                                <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                              </svg>
+                              <span class="corner-tl"></span>
+                              <span class="corner-br"></span>
+                            </div>
+                          </div>
+                          <div class="my_m_16 font2">{{ link.links[1].title }}</div>
+                        </div>
+                        <div class="mobile_mneuBox_box">
+                          <div class="mega_menu_rightTop">
+                            {% if mega_menu_block.settings.right_img_mobile != blank %}
+                              <a href="{{ mega_menu_block.settings.right_text_link }}" class="mega_menu_rightBottomBox">
+                                <div class="mega_menu_rightBottomBox_img section_button1">
+                                  <img
+                                    src="{{ mega_menu_block.settings.right_img_mobile | img_url:'master' }}"
+                                    alt="{{ mega_menu_block.settings.right_img_mobile.alt }}"
+                                  >
+                                  <span class="corner-tl"></span>
+                                  <span class="corner-br"></span>
+                                  {% if mega_menu_block.settings.right_text != blank %}
+                                    <div class="mega_menu_rightBottomBox_text my_h_14 font2">
+                                      {{ mega_menu_block.settings.right_text }}
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <span class="dis1"></span>
+                                <span class="dis2"></span>
+                              </a>
+                            {% endif %}
+                            {% if mega_menu_block.settings.right_img2_mobile != blank %}
+                              <a
+                                href="{{ mega_menu_block.settings.right_text_link2 }}"
+                                class="mega_menu_rightBottomBox"
+                              >
+                                <div class="mega_menu_rightBottomBox_img section_button1">
+                                  <img
+                                    src="{{ mega_menu_block.settings.right_img2_mobile | img_url:'master' }}"
+                                    alt="{{ mega_menu_block.settings.right_img2_mobile.alt }}"
+                                  >
+                                  <span class="corner-tl"></span>
+                                  <span class="corner-br"></span>
+                                  {% if mega_menu_block.settings.right_text2 != blank %}
+                                    <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_m_14">
+                                      {{ mega_menu_block.settings.right_text2 }}
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <span class="dis1"></span>
+                                <span class="dis2"></span>
+                              </a>
+                            {% endif %}
+                            {% if mega_menu_block.settings.right_img3_mobile != blank %}
+                              <a
+                                href="{{ mega_menu_block.settings.right_text_link3 }}"
+                                class="mega_menu_rightBottomBox"
+                              >
+                                <div class="mega_menu_rightBottomBox_img section_button1">
+                                  <img
+                                    src="{{ mega_menu_block.settings.right_img3_mobile | img_url:'master' }}"
+                                    alt="{{ mega_menu_block.settings.right_img3_mobile.alt }}"
+                                  >
+                                  <span class="corner-tl"></span>
+                                  <span class="corner-br"></span>
+                                  {% if mega_menu_block.settings.right_text3 != blank %}
+                                    <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_m_14">
+                                      {{ mega_menu_block.settings.right_text3 }}
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <span class="dis1"></span>
+                                <span class="dis2"></span>
+                              </a>
+                            {% endif %}
+                            {% if mega_menu_block.settings.right_img4_mobile != blank %}
+                              <a
+                                href="{{ mega_menu_block.settings.right_text_link4 }}"
+                                class="mega_menu_rightBottomBox"
+                              >
+                                <div class="mega_menu_rightBottomBox_img section_button1">
+                                  <img
+                                    src="{{ mega_menu_block.settings.right_img4_mobile | img_url:'master' }}"
+                                    alt="{{ mega_menu_block.settings.right_img4_mobile.alt }}"
+                                  >
+                                  <span class="corner-tl"></span>
+                                  <span class="corner-br"></span>
+                                  {% if mega_menu_block.settings.right_text4 != blank %}
+                                    <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_m_14">
+                                      {{ mega_menu_block.settings.right_text4 }}
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <span class="dis1"></span>
+                                <span class="dis2"></span>
+                              </a>
+                            {% endif %}
+                          </div>
+                          {% if mega_menu_block.settings.right_menu != blank %}
+                            <div class="mega_menu_rightBottom">
+                              {%- for sub_link in mega_menu_block.settings.right_menu.links -%}
+                                <div class="mega_menu_rightBottom_list">
+                                  <a
+                                    class="font2 my_h_14"
+                                    href="{{ sub_link.url }}"
+                                  >
+                                    {{- sub_link.title -}}
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="10"
+                                      height="10"
+                                      viewBox="0 0 10 10"
+                                      fill="none"
+                                    >
+                                      <path d="M3.40625 9L2.78125 8.375L6.46875 4.71874L2.78125 1.0625L3.40625 0.4375L7.71875 4.71874L3.40625 9Z" fill="white"/>
+                                    </svg>
+                                  </a>
+                                </div>
+                              {%- endfor -%}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% else %}
+                  {%- if link.links.size > 0 -%}
+                    <div class="mobile_navMenuList font2">
+                      {%- for sub_link in link.links -%}
+                        <div class="mobile_navMenuList_item">
+                          {% if sub_link.links.size > 0 %}
+                            <div class="mobile_navMenuList_itemTitle my_m_16">
+                              {{ sub_link.title }}
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                              >
+                                <path d="M5.45001 14.4L4.45001 13.4L10.35 7.54999L4.45001 1.7L5.45001 0.699998L12.35 7.54999L5.45001 14.4Z" fill="white"/>
+                              </svg>
+                            </div>
+                            <div
+                              id="mobile-menu-{{ forloop.index }}"
+                              class="mobile_collapsible_text mobile_nav__itemBox1"
+                            >
+                              <div class="desktop_headerRightTop">
+                                <div class="mobile_close">
+                                  <div class="section_button3">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="10"
+                                      height="18"
+                                      viewBox="0 0 10 18"
+                                      fill="none"
+                                    >
+                                      <path d="M8.625 17.125L9.875 15.875L2.50001 8.56249L9.875 1.25L8.625 0L7.62939e-06 8.56249L8.625 17.125Z" fill="white"/>
+                                    </svg>
+                                    <span class="corner-tl"></span>
+                                    <span class="corner-br"></span>
+                                  </div>
+                                </div>
+                                <div class="my_m_16 font2">{{ sub_link.title }}</div>
+                              </div>
+                              <div class="mobile_mneuBox_box">
+                                <div class="mega_menu_leftBottom mega_menu_leftBottom_noList">
+                                  <div class="mega_menu_leftBottom2_list">
+                                    <div class="mega_menu_leftBottom2_listTopM">
+                                      <a href="{{ sub_link.url }}" class="mega_menu_leftBottomTop">
+                                        {{ sub_link.title }}
+                                        {%- if sub_sub_link.links.size > 0 -%}
+                                        {%- else -%}
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="10"
+                                            height="10"
+                                            viewBox="0 0 10 10"
+                                            fill="none"
+                                          >
+                                            <path d="M3.40625 9L2.78125 8.375L6.46875 4.71874L2.78125 1.0625L3.40625 0.4375L7.71875 4.71874L3.40625 9Z" fill="white"/>
+                                          </svg>
+                                        {%- endif -%}
+                                      </a>
+                                    </div>
+                                  </div>
+                                  {%- for sub_sub_link in sub_link.links -%}
+                                    <div class="mega_menu_leftBottom2_list">
+                                      <div class="mega_menu_leftBottom2_listTopM">
+                                        <a
+                                          class="font2 my_m_14"
+                                          href="{{ sub_sub_link.url }}"
+                                        >
+                                          {{- sub_sub_link.title -}}
+                                          {%- if sub_sub_link.links.size > 0 -%}
+                                          {%- else -%}
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="10"
+                                              height="10"
+                                              viewBox="0 0 10 10"
+                                              fill="none"
+                                            >
+                                              <path d="M3.40625 9L2.78125 8.375L6.46875 4.71874L2.78125 1.0625L3.40625 0.4375L7.71875 4.71874L3.40625 9Z" fill="white"/>
+                                            </svg>
+                                          {%- endif -%}
+                                        </a>
+                                        {%- if sub_sub_link.links.size > 0 -%}
+                                          <span class="animated-plus"></span>
+                                        {%- endif -%}
+                                      </div>
+                                    </div>
+                                  {%- endfor -%}
+                                </div>
+                              </div>
+                            </div>
+                          {%- else -%}
+                            <a href="{{ sub_link.url }}" class="mobile_navMenuList_itemTitle2 my_m_16">
+                              {{ sub_link.title }}
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                              >
+                                <path d="M5.45001 14.4L4.45001 13.4L10.35 7.54999L4.45001 1.7L5.45001 0.699998L12.35 7.54999L5.45001 14.4Z" fill="white"/>
+                              </svg>
+                            </a>
+                          {% endif %}
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                {% endif %}
+              </div>
+
+            {%- else -%}
+              <a
+                href="{{ link.url }}"
+                class="mobile-nav__link heading "
+              >
+                <div class="mobile_navSvg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="294" height="21" viewBox="0 0 294 21" fill="none">
+                    <path d="M0 0.5H108L128 20.5H294" stroke="url(#paint0_linear_2003_101)"/>
+                    <defs>
+                      <linearGradient id="paint0_linear_2003_101" x1="0" y1="10.5" x2="294" y2="10.5" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#75787B"/>
+                        <stop offset="1" stop-color="#75787B" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <span class="mobile_navSpan font2 my_m_16">
+                  {{ link.title }}
+                  {% if mega_menu_block2 != '' %}
+                    {{ mega_menu_block2.settings.hot_svg }}
+                  {% endif %}
+                </span>
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  // tab top
+
+  $('.header_menu').click(function () {
+    $('.menu-drawer').addClass('active');
+    $('body').addClass('overflow-hidden');
+  });
+
+  /* 点击遮罩关闭 */
+  $('.menu-drawer').on('click', function () {
+    $(this).removeClass('active');
+    $('body').removeClass('overflow-hidden');
+  });
+
+  /* 内容区域不关闭 */
+  $('.drawer__content').on('click', function (e) {
+    e.stopPropagation();
+  });
+
+  /* 你已有的关闭按钮 */
+  $('.drawer__contenClose').click(function (e) {
+    e.stopPropagation(); // 可选，防止冒泡
+    $('body').removeClass('overflow-hidden');
+    $(this).parents('.menu-drawer').removeClass('active');
+  });
+
+  /* 其他逻辑保持不变 */
+  $('.desktop_headerRightTop .mobile_close').click(function (event) {
+    event.stopPropagation();
+    $(this).parents('.mobile_nav__itemBox1').removeClass('active');
+  });
+
+  $('.mobile_navMenuList_itemTitle').click(function () {
+    $(this).next().addClass('active');
+  });
+
+  $('.mega_menu_leftBottom2_listTopM').click(function () {
+    $(this).next('.mega_menu_leftBottom2_bottom').slideToggle();
+    $(this).toggleClass('mega_menu_leftBottom2_listTopMs');
+    // if ($(this).parent().find('.mega_menu_leftBottom2_bottom').css('display') == 'none') {
+    //   $(this).addClass('mega_menu_leftBottom2_listTopMs');
+    //   $(this)
+    //     .parent()
+    //     .siblings()
+    //     .find('.mega_menu_leftBottom2_listTopM')
+    //     .removeClass('mega_menu_leftBottom2_listTopMs');
+    //   $(this).parent().find('.mega_menu_leftBottom2_bottom').slideToggle();
+    //   $(this).parent().siblings().find('.mega_menu_leftBottom2_bottom').slideUp();
+    // } else {
+    //   $(this).parent().find('.mega_menu_leftBottom2_listTopMs').removeClass('mega_menu_leftBottom2_listTopMs');
+    //   $(this).parent().find('.mega_menu_leftBottom2_bottom').slideUp();
+    // }
+  });
+</script>

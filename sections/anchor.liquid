@@ -1,0 +1,215 @@
+<style>
+  #shopify-section-{{ section.id }} .page-width{
+      height: 100%;
+  }
+  #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }} !important;
+      color: {{ section.settings.text_color }};
+      position: sticky;
+      top: 0;
+      z-index: 3;
+  }
+  #shopify-section-{{ section.id }} .sticky-anchor-wrappers{
+
+      align-items: center;
+      line-height: 120%;
+  }
+  #shopify-section-{{ section.id }} .sticky-anchor-wrappers span{
+      cursor: pointer;
+      position: relative;
+      text-align:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2%;
+      -webkit-tap-highlight-color: transparent;
+  }
+  #shopify-section-{{ section.id }} .sticky-anchor-wrappers span.active{
+      color: #0091da;
+  }
+
+  @media screen and (min-width: 769px){
+      #shopify-section-{{ section.id }} {
+        top: 100px;
+    }
+      #shopify-section-{{ section.id }} {
+          margin-top: {{ section.settings.margin_top }}px;
+          margin-bottom: {{ section.settings.margin_bottom }}px;
+          height: 105px;
+      }
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers{
+          display: flex;
+           height:100%;
+          justify-content: center;
+      }
+     #shopify-section-{{ section.id }} .sticky-anchor-wrapper{
+          height:100%;
+      }
+
+  }
+  @media screen and (max-width: 768px){
+      #shopify-section-{{ section.id }} {
+          margin-top: {{ section.settings.margin_top }}px;
+          margin-bottom: {{ section.settings.margin_bottom }}px;
+          height:76px;
+      }
+      #shopify-section-{{ section.id }} {
+          top: 48px;
+      }
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers{
+          display: flex;
+          align-items: center;
+          overflow-x: auto;
+          flex-wrap: nowrap;
+      }
+      #shopify-section-{{ section.id }} .container,#shopify-section-{{ section.id }} .sticky-anchor-wrappers
+      {
+          height:100%;
+      }
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers::-webkit-scrollbar{
+          height:0;
+      }
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers span{
+          width: fit-content;
+          padding-right: 32px;
+          flex-shrink: 0;
+      }
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers span:first-child{
+          padding-left: 20px;
+      }
+
+
+      #shopify-section-{{ section.id }} .sticky-anchor-wrappers span.active:after{
+          bottom: -92%;
+      }
+      #shopify-section-{{ section.id }} .page-width{
+          padding-left: 0;
+          padding-right: 0;
+      }
+  }
+</style>
+<div class="page-width">
+  <div class="sticky-anchor-wrappers">
+    {% for block in section.blocks %}
+      <span class="my_h_24 my_m_16 font2" data-anchor="{{ block.settings.anchor_id }}">
+        {{ block.settings.title }}
+      </span>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const stickyGroups = document.querySelectorAll('#shopify-section-{{ section.id }} .sticky-anchor-wrappers');
+
+    stickyGroups.forEach((group) => {
+      const spans = group.querySelectorAll('span');
+
+      spans.forEach((span) => {
+        span.addEventListener('click', () => {
+          const anchor = span.dataset.anchor;
+          if (!anchor) return;
+          const target = document.querySelector(`[data-anchor-id="${anchor}"]`);
+          if (!target) return;
+
+          spans.forEach((s) => s.classList.remove('active'));
+          span.classList.add('active');
+          span.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          const header = document.querySelector('#shopify-section-{{ section.id }}');
+          const headerHeight = header ? header.offsetHeight : 0;
+          const rectTop = target.getBoundingClientRect().top + window.scrollY;
+
+          let offsetTop;
+
+          if (window.innerWidth > 1000) {
+            offsetTop = rectTop - headerHeight - 100;
+          } else {
+            offsetTop = rectTop - headerHeight - 60;
+          }
+
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        });
+      });
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -40% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const anchorId = entry.target.dataset.anchorId;
+        stickyGroups.forEach((group) => {
+          const spans = group.querySelectorAll('span');
+          spans.forEach((span) => {
+            if (span.dataset.anchor === anchorId) {
+              if (entry.isIntersecting) {
+                spans.forEach((s) => s.classList.remove('active'));
+                span.classList.add('active');
+              }
+            }
+          });
+        });
+      });
+    }, observerOptions);
+
+    const allAnchors = new Set();
+    stickyGroups.forEach((group) => {
+      group.querySelectorAll('span').forEach((span) => allAnchors.add(span.dataset.anchor));
+    });
+
+    allAnchors.forEach((anchor) => {
+      const target = document.querySelector(`[data-anchor-id="${anchor}"]`);
+      if (target) observer.observe(target);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Anchor link",
+  "settings": [
+    { "type": "number", "id": "margin_top", "label": "Margin Top", "default": 160 },
+    { "type": "number", "id": "margin_bottom", "label": "Margin Bottom", "default": 160 },
+    { "type": "number", "id": "h5_margin_top", "label": "H5 Margin Top", "default": 68 },
+    { "type": "number", "id": "h5_margin_bottom", "label": "H5 Margin Bottom", "default": 68 },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "bac color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "Anchor Id"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor link"
+    }
+  ]
+}
+{% endschema %}

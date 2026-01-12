@@ -1,0 +1,703 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index3All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_Index3All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+  .section_Index3Box {
+      position: relative;
+      display: flex;
+  }
+  .section_Index3Box .section_button1 {
+      display: flex;
+      flex-direction: column;
+
+
+  }
+  .section_Index3_text {
+      text-align: center;
+      padding: 38px 12px 20px;
+  }
+  .section_Index3_img {
+      display: flex;
+      flex: 1;
+  }
+  .section_Index3_img img {
+      width: 100%;
+      object-fit: contain;
+      height: 100%;
+  }
+  .section_Index3Box,.section_Index3Box .section_button1 {
+    width: 100%;
+  }
+  @media (min-width: 1000px) {
+        .section_Index3_title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section_Index3_box {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+            row-gap: 0;
+        }
+        .section_Index3Left,.section_Index3Banner,.section_Index3Right {
+            display: grid;
+            row-gap: 20px;
+        }
+        .section_Index3Box {
+            --blur-radius: 10px;
+            --x-offset: 4px;
+            --y-offset: 4px;
+            --color: rgba(0, 0, 0, 0.25);
+            filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+        }
+        .section_Index3Box:hover {
+            --blur-radius: 10px;
+            --x-offset: 2px;
+            --y-offset: -2px;
+            --color: #dab736ad;
+            filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+        }
+        .section_Index3Box:hover .section_button1 {
+            border-color: #DAB736;
+        }
+        .section_Index3Box:hover .corner-tl,.section_Index3Box:hover .corner-br  {
+            background-color: #DAB736;
+        }
+        .section_Index3Box:hover .dis1, .section_Index3Box:hover .dis2 {
+            background-color: #DAB736;
+        }
+  }
+  @media (max-width:999px) {
+    .section_Index3_title {
+      text-align: center;
+    }
+    .section_Index3_box {
+      margin: 30px -2px 0;
+    }
+    .section_Index3_text {
+      padding: 32px 12px 15px;
+    }
+    .index3Swiper .swiper-pagination{
+        position: unset;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 32px;
+    }
+    .index3Swiper {
+      padding: 2px;
+    }
+    .index3Swiper .swiper-pagination-bullet{
+        opacity: 1;
+        background: #fff;
+        border-radius: 10px;
+    }
+    .index3Swiper .swiper-pagination span{
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .index3Swiper .swiper-pagination-bullet {
+        opacity: 1;
+        position: relative;
+        margin: 0 3px !important;
+        width: 8px;
+        height: 2px !important;
+        overflow: hidden;
+        transition: all .3s;
+        border-radius: 2px;
+    }
+
+    .index3Swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+        width: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+  }
+</style>
+{%- assign lefts = section.blocks | where: 'type', 'left' -%}
+{%- assign banners = section.blocks | where: 'type', 'banner' -%}
+{%- assign rights = section.blocks | where: 'type', 'right' -%}
+<div class="section_Index3All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="section_Index3_title my_h_48 my_m_24 font2">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    <div class="pad_pc">
+      <div class="section_Index3_box {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% for block in lefts %}
+          <div class="section_Index3Left">
+            {% if block.settings.img != blank %}
+              <a href="{{ block.settings.link }}" class="section_Index3Left_top section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img | img_url:'master' }}"
+                      alt="{{ block.settings.img.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+            {% if block.settings.img2 != blank %}
+              <a href="{{ block.settings.link2 }}" class="section_Index3Left_bottom section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text2 != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text2 }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img2 | img_url:'master' }}"
+                      alt="{{ block.settings.img2.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% for block in banners %}
+          <div class="section_Index3Banner">
+            {% if block.settings.img != blank %}
+              <a href="{{ block.settings.link }}" class="section_Index3Banner_top section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img | img_url:'master' }}"
+                      alt="{{ block.settings.img.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+            {% if block.settings.img2 != blank %}
+              <a href="{{ block.settings.link2 }}" class="section_Index3Banner_bottom section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text2 != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text2 }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img2 | img_url:'master' }}"
+                      alt="{{ block.settings.img2.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% for block in rights %}
+          <div class="section_Index3Right">
+            {% if block.settings.img != blank %}
+              <a href="{{ block.settings.link }}" class="section_Index3Right_top section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img | img_url:'master' }}"
+                      alt="{{ block.settings.img.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+            {% if block.settings.img2 != blank %}
+              <a href="{{ block.settings.link2 }}" class="section_Index3Right_bottom section_Index3Box">
+                <div class="section_button1 img_hover">
+                  {% if block.settings.text2 != blank %}
+                    <div class="section_Index3_text font2 my_h_24 my_m_12">
+                      {{ block.settings.text2 }}
+                    </div>
+                  {% endif %}
+                  <div class="section_Index3_img">
+                    <img
+                      loading="lazy"
+                      src="{{ block.settings.img2 | img_url:'master' }}"
+                      alt="{{ block.settings.img2.alt }}"
+                      class="hover_img"
+                    >
+                  </div>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+
+                <span class="dis1"></span>
+                <span class="dis2"></span>
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="pad_mobile">
+      <div class="section_Index3_box {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="swiper index3Swiper">
+          <div class="swiper-wrapper">
+            {% for block in lefts %}
+              {% if block.settings.img_mobile != blank %}
+                <a href="{{ block.settings.link }}" class="swiper-slide section_Index3Left_top section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+              {% if block.settings.img_mobile2 != blank %}
+                <a href="{{ block.settings.link2 }}" class="swiper-slide section_Index3Left_bottom section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text2 != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text2 }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile2 | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile2.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+            {% endfor %}
+            {% for block in banners %}
+              {% if block.settings.img_mobile != blank %}
+                <a href="{{ block.settings.link }}" class="swiper-slide section_Index3Banner_top section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+              {% if block.settings.img_mobile2 != blank %}
+                <a href="{{ block.settings.link2 }}" class="swiper-slide section_Index3Banner_bottom section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text2 != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text2 }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile2 | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile2.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+            {% endfor %}
+            {% for block in rights %}
+              {% if block.settings.img_mobile != blank %}
+                <a href="{{ block.settings.link }}" class="swiper-slide section_Index3Right_top section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+              {% if block.settings.img_mobile2 != blank %}
+                <a href="{{ block.settings.link2 }}" class="swiper-slide section_Index3Right_bottom section_Index3Box">
+                  <div class="section_button1 img_hover">
+                    {% if block.settings.text2 != blank %}
+                      <div class="section_Index3_text font2 my_h_24 my_m_12">
+                        {{ block.settings.text2 }}
+                      </div>
+                    {% endif %}
+                    <div class="section_Index3_img">
+                      <img
+                        loading="lazy"
+                        src="{{ block.settings.img_mobile2 | img_url:'master' }}"
+                        alt="{{ block.settings.img_mobile2.alt }}"
+                        class="hover_img"
+                      >
+                    </div>
+                    <span class="corner-tl"></span>
+                    <span class="corner-br"></span>
+                  </div>
+
+                  <span class="dis1"></span>
+                  <span class="dis2"></span>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('#shopify-section-{{section.id}} .index3Swiper', {
+    observer: true,
+    observeParents: true,
+    breakpoints: {
+      300: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      720: {
+        slidesPerView: 3.4,
+        spaceBetween: 20,
+      },
+      1000: {
+        slidesPerView: 4.4,
+        spaceBetween: 20,
+      },
+    },
+    pagination: {
+      el: '#shopify-section-{{section.id}} .swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "section Index3",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "left",
+      "name": "left box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "img2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile2",
+          "label": "img2"
+        },
+
+        {
+          "type": "textarea",
+          "id": "text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "link2"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "banner box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "img2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile2",
+          "label": "img2 mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "link2"
+        }
+      ]
+    },
+    {
+      "type": "right",
+      "name": "right box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "img2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile2",
+          "label": "img2 mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "link2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index3",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

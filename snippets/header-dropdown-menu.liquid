@@ -1,0 +1,357 @@
+<desktop-navigation>
+  <ul
+    class="header__linklist list--unstyled {% unless bottom_navigation %}hidden-pocket hidden-lap{% endunless %}"
+    role="list"
+  >
+    {%- for link in section.settings.menu.links -%}
+      <!-- {%- assign link_title_downcase = link.title | strip | downcase -%} -->
+      {%- assign link_title_downcase = forloop.index -%}
+      {%- assign mega_menu_block = '' -%}
+      {%- assign mega_menu_block2 = '' -%}
+
+      {%- for block in section.blocks -%}
+        {%- assign menu_item_downcase = block.settings.column | abs -%}
+
+        {%- case block.type -%}
+          {%- when 'mega_menu' -%}
+            {%- if menu_item_downcase == link_title_downcase -%}
+              {%- assign mega_menu_block = block -%}
+              {%- break -%}
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+      {%- for block in section.blocks -%}
+        {%- assign menu_item_downcase2 = block.settings.column | abs -%}
+        {%- case block.type -%}
+          {%- when 'mega_menu2' -%}
+            {%- if menu_item_downcase2 == link_title_downcase -%}
+              {%- assign mega_menu_block2 = block -%}
+              {%- break -%}
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <li
+        class="header__linklist-item  {% if link.links.size > 0 or mega_menu_block != '' or mega_menu_block2 != ''  %}has-dropdown{% endif %}"
+        data-item-title="{{ link.title | escape }}"
+      >
+        {%- if link.url == '#' -%}
+          <div
+            class="header__linklist-link header_linklist_item link--animated font2"
+            {% if link.links.size > 0 or mega_menu_block != '' %}
+              aria-controls="desktop-menu-{{ forloop.index }}" aria-expanded="false"
+            {% endif %}
+          >
+            {{- link.title -}}
+            {% if mega_menu_block2 != '' %}
+              {{ mega_menu_block2.settings.hot_svg }}
+            {% endif %}
+          </div>
+        {% else %}
+          <a
+            class="header__linklist-link header_linklist_item link--animated font2"
+            href="{{ link.url }}"
+            {% if link.links.size > 0 or mega_menu_block != '' %}
+              aria-controls="desktop-menu-{{ forloop.index }}" aria-expanded="false"
+            {% endif %}
+          >
+            {{- link.title -}}
+            {% if mega_menu_block2 != '' %}
+              {{ mega_menu_block2.settings.hot_svg }}
+            {% endif %}
+          </a>
+        {% endif %}
+
+        {%- if mega_menu_block != '' -%}
+          <div
+            hidden
+            id="desktop-menu-{{ forloop.index }}"
+            class="mega-menu mega_menu"
+            {{ mega_menu_block.shopify_attributes }}
+          >
+            <div class="mega_menuBox section_button1">
+              <div class="mega_menu__inner">
+                {%- if link.links.size > 0 -%}
+                  <div class="mega_menu_left">
+                    <div class="mega_menu_leftTitle my_h_16 font2">
+                      {{ link.links[0].title }}
+                    </div>
+                    <div class="mega_menu_leftBottom">
+                      <div class="mega_menu_leftBottom1">
+                        {% if mega_menu_block.settings.left_img != blank %}
+                          <a href="{{ mega_menu_block.settings.left_text_link }}" class="mega_menu_leftBottomBox">
+                            <div class="mega_menu_leftBottomBox_img">
+                              <img
+                                src="{{ mega_menu_block.settings.left_img | img_url:'master' }}"
+                                alt="{{ mega_menu_block.settings.left_img.alt }}"
+                              >
+                            </div>
+                            {% if mega_menu_block.settings.left_text != blank %}
+                              <div class="mega_menu_leftBottomBox_text my_h_14 font2">
+                                {{ mega_menu_block.settings.left_text }}
+                              </div>
+                            {% endif %}
+                          </a>
+                        {% endif %}
+                        {% if mega_menu_block.settings.left_img2 != blank %}
+                          <a href="{{ mega_menu_block.settings.left_text_link2 }}" class="mega_menu_leftBottomBox">
+                            <div class="mega_menu_leftBottomBox_img">
+                              <img
+                                src="{{ mega_menu_block.settings.left_img2 | img_url:'master' }}"
+                                alt="{{ mega_menu_block.settings.left_img2.alt }}"
+                              >
+                            </div>
+                            {% if mega_menu_block.settings.left_text2 != blank %}
+                              <div class="mega_menu_leftBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.left_text2 }}
+                              </div>
+                            {% endif %}
+                          </a>
+                        {% endif %}
+                        {% if mega_menu_block.settings.left_img3 != blank %}
+                          <a href="{{ mega_menu_block.settings.left_text_link3 }}" class="mega_menu_leftBottomBox">
+                            <div class="mega_menu_leftBottomBox_img">
+                              <img
+                                src="{{ mega_menu_block.settings.left_img3 | img_url:'master' }}"
+                                alt="{{ mega_menu_block.settings.left_img3.alt }}"
+                              >
+                            </div>
+                            {% if mega_menu_block.settings.left_text3 != blank %}
+                              <div class="mega_menu_leftBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.left_text3 }}
+                              </div>
+                            {% endif %}
+                          </a>
+                        {% endif %}
+                        {% if mega_menu_block.settings.left_img4 != blank %}
+                          <a href="{{ mega_menu_block.settings.left_text_link4 }}" class="mega_menu_leftBottomBox">
+                            <div class="mega_menu_leftBottomBox_img">
+                              <img
+                                src="{{ mega_menu_block.settings.left_img4 | img_url:'master' }}"
+                                alt="{{ mega_menu_block.settings.left_img4.alt }}"
+                              >
+                            </div>
+                            {% if mega_menu_block.settings.left_text4 != blank %}
+                              <div class="mega_menu_leftBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.left_text4 }}
+                              </div>
+                            {% endif %}
+                          </a>
+                        {% endif %}
+                        {% if mega_menu_block.settings.left_img5 != blank %}
+                          <a href="{{ mega_menu_block.settings.left_text_link5 }}" class="mega_menu_leftBottomBox">
+                            <div class="mega_menu_leftBottomBox_img">
+                              <img
+                                src="{{ mega_menu_block.settings.left_img5 | img_url:'master' }}"
+                                alt="{{ mega_menu_block.settings.left_img5.alt }}"
+                              >
+                            </div>
+                            {% if mega_menu_block.settings.left_text5 != blank %}
+                              <div class="mega_menu_leftBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.left_text5 }}
+                              </div>
+                            {% endif %}
+                          </a>
+                        {% endif %}
+                      </div>
+                      {% if mega_menu_block.settings.left_menu != blank %}
+                        <div class="mega_menu_leftBottom2">
+                          {%- for sub_link in mega_menu_block.settings.left_menu.links -%}
+                            <div class="mega_menu_leftBottom2_list">
+                              <a
+                                class="font2 my_h_14"
+                                href="{{ sub_link.url }}"
+                              >
+                                {{- sub_link.title -}}
+                                {%- if sub_link.links.size > 0 -%}
+                                {%- else -%}
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 10 10"
+                                    fill="none"
+                                  >
+                                    <path d="M3.40625 9L2.78125 8.375L6.46875 4.71874L2.78125 1.0625L3.40625 0.4375L7.71875 4.71874L3.40625 9Z" fill="white"/>
+                                  </svg>
+                                {%- endif -%}
+                              </a>
+                              {%- if sub_link.links.size > 0 -%}
+                                <div class="mega_menu_leftBottom2_bottom">
+                                  {%- for sub_sub_link in sub_link.links -%}
+                                    <div class="mega_menu_leftBottom2_bottomItem">
+                                      <a href="{{ sub_sub_link.url }}" class="my_h_14">
+                                        {{- sub_sub_link.title -}}
+                                      </a>
+                                    </div>
+                                  {%- endfor -%}
+                                </div>
+                              {%- endif -%}
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="mega_menu_line"></div>
+                  <div class="mega_menu_right">
+                    <div class="mega_menu_rightTitle my_h_16 font2">
+                      {{ link.links[1].title }}
+                    </div>
+                    <div class="mega_menu_rightTop">
+                      {% if mega_menu_block.settings.right_img != blank %}
+                        <a href="{{ mega_menu_block.settings.right_text_link }}" class="mega_menu_rightBottomBox">
+                          <div class="mega_menu_rightBottomBox_img section_button1">
+                            <img
+                              src="{{ mega_menu_block.settings.right_img | img_url:'master' }}"
+                              alt="{{ mega_menu_block.settings.right_img.alt }}"
+                            >
+                            <span class="corner-tl"></span>
+                            <span class="corner-br"></span>
+                            {% if mega_menu_block.settings.right_text != blank %}
+                              <div class="mega_menu_rightBottomBox_text my_h_14 font2">
+                                {{ mega_menu_block.settings.right_text }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <span class="dis1"></span>
+                          <span class="dis2"></span>
+                        </a>
+                      {% endif %}
+                      {% if mega_menu_block.settings.right_img2 != blank %}
+                        <a href="{{ mega_menu_block.settings.right_text_link2 }}" class="mega_menu_rightBottomBox">
+                          <div class="mega_menu_rightBottomBox_img section_button1">
+                            <img
+                              src="{{ mega_menu_block.settings.right_img2 | img_url:'master' }}"
+                              alt="{{ mega_menu_block.settings.right_img2.alt }}"
+                            >
+                            <span class="corner-tl"></span>
+                            <span class="corner-br"></span>
+                            {% if mega_menu_block.settings.right_text2 != blank %}
+                              <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.right_text2 }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <span class="dis1"></span>
+                          <span class="dis2"></span>
+                        </a>
+                      {% endif %}
+                      {% if mega_menu_block.settings.right_img3 != blank %}
+                        <a href="{{ mega_menu_block.settings.right_text_link3 }}" class="mega_menu_rightBottomBox">
+                          <div class="mega_menu_rightBottomBox_img section_button1">
+                            <img
+                              src="{{ mega_menu_block.settings.right_img3 | img_url:'master' }}"
+                              alt="{{ mega_menu_block.settings.right_img3.alt }}"
+                            >
+                            <span class="corner-tl"></span>
+                            <span class="corner-br"></span>
+                            {% if mega_menu_block.settings.right_text3 != blank %}
+                              <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.right_text3 }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <span class="dis1"></span>
+                          <span class="dis2"></span>
+                        </a>
+                      {% endif %}
+                      {% if mega_menu_block.settings.right_img4 != blank %}
+                        <a href="{{ mega_menu_block.settings.right_text_link4 }}" class="mega_menu_rightBottomBox">
+                          <div class="mega_menu_rightBottomBox_img section_button1">
+                            <img
+                              src="{{ mega_menu_block.settings.right_img4 | img_url:'master' }}"
+                              alt="{{ mega_menu_block.settings.right_img4.alt }}"
+                            >
+                            <span class="corner-tl"></span>
+                            <span class="corner-br"></span>
+                            {% if mega_menu_block.settings.right_text4 != blank %}
+                              <div class="mega_menu_rightBottomBox_text my_h_14 font2 my_h_14">
+                                {{ mega_menu_block.settings.right_text4 }}
+                              </div>
+                            {% endif %}
+                          </div>
+                          <span class="dis1"></span>
+                          <span class="dis2"></span>
+                        </a>
+                      {% endif %}
+                    </div>
+                    {% if mega_menu_block.settings.right_menu != blank %}
+                      <div class="mega_menu_rightBottom">
+                        {%- for sub_link in mega_menu_block.settings.right_menu.links -%}
+                          <div class="mega_menu_rightBottom_list">
+                            <a
+                              class="font2 my_h_14"
+                              href="{{ sub_link.url }}"
+                            >
+                              {{- sub_link.title -}}
+                            </a>
+                            {%- if sub_link.links.size > 0 -%}
+                              <div class="mega_menu_rightBottom_bottom">
+                                {%- for sub_sub_link in sub_link.links -%}
+                                  <div class="mega_menu_rightBottom_bottomItem">
+                                    <a href="{{ sub_sub_link.url }}" class="my_h_14">
+                                      {{- sub_sub_link.title -}}
+                                    </a>
+                                  </div>
+                                {%- endfor -%}
+                              </div>
+                            {%- endif -%}
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+              <span class="corner-br corner_br2"></span>
+            </div>
+          </div>
+        {%- elsif link.links.size > 0 -%}
+          <ul
+            hidden
+            id="desktop-menu-{{ forloop.index }}"
+            class="nav-dropdown {% if link.levels == 1 %}nav-dropdown--restrict{% endif %} list--unstyled"
+            role="list"
+          >
+            {%- for sub_link in link.links -%}
+              <li class="nav-dropdown__item font2 {% if sub_link.links.size > 0 %}has-dropdown{% endif %}">
+                <a
+                  class="nav-dropdown__link link--faded my_h_20"
+                  href="{{ sub_link.url }}"
+                  {% if sub_link.links.size > 0 %}
+                    aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    aria-expanded="false"
+                  {% endif %}
+                >
+                  {{- sub_link.title -}}
+
+                  {%- if sub_link.links.size > 0 -%}
+                    {% render 'icon' with 'dropdown-arrow-right', direction_aware: true %}
+                  {%- endif -%}
+                </a>
+
+                {%- if sub_link.links.size > 0 -%}
+                  <ul
+                    hidden
+                    id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    class="nav-dropdown list--unstyled"
+                    role="list"
+                  >
+                    {%- for sub_sub_link in sub_link.links -%}
+                      <li class="nav-dropdown__item">
+                        <a class="nav-dropdown__link link--faded" href="{{ sub_sub_link.url }}">
+                          {{- sub_sub_link.title -}}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</desktop-navigation>

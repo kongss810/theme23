@@ -1,0 +1,480 @@
+{% if product.metafields.custom.product_review.value != blank %}
+  <style>
+    #shopify-section-{{section.id}} .section_ProductAll{
+        margin-top: {{section.settings.Desktop_top}}px;
+        margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+        padding-top:{{section.settings.Desktop_paddingTop}}px;
+        padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+    }
+    @media(max-width:999px) {
+        #shopify-section-{{section.id}} .section_ProductAll{
+            margin-top: {{section.settings.Mobile_top}}px;
+            margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+            padding-top:{{section.settings.Mobile_paddingTop}}px;
+            padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+        }
+    }
+    .section_Product_title {
+        text-align: center;
+    }
+    .section_Product_imgListBox {
+        display: none;
+    }
+    .section_Product_imgListBox.active {
+        display: block;
+    }
+    .section_ProductBox_iconBox ,.section_ProductBox_iconBox img{
+        transition: all 0.3s;
+    }
+    .section_ProductBox_iconBox {
+        cursor: pointer;
+    }
+    @media (min-width: 1000px) {
+        .section_Product_box {
+            margin-top: 80px;
+        }
+        .section_Product_content {
+            display: flex;
+            position: relative;
+            width: 60%;
+            max-width: 920px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .section_Product_left {
+            max-width: 350px;
+            width: 25vw;
+            position: absolute;
+            left: -310px;
+            top: 0;
+            bottom: 0;
+        }
+        .section_Product_banner {
+            width: calc(100vw);
+            height: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(https://cdn.shopify.com/s/files/1/0785/8421/7824/files/Frame_235.png?v=1767762979);
+        }
+        .section_Product_right {
+            max-width: 350px;
+            width: 25vw;
+            position: absolute;
+            right: -310px;
+            top: 0;
+            bottom: 0;
+        }
+        .section_Product_imgListBox {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .section_ProductBox {
+            position: absolute;
+            width: 100%;
+        }
+        .section_Product_left .section_ProductBox:nth-child(1) {
+            top: 14%;
+            right: -15%;
+        }
+        .section_Product_left .section_ProductBox:nth-child(2) {
+            top: 46%;
+            /* right: -12%; */
+        }
+        .section_Product_left .section_ProductBox:nth-child(3) {
+            bottom: 16%;
+            right: -12%;
+        }
+
+        .section_Product_right .section_ProductBox:nth-child(1) {
+            top: 14%;
+            right: 15%;
+        }
+        .section_Product_right .section_ProductBox:nth-child(2) {
+            top: 46%;
+            /* right: 12%; */
+        }
+        .section_Product_right .section_ProductBox:nth-child(3) {
+            bottom: 16%;
+            right: 12%;
+        }
+        .section_Product_imgListBox img {
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .section_ProductBox {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        .section_ProductBox_icon {
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section_ProductBox_iconBox {
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--f_color3);
+        }
+        .section_Product_left .section_ProductBox_text {
+            text-align: right;
+        }
+        .section_ProductBox.active .section_ProductBox_iconBox{
+            background-color: var(--t_color);
+            min-width: 80px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .section_ProductBox.active .section_ProductBox_iconBox img {
+            width: 50px;
+            height: auto;
+        }
+        .section_ProductBox.active  {
+           gap: 20px;
+        }
+        .section_ProductBox.active .section_ProductBox_text  {
+            font-size: 18px !important;
+        }
+        .section_Product_mobileTextBox {
+            display: none;
+        }
+    }
+    @media (max-width:999px) {
+        .section_Product_box {
+            margin-top: 52px;
+        }
+        .section_Product_content {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 288px;
+            justify-content: center;
+        }
+
+        .section_Product_banner {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 355px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(https://cdn.shopify.com/s/files/1/0785/8421/7824/files/Frame_1115_1.png?v=1767769946);
+        }
+        .section_Product_imgListBox {
+            text-align: center;
+            margin: 0 auto;
+        }
+       
+        .section_Product_imgListBox img {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 250px;
+        }
+        .section_Product_left {
+            position: absolute;
+            justify-content: space-between;
+            top: -22px;
+            width: 100%;
+            display: flex;
+        }
+        .section_Product_left .section_ProductBox:nth-child(1),.section_Product_left .section_ProductBox:nth-child(3) {
+            margin-top: 40px;
+        }
+        .section_Product_right .section_ProductBox:nth-child(1),.section_Product_right .section_ProductBox:nth-child(3) {
+            margin-bottom: 40px;
+        }
+        .section_Product_right {
+            position: absolute;
+            justify-content: space-between;
+            width: 100%;
+            bottom: -22px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .section_ProductBox {
+            display: flex;
+            height: max-content;
+            gap: 40px;
+        }
+        .section_ProductBox_icon {
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section_ProductBox_iconBox {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--f_color3);
+        }
+        .section_ProductBox_iconBox img {
+            width: 26px;
+            height: auto;
+        }
+        .section_Product_left .section_ProductBox_text {
+            text-align: right;
+        }
+        .section_ProductBox.active .section_ProductBox_iconBox{
+            background-color: var(--t_color);
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+        }
+        .section_ProductBox.active .section_ProductBox_iconBox img {
+            width: 35px;
+            height: auto;
+        }
+        .section_Product_content .section_ProductBox_text {
+            display: none;
+        }
+        .section_Product_mobileTextBox {
+            display: block;
+        }
+        .section_Product_mobileText {
+            display: none;
+            text-align: center;
+            margin-top: 62px;
+        }
+        .section_Product_mobileText.active {
+            display: block;
+        }
+    }
+  </style>
+  <div class="section_ProductAll color-{{ section.settings.color_scheme }} gradient">
+    <div class="page-width">
+      {% if section.settings.title != blank %}
+        <div class="section_Product_title my_h_48 my_m_24 font2">
+          {{ section.settings.title }}
+        </div>
+      {% endif %}
+
+      <div class="section_Product_box {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="section_Product_content">
+          <div class="section_Product_left">
+            {% for block in section.blocks limit: 3 %}
+              {% if block.settings.text != blank %}
+                <div class="section_ProductBox {% if forloop.first %} active{% endif %}">
+                    <div class="section_ProductBox_text my_h_16">
+                        {{ block.settings.text }}
+                    </div>
+                    {% if block.settings.icon != blank %}
+                        <div class="section_ProductBox_icon">
+                            <div class="section_ProductBox_iconBox">
+                                <img
+                                    loading="lazy"
+                                    src="{{ block.settings.icon | img_url:'master' }}"
+                                    alt="{{ block.settings.icon.alt }}"
+                                    class=""
+                                >
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="section_Product_banner">
+            <div class="section_Product_imgList">
+              {% for block in section.blocks %}
+                <div class="section_Product_imgListBox {% if forloop.first %} active{% endif %}">
+                  <img
+                  
+                    src="{{ block.settings.img | img_url:'master' }}"
+                    alt="{{ block.settings.img.alt }}"
+                    class=""
+                  >
+                </div>
+              {% endfor %}
+            </div> 
+          </div>
+          <div class="section_Product_right">
+            {% for block in section.blocks offset: 3 limit: 3 %}
+              {% if block.settings.text != blank %}
+                <div class="section_ProductBox">
+                    {% if block.settings.icon != blank %}
+                        <div class="section_ProductBox_icon">
+                            <div class="section_ProductBox_iconBox">
+                                <img
+                                    loading="lazy"
+                                    src="{{ block.settings.icon | img_url:'master' }}"
+                                    alt="{{ block.settings.icon.alt }}"
+                                    class=""
+                                >
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="section_ProductBox_text my_h_16">
+                        {{ block.settings.text }}
+                    </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>      
+        </div>
+        <div class="section_Product_mobileTextBox">
+            {% for block in section.blocks %}
+                {% if block.settings.icon != blank %}
+                <div class="section_Product_mobileText my_m_16 {% if forloop.first %} active{% endif %}">
+                {{ block.settings.text }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div> 
+      </div>
+    </div>
+  </div>
+{% endif %}
+<script>
+    $('.section_ProductBox_iconBox').on('click', function () {
+        // 当前点击的 box
+        const $box = $(this).closest('.section_ProductBox');
+
+        // 计算它在所有 box 里的索引
+        const index = $('.section_ProductBox').index($box);
+
+        // 1️⃣ 所有 box 只高亮一个
+        $('.section_ProductBox').removeClass('active');
+        $box.addClass('active');
+
+        // 2️⃣ 中间图片同步
+        $('.section_Product_imgListBox')
+            .removeClass('active')
+            .eq(index)
+            .addClass('active');
+
+       $('.section_Product_mobileText')
+            .removeClass('active')
+            .eq(index)
+            .addClass('active');
+    });
+
+</script>
+{% schema %}
+{
+  "name": "section Product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mobile",
+          "label": "img mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Product",
+      "category": "product"
+    }
+  ]
+}
+{% endschema %}

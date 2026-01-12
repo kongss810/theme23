@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_crumbs_9krYdn": {
+      "type": "section-crumbs",
+      "name": "Section Crumbs",
+      "settings": {
+        "text": "",
+        "link": "",
+        "Desktop_top": 40,
+        "Mobile_top": 32,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 40,
+        "Mobile_bottom": 32,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.short_description.value }}",
+            "text_style": "uppercase"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description_aN4kaB": {
+          "type": "description",
+          "settings": {
+            "description": "<p>{{ product.description }}</p>",
+            "text_color": "#b5b5b6"
+          }
+        },
+        "inventory_tNAJR7": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 0,
+            "show_inventory_quantity": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor",
+        "price",
+        "description_aN4kaB",
+        "inventory_tNAJR7",
+        "variant_picker",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_sticky_text": true,
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "enable_video_looping": false
+      }
+    },
+    "section_product_7mzNqw": {
+      "type": "section-product",
+      "blocks": {
+        "item_6kjjNj": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_166.png",
+            "img_mobile": "shopify://shop_images/Rectangle_166.png",
+            "text": "Tri-Band Sound Tracking\nHear Far, Pinpoint Accurate",
+            "icon": "shopify://shop_images/Target.svg"
+          }
+        },
+        "item_8iqHpg": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Group_17.png",
+            "img_mobile": "shopify://shop_images/Group_17.png",
+            "text": "FPS / Music / 7.1 Plug & Play\nOne-Click Switch",
+            "icon": "shopify://shop_images/switch.svg"
+          }
+        },
+        "item_aRLzAT": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_18d94166-f860-4a12-b497-2ece6f636b73.png",
+            "img_mobile": "shopify://shop_images/1_18d94166-f860-4a12-b497-2ece6f636b73.png",
+            "text": "AI Noise-Cancelling \nDetachable Microphone",
+            "icon": "shopify://shop_images/Microphone.svg"
+          }
+        },
+        "item_xkeLe7": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_166.png",
+            "img_mobile": "shopify://shop_images/Rectangle_166.png",
+            "text": "Core Gaming Sound Chamber Enhanced Across All Frequencies",
+            "icon": "shopify://shop_images/Headphone.svg"
+          }
+        },
+        "item_nQUPft": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Group_17.png",
+            "img_mobile": "shopify://shop_images/Group_17.png",
+            "text": "Premium Custom Chip\n8X DSP Power",
+            "icon": "shopify://shop_images/Processor_Chip.svg"
+          }
+        },
+        "item_LBmB78": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/1_18d94166-f860-4a12-b497-2ece6f636b73.png",
+            "img_mobile": "shopify://shop_images/1_18d94166-f860-4a12-b497-2ece6f636b73.png",
+            "text": "50mm PET Pro Gaming Unit\nFull 20Hz–20kHz Spectrum",
+            "icon": "shopify://shop_images/sound.svg"
+          }
+        }
+      },
+      "block_order": [
+        "item_6kjjNj",
+        "item_8iqHpg",
+        "item_aRLzAT",
+        "item_xkeLe7",
+        "item_nQUPft",
+        "item_LBmB78"
+      ],
+      "name": "Section Product",
+      "settings": {
+        "title": "<p>Start Your Journey<br/>into Innovation</p>",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_product2_4B6Tfg": {
+      "type": "section-product2",
+      "name": "Section Product2",
+      "settings": {
+        "full_width": true,
+        "text": "Get Immersed in Every Fight",
+        "video": "shopify://files/videos/1fed3923c37645fbba0c83e47d0524a9.HD-1080p-7.2Mbps-44838208.mp4",
+        "video_mobile": "shopify://files/videos/1fed3923c37645fbba0c83e47d0524a9.HD-1080p-7.2Mbps-44838208.mp4",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_product3_AkyQag": {
+      "type": "section-product3",
+      "blocks": {
+        "left_item_gNEMWy": {
+          "type": "left_item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_55_3.png",
+            "img_mobile": "shopify://shop_images/Rectangle_55_3.png",
+            "title": "How to use headphone?",
+            "text": "Using headphones is a simple yet important process to maximize\nthe audio listening experience.",
+            "button": "Learn more",
+            "link": "shopify://pages/products-guide-book"
+          }
+        },
+        "right_item_epgNiU": {
+          "type": "right_item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_129.png",
+            "img_mobile": "shopify://shop_images/Rectangle_129_3.png",
+            "text": "Aerospace Steel :<strong> Ultra-Light, Ultra-Strong</strong>"
+          }
+        },
+        "right_item_dUydAi": {
+          "type": "right_item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_129_1.png",
+            "img_mobile": "shopify://shop_images/Rectangle_129_5.png",
+            "text": "A four-chamber acoustic design <strong>that sets a new standard for FPS audio.</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "left_item_gNEMWy",
+        "right_item_epgNiU",
+        "right_item_dUydAi"
+      ],
+      "name": "Section Product3",
+      "settings": {
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "section_product4_7JNPRa": {
+      "type": "section-product4",
+      "name": "Section Product4",
+      "settings": {
+        "title": "See what they say",
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "<p>You May Find<br/>These Interesting</p>",
+        "products_to_show": 6,
+        "show_secondary_image": true,
+        "Desktop_top": 180,
+        "Mobile_top": 100,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 180,
+        "Mobile_paddingBottom": 100
+      }
+    }
+  },
+  "order": [
+    "section_crumbs_9krYdn",
+    "main",
+    "section_product_7mzNqw",
+    "section_product2_4B6Tfg",
+    "section_product3_AkyQag",
+    "section_product4_7JNPRa",
+    "related-products"
+  ]
+}

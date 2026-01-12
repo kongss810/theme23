@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_crumbs_QL9KH4": {
+      "type": "section-crumbs",
+      "name": "Section Crumbs",
+      "settings": {
+        "text": "",
+        "link": "",
+        "Desktop_top": 40,
+        "Mobile_top": 32,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 40,
+        "Mobile_paddingBottom": 32
+      }
+    },
+    "main_collection_grid_HegCah": {
+      "type": "main-collection-grid",
+      "blocks": {
+        "item_jfGKxQ": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Subtract_10.png",
+            "text": "GAMING HEADSET",
+            "link": "shopify://collections/gaming-headset"
+          }
+        },
+        "item_gVrNeB": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Subtract_3.png",
+            "text": "mobile game",
+            "link": ""
+          }
+        },
+        "item_PQ7nzi": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Subtract_4.png",
+            "text": "Console Game",
+            "link": ""
+          }
+        },
+        "item_HwWtMA": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Subtract_6.png",
+            "text": "vr/ar game",
+            "link": ""
+          }
+        },
+        "item_4r4rY6": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Subtract_10.png",
+            "text": "GAMING HEADSET",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_jfGKxQ",
+        "item_gVrNeB",
+        "item_PQ7nzi",
+        "item_HwWtMA",
+        "item_4r4rY6"
+      ],
+      "name": "Collection Grid",
+      "settings": {
+        "title": "Headset for gamers",
+        "Desktop_top": 0,
+        "Mobile_top": 0,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "expand_by_default": true,
+        "label_img": "shopify://shop_images/Group_27.png",
+        "products_per_page": 8,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_quick_add": true,
+        "pagination_type": "button",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "Desktop_paddingTop": 20,
+        "Mobile_paddingTop": 32,
+        "Desktop_paddingBottom": 40,
+        "Mobile_paddingBottom": 100
+      }
+    }
+  },
+  "order": [
+    "section_crumbs_QL9KH4",
+    "main_collection_grid_HegCah",
+    "product-grid"
+  ]
+}

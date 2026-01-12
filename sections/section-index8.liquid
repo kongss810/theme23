@@ -1,0 +1,456 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index8All{
+      margin-top: {{section.settings.Desktop_top}}px;
+      margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+      padding-top:{{section.settings.Desktop_paddingTop}}px;
+      padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+      #shopify-section-{{section.id}} .section_Index8All{
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+  }
+  .section_Index8All {
+      overflow: hidden;
+  }
+  :root {
+
+      /* --Index8_slide-h: 480px; */
+      --gap: 40px;
+  }
+  @media (min-width: 1921px) {
+      :root {
+          --Index8_slide-w: 384px;
+      }
+  }
+  @media (max-width: 1921px) {
+      :root {
+          --Index8_slide-w: 18.1vw;
+      }
+  }
+
+  .section_Index8_title {
+      text-align: center;
+      padding: 0 var(--container-gutter);
+  }
+  .Index8_slideImg img {
+    width: 100%;
+  }
+  .Index8_slideImg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+  }
+  .stage {
+      width: 100%;
+      height: 621px;
+      max-width: 1920px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1920px;
+      margin: 0 auto;
+      position: relative;
+      mask-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 22%, hsl(0 0% 0% / 1) 78%, hsl(0 0% 0% / 0));
+  }
+  .Index8_slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      cursor: grab;
+      user-select: none;
+  }
+  .Index8_slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--Index8_slide-w);
+      height: var(--Index8_slide-h);
+      background-size: cover;
+      background-position: center;
+      transition: transform 700ms cubic-bezier(0.22, 0.9, 0.35, 1), opacity 400ms, filter 400ms;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      cursor: pointer;
+      will-change: transform;
+  }
+  .Index8_slide.active {
+      z-index: 30;
+      opacity: 1;
+      filter: none;
+      transform: translate(-50%, -50%) translateZ(120px) scale(1.0);
+  }
+  .Index8_slide.active .Index8_slideImg {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), -4px -12px 34px 0 rgba(218, 183, 54, 0.20);
+  }
+  .Index8_slide.left {
+    z-index: 20;
+    opacity: 1;
+    filter: brightness(0.6);
+    transform: translate(calc(-50% - var(--gap) - var(--Index8_slide-w)), -50%) translateZ(20px) rotateY(28deg) scale(0.85);
+  }
+  .Index8_slide.right {
+    z-index: 20;
+    opacity: 1;
+    filter: brightness(0.6);
+    transform: translate(calc(-50% + var(--gap) + var(--Index8_slide-w)), -50%) translateZ(20px) rotateY(-28deg) scale(0.85);
+  }
+  .Index8_slide.far-left {
+    z-index: 10;
+    opacity: .28;
+    filter: blur(1px) brightness(0.45);
+    transform: translate(calc(-50% - var(--gap) * 2 - var(--Index8_slide-w) * 2), -50%) translateZ(-40px) rotateY(40deg);
+  }
+  .Index8_slide.far-right {
+    z-index: 10;
+    opacity: .28;
+    filter: blur(1px) brightness(0.45);
+    transform: translate(calc(-50% + var(--gap) * 2 + var(--Index8_slide-w) * 2), -50%) translateZ(-40px) rotateY(-40deg);
+  }
+  .Index8_slide.Index8_hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) translateZ(-200px) scale(0.6);
+  }
+  .sectionIndex8_bottom img {
+    width: 100%;
+  }
+  .Index8_sliderName {
+    display: none;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--f_color3);
+  }
+  .Index8_slideImg {
+    position: relative;
+  }
+  .Index8_slideImgs::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+  }
+
+  .Index8_slideButton {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    background: rgba(181, 181, 182, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    transform: translate(-50%, -50%);
+    height: 40px;
+    border: 1px solid #fff;
+  }
+  .Index8_slideButton .corner-tl,.Index8_slideButton .corner-br {
+    background-color: #fff;
+  }
+  .Index8_slide.active .Index8_sliderName {
+    display: block;
+  }
+  .Index8_slideImg {
+      border-radius: 2px;
+      border: 1px solid var(--f_color3);
+  }
+  @media (max-width: 768px) {
+    :root {
+      --Index8_slide-w: 49vw;
+      --gap: 18px;
+    }
+    .Index8_slide.right,.Index8_slide.left {
+      filter: unset;
+    }
+  
+    .Index8_slide.left {
+      z-index: 20;
+      opacity: 1;
+      transform: translate(calc(-50% - var(--gap) - var(--Index8_slide-w)), calc(-50%)) translateZ(20px) rotateY(28deg) scale(0.95);
+    }
+    .Index8_slide.right {
+      z-index: 20;
+      opacity: 1;
+      transform: translate(calc(-50% + var(--gap) + var(--Index8_slide-w)), calc(-50%)) translateZ(20px) rotateY(-28deg) scale(0.95);
+    }
+    .Index8_slide.active .Index8_slideImg {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    .stage {
+      height: 330px;
+      margin-top: 4px;
+    }
+    .Index8_slideButton {
+      width: 28px;
+      height: 28px;
+      clip-path: polygon(5px 0%,100% 0%,100% calc(100% - 5px),calc(100% - 5px) 100%,0% 100%,0% 5px);
+    }
+    .Index8_slideButton .corner-tl,.Index8_slideButton .corner-br {
+      width: 5px;
+      height: 5px;
+    }
+    .Index8_slideButton svg {
+      width: 10px;
+      height: auto;
+    }
+    .Index8_sliderName {
+      position: absolute;
+      bottom: -32px;
+      left: 0;
+      right: 0;
+    }
+  }
+</style>
+<div class="section_Index8All color-{{ section.settings.color_scheme }} gradient">
+  <div class="">
+    {% if section.settings.title != blank %}
+      <h2 class="section_Index8_title my_h_48 font2 my_m_24">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    <div class="stage sectionIndex8_bottom">
+      <div class="Index8_slider" id="Index8_slider">
+        <!-- 示例图片，可无限扩展 -->
+        {% for block in section.blocks %}
+          <div class="Index8_slide">
+            <div class="Index8_slideImg  {% if block.settings.video != blank %} {%- else -%} Index8_slideImgs{% endif %}">
+              {% if block.settings.video != blank %}
+                {{-
+                  block.settings.video
+                  | video_tag:
+                    playsinline: true,
+                    muted: true,
+                    autoplay: false,
+                    loop: false,
+                    controls: false,
+                    preload: 'none',
+                    image_size: '800x'
+                -}}
+                <div class="Index8_slideButton section_button2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                    <path d="M13.5 7.1263C14.1667 7.51461 14.1667 8.48539 13.5 8.8737L1.5 15.8633C0.833334 16.2516 -3.3649e-08 15.7663 0 14.9896L6.05683e-07 1.01037C6.39332e-07 0.233746 0.833334 -0.251645 1.5 0.136667L13.5 7.1263Z" fill="white"/>
+                  </svg>
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </div>
+              {%- else -%}
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.img | img_url:'master' }}"
+                  alt="{{ block.settings.img.alt }}"
+                >
+              {% endif %}
+            </div>
+            {% if block.settings.name != blank %}
+              <div class="Index8_sliderName my_h_16 my_m_14">
+                {{ block.settings.name }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const Index8_slides = [...document.querySelectorAll('.Index8_slide')];
+  const total = Index8_slides.length;
+  let current = 0;
+
+  function applyClasses() {
+    Index8_slides.forEach((el, i) => {
+      el.className = 'Index8_slide';
+      const diff = (i - current + total) % total;
+      if (diff === 0) el.classList.add('active');
+      else if (diff === 1) el.classList.add('right');
+      else if (diff === total - 1) el.classList.add('left');
+      else if (diff === 2) el.classList.add('far-right');
+      else if (diff === total - 2) el.classList.add('far-left');
+      else el.classList.add('Index8_hidden');
+    });
+  }
+  applyClasses();
+
+  // ======= 拖拽 / 手势 =======
+  const Index8_slider = document.getElementById('Index8_slider');
+  let startX = 0,
+    isDragging = false;
+
+  const threshold = 50; // 最小拖动距离触发切换
+
+  // 鼠标 / PC
+  Index8_slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    Index8_slider.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault(); // 阻止选中文字
+  });
+
+  window.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+    const diff = e.clientX - startX;
+    if (diff > threshold) current = (current - 1 + total) % total;
+    else if (diff < -threshold) current = (current + 1) % total;
+    applyClasses();
+    isDragging = false;
+    Index8_slider.style.cursor = 'grab';
+  });
+
+  // 触摸 / 移动端
+  Index8_slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  Index8_slider.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    // 可以加阻止默认滚动效果
+    e.preventDefault();
+  });
+
+  Index8_slider.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const diff = e.changedTouches[0].clientX - startX;
+    if (diff > threshold) current = (current - 1 + total) % total;
+    else if (diff < -threshold) current = (current + 1) % total;
+    applyClasses();
+    isDragging = false;
+  });
+
+  $(document).on('click', '.Index8_slideButton', function () {
+    const $btn = $(this);
+    const $slide = $btn.closest('.Index8_slide');
+    const video = $slide.find('video').get(0);
+
+    if (!video) return;
+
+    // 显示浏览器原生控制条
+    video.controls = true;
+
+    // 移动端安全
+    video.muted = true;
+    video.playsInline = true;
+
+    video.play();
+
+    // 隐藏自定义播放按钮
+    $btn.fadeOut(200);
+
+    $slide.addClass('is-playing');
+  });
+</script>
+{% schema %}
+{
+  "name": "section Index8",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "video"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index8",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}

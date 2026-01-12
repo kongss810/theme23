@@ -1,0 +1,695 @@
+<style>
+  #shopify-section-{{section.id}} .section_Index7All{
+    margin-top: {{section.settings.Desktop_top}}px;
+    margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+    padding-top:{{section.settings.Desktop_paddingTop}}px;
+    padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+  }
+  @media(max-width:999px) {
+    #shopify-section-{{section.id}} .section_Index7All{
+        margin-top: {{section.settings.Mobile_top}}px;
+        margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+        padding-top:{{section.settings.Mobile_paddingTop}}px;
+        padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+    }
+  }
+  .section_Index7Left_BoxImg img,.section_Index7Right_BoxImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (min-width:1000px) {
+    .section_Index7_title {
+        margin-bottom: 40px;
+    }
+    .section_Index7_box  {
+        display: flex;
+        gap: 20px;
+    }
+    .section_Index7Left {
+        width: 50%;
+        max-width: 760px;
+    }
+     .section_Index7Right {
+        width: 49%;
+        height: max-content;
+        max-width: 740px;
+    }
+    .section_Index7Left_BoxImg {
+        --blur-radius: 10px;
+        --x-offset: 4px;
+        --y-offset: 4px;
+        --color: rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color));
+    }
+    .section_Index7Left_BoxContent {
+        padding-top: 20px;
+    }
+    .section_Index7Left_BoxContent_bottom,.section_Index7Right_BoxContent_bottom {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+    .section_Index7Left_BoxContent_bottomLeft span,.section_Index7Right_BoxContent_bottom span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 6px;
+        height: 23px;
+        background-color: var(--f_color3);
+    }
+
+    .section_Index7Right_Box {
+        display: flex;
+        gap: 20px;
+    }
+
+    .section_Index7Right_BoxImg {
+        height: auto;
+        position: relative;
+        max-width: 220px;
+        width: 40%;
+    }
+    .section_Index7All .line {
+        width: 1px;
+        height: auto;
+        background: linear-gradient(to bottom, #75787B, rgba(117, 120, 123, 0));
+    }
+    .section_Index7Right {
+        display: grid;
+        gap: 21px;
+    }
+    .section_Index7All .gradient_line {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #75787B, rgba(117, 120, 123, 0));
+    }
+    .section_Index7Right_BoxContent {
+        display: flex;
+        gap: 20px;
+        width: 60%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .section_Index7Right_BoxContent_bottomRight,.section_Index7Left_BoxContent_bottomRight {
+        width: max-content;
+        color: var(--f_color3);
+    }
+    .section_Index7Right_button .line2 {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #75787B, rgba(117, 120, 123, 0));
+    }
+    .section_Index7Right_button .line3 {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, rgba(117, 120, 123, 0) 0%, rgba(117, 120, 123, 1) 100%);
+    }
+    .section_Index7Right_button {
+        display: flex;
+        gap: 20px;
+        margin-top: 63px ;
+        justify-content: center;
+        align-items: center;
+    }
+    .section_Index7Right_buttonBox {
+        min-width: max-content;
+        height: 37px;
+        display: flex;
+        width: max-content;
+        justify-content: center;
+        padding: 0 16px;
+        color: #fff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+        align-items: center;
+    }
+  }
+  @media (max-width:999px) {
+    .section_Index7_title {
+      margin-bottom: 32px;
+    }
+    .section_Index7Right_BoxImg {
+      position: relative;
+    }
+
+    .section_Index7Right_BoxContent {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .section_Index7Right_BoxContent_bottom {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section_Index7Right_BoxContent_bottomRight,.section_Index7Left_BoxContent_bottomRight {
+        width: max-content;
+        color: var(--f_color3);
+    }
+    .section_Index7Left_BoxContent_bottomLeft span,.section_Index7Right_BoxContent_bottom span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 6px;
+        height: 18px;
+        background-color: var(--f_color3);
+    }
+    .section_Index7_button .line2 {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #75787B, rgba(117, 120, 123, 0));
+    }
+    .section_Index7_button .line3 {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, rgba(117, 120, 123, 0) 0%, rgba(117, 120, 123, 1) 100%);
+    }
+    .section_Index7_button {
+        display: flex;
+        gap: 10px;
+        margin-top: 32px ;
+        justify-content: center;
+        align-items: center;
+    }
+    .section_Index7Right_buttonBox {
+        min-width: max-content;
+        height: 35px;
+        display: flex;
+        width: max-content;
+        justify-content: center;
+        padding: 0 16px;
+        color: #fff;
+        background: linear-gradient(180deg, #0091DA 34.44%, #003C86 110.81%);
+        align-items: center;
+    }
+    .sectionIndex7_boxMobile {
+      margin: 0 -2px;
+    }
+    .sectionIndex7Swiper .swiper-pagination{
+        position: unset;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .sectionIndex7Swiper {
+      padding: 2px;
+    }
+    .sectionIndex7Swiper .swiper-pagination-bullet{
+        opacity: 1;
+        background: #fff;
+        border-radius: 10px;
+    }
+    .sectionIndex7Swiper .swiper-pagination span{
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .sectionIndex7Swiper .swiper-pagination-bullet {
+        opacity: 1;
+        position: relative;
+        margin: 0 3px !important;
+        width: 8px;
+        height: 2px !important;
+        overflow: hidden;
+        transition: all .3s;
+        border-radius: 2px;
+    }
+
+    .sectionIndex7Swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+        width: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+  }
+</style>
+<div class="section_Index7All color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="section_Index7_title my_h_48 font2 my_m_24">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    <div class="pad_pc">
+      <div class="section_Index7_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% if section.blocks.size > 0 %}
+          <div class="section_Index7Left">
+            {% for block in section.blocks limit: 1 %}
+              {%- assign article = block.settings.article -%}
+              <div class="section_Index7Left_Box">
+                {% if article.image != blank %}
+                  <a href="{{article.url}}" class="section_Index7Left_BoxImg">
+                    <div class="section_button1 img_hover">
+                      <img
+                        loading="eager"
+                        src="{{ article.image | img_url:'master' }}"
+                        class="hover_img"
+                        alt="{{  article.image.alt }}"
+                      >
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                  </a>
+                {% endif %}
+                <div class="section_Index7Left_BoxContent">
+                  {% if article.title != blank %}
+                    <a href="{{article.url}}">
+                      <h5 class="section_Index7Left_BoxContent_title my_h_24 font2">
+                        {{ article.title }}
+                      </h5>
+                    </a>
+                  {% endif %}
+                  <div class="section_Index7Left_BoxContent_bottom">
+                    <div class="section_Index7Left_BoxContent_bottomLeft font2 my_h_14 font2">
+                      {% if article.tags != blank %}
+                        <span>{{- article.tags.first -}}</span>
+                      {% endif %}
+                    </div>
+                    <div class="section_Index7Left_BoxContent_bottomRight my_h_14 font2">
+                      {{ article.published_at | date: '%a, %b %d' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="line"></div>
+          <div class="section_Index7Right">
+            {% for block in section.blocks offset: 1 limit: 3 %}
+              {%- assign article = block.settings.article -%}
+              <div class="section_Index7Right_Box">
+                {% if article.image != blank %}
+                  <a href="{{article.url}}" class="section_Index7Right_BoxImg">
+                    <div class="section_button1 img_hover">
+                      <img
+                        loading="eager"
+                        src="{{ article.image | img_url:'master' }}"
+                        class="hover_img"
+                        alt="{{  article.image.alt }}"
+                      >
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                  </a>
+                {% endif %}
+                <div class="section_Index7Right_BoxContent">
+                  {% if article.title != blank %}
+                    <a href="{{article.url}}">
+                      <h5 class="section_Index7Right_BoxContent_title my_h_24 font2">
+                        {{ article.title }}
+                      </h5>
+                    </a>
+                  {% endif %}
+                  <div class="section_Index7Right_BoxContent_bottom">
+                    <div class="section_Index7Right_BoxContent_bottomLeft font2 my_h_14">
+                      {% if article.tags != blank %}
+                        <span>{{- article.tags.first -}}</span>
+                      {% endif %}
+                    </div>
+                    <div class="section_Index7Right_BoxContent_bottomRight my_h_14 font2">
+                      {{ article.published_at | date: '%a, %b %d' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gradient_line"></div>
+            {% endfor %}
+
+            {% if section.settings.button != blank %}
+              <div class="section_Index7Right_button">
+                <span class="line2"></span>
+                <a
+                  href="{{ section.settings.link }}"
+                  class="section_Index7Right_buttonBox my_h_16 section_button2 font2"
+                >
+                  {{ section.settings.button }}
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </a>
+                <span class="line3"></span>
+              </div>
+            {% endif %}
+          </div>
+        {%- else -%}
+          {%- assign articlesList = section.settings.blog.articles -%}
+          <div class="section_Index7Left">
+            {%- for article in articlesList limit: 1 -%}
+              <div class="section_Index7Left_Box">
+                {% if article.image != blank %}
+                  <a href="{{article.url}}" class="section_Index7Left_BoxImg">
+                    <div class="section_button1 img_hover">
+                      <img
+                        loading="eager"
+                        src="{{ article.image | img_url:'master' }}"
+                        class="hover_img"
+                        alt="{{  article.image.alt }}"
+                      >
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                  </a>
+                {% endif %}
+                <div class="section_Index7Left_BoxContent">
+                  {% if article.title != blank %}
+                    <a href="{{article.url}}">
+                      <h5 class="section_Index7Left_BoxContent_title my_h_24 font2">
+                        {{ article.title }}
+                      </h5>
+                    </a>
+                  {% endif %}
+                  <div class="section_Index7Left_BoxContent_bottom">
+                    <div class="section_Index7Left_BoxContent_bottomLeft font2 my_h_14 font2">
+                      {% if article.tags != blank %}
+                        <span>{{- article.tags.first -}}</span>
+                      {% endif %}
+                    </div>
+                    <div class="section_Index7Left_BoxContent_bottomRight my_h_14 font2">
+                      {{ article.published_at | date: '%a, %b %d' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="line"></div>
+          <div class="section_Index7Right">
+            {%- for article in articlesList offset: 1 limit: 3 -%}
+              <div class="section_Index7Right_Box">
+                {% if article.image != blank %}
+                  <a href="{{article.url}}" class="section_Index7Right_BoxImg">
+                    <div class="section_button1 img_hover">
+                      <img
+                        loading="eager"
+                        src="{{ article.image | img_url:'master' }}"
+                        class="hover_img"
+                        alt="{{  article.image.alt }}"
+                      >
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                  </a>
+                {% endif %}
+                <div class="section_Index7Right_BoxContent">
+                  {% if article.title != blank %}
+                    <a href="{{article.url}}">
+                      <h5 class="section_Index7Right_BoxContent_title my_h_24 font2">
+                        {{ article.title }}
+                      </h5>
+                    </a>
+                  {% endif %}
+                  <div class="section_Index7Right_BoxContent_bottom">
+                    <div class="section_Index7Right_BoxContent_bottomLeft font2 my_h_14">
+                      {% if article.tags != blank %}
+                        <span>{{- article.tags.first -}}</span>
+                      {% endif %}
+                    </div>
+                    <div class="section_Index7Right_BoxContent_bottomRight my_h_14 font2">
+                      {{ article.published_at | date: '%a, %b %d' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gradient_line"></div>
+            {% endfor %}
+            {% if section.settings.button != blank %}
+              <div class="section_Index7Right_button">
+                <span class="line2"></span>
+                <a
+                  href="{{ section.settings.link }}"
+                  class="section_Index7Right_buttonBox section_button2 font2 my_h_16"
+                >
+                  {{ section.settings.button }}
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </a>
+                <span class="line3"></span>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="pad_mobile">
+      <div class="section_Index7_box  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% if section.blocks.size > 0 %}
+          <div class="sectionIndex7_boxMobile">
+            <div class="swiper sectionIndex7Swiper">
+              <div class="swiper-wrapper">
+                {% for block in section.blocks limit: 4 %}
+                  {%- assign article = block.settings.article -%}
+                  <div class="swiper-slide sectionIndex7_boxMobileBox">
+                    {% if article.image != blank %}
+                      <a href="{{article.url}}" class="section_Index7Right_BoxImg">
+                        <div class="section_button1 img_hover">
+                          <img
+                            loading="eager"
+                            src="{{ article.image | img_url:'master' }}"
+                            class="hover_img"
+                            alt="{{  article.image.alt }}"
+                          >
+                          <span class="corner-tl"></span>
+                          <span class="corner-br"></span>
+                        </div>
+                        <span class="dis1"></span>
+                        <span class="dis2"></span>
+                      </a>
+                    {% endif %}
+                    <div class="section_Index7Right_BoxContent">
+                      {% if article.title != blank %}
+                        <a href="{{article.url}}">
+                          <h5 class="section_Index7Right_BoxContent_title my_m_16 font2">
+                            {{ article.title }}
+                          </h5>
+                        </a>
+                      {% endif %}
+                      <div class="section_Index7Right_BoxContent_bottom">
+                        <div class="section_Index7Right_BoxContent_bottomLeft font2 my_m_12">
+                          {% if article.tags != blank %}
+                            <span>{{- article.tags.first -}}</span>
+                          {% endif %}
+                        </div>
+                        <div class="section_Index7Right_BoxContent_bottomRight my_m_12 font2">
+                          {{ article.published_at | date: '%a, %b %d' }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            {% if section.settings.button != blank %}
+              <div class="section_Index7_button">
+                <span class="line2"></span>
+                <a
+                  href="{{ section.settings.link }}"
+                  class="section_Index7Right_buttonBox my_m_14 section_button2 font2"
+                >
+                  {{ section.settings.button }}
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </a>
+                <span class="line3"></span>
+              </div>
+            {% endif %}
+          </div>
+        {%- else -%}
+          {%- assign articlesList = section.settings.blog.articles -%}
+          <div class="sectionIndex7_boxMobile">
+            {%- for article in articlesList limit: 4 -%}
+              <div class="sectionIndex7_boxMobileBox">
+                {% if article.image != blank %}
+                  <a href="{{article.url}}" class="section_Index7Right_BoxImg">
+                    <div class="section_button1 img_hover">
+                      <img
+                        loading="eager"
+                        src="{{ article.image | img_url:'master' }}"
+                        class="hover_img"
+                        alt="{{  article.image.alt }}"
+                      >
+                      <span class="corner-tl"></span>
+                      <span class="corner-br"></span>
+                    </div>
+                    <span class="dis1"></span>
+                    <span class="dis2"></span>
+                  </a>
+                {% endif %}
+                <div class="section_Index7Right_BoxContent">
+                  {% if article.title != blank %}
+                    <a href="{{article.url}}">
+                      <h5 class="section_Index7Right_BoxContent_title my_m_16 font2">
+                        {{ article.title }}
+                      </h5>
+                    </a>
+                  {% endif %}
+                  <div class="section_Index7Right_BoxContent_bottom">
+                    <div class="section_Index7Right_BoxContent_bottomLeft font2 my_m_12">
+                      {% if article.tags != blank %}
+                        <span>{{- article.tags.first -}}</span>
+                      {% endif %}
+                    </div>
+                    <div class="section_Index7Right_BoxContent_bottomRight my_m_12 font2">
+                      {{ article.published_at | date: '%a, %b %d' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            {% if section.settings.button != blank %}
+              <div class="section_Index7_button">
+                <span class="line2"></span>
+                <a
+                  href="{{ section.settings.link }}"
+                  class="section_Index7Right_buttonBox section_button2 font2 my_m_14"
+                >
+                  {{ section.settings.button }}
+                  <span class="corner-tl"></span>
+                  <span class="corner-br"></span>
+                </a>
+                <span class="line3"></span>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const thumbsSwiper = new Swiper('#shopify-section-{{section.id}} .sectionIndex7Swiper', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 16,
+    navigation: {
+      nextEl: '#shopify-section-{{section.id}} .swiper-button-next',
+      prevEl: '#shopify-section-{{section.id}} .swiper-button-prev',
+    },
+    pagination: {
+      el: '#shopify-section-{{section.id}} .swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "section Index7",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "blog"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "button"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Top:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_top",
+      "label": "Desktop Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_top",
+      "label": "Mobile Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingTop",
+      "label": "Desktop Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingTop",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Bottom:"
+    },
+    {
+      "type": "number",
+      "id": "Desktop_bottom",
+      "label": "Desktop Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_bottom",
+      "label": "Mobile Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Desktop_paddingBottom",
+      "label": "Desktop Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "Mobile_paddingBottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "article",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Index7",
+      "category": "Index"
+    }
+  ]
+}
+{% endschema %}
